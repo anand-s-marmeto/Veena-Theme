@@ -80,10 +80,22 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "ricktext_section_Peqmfz": {
+      "type": "ricktext-section",
+      "settings": {
+        "tag": "What You Wear",
+        "title": "<h2>Fashion Emerges<br\/>As A Universal <a href=\"https:\/\/veena-theme-fashion.myshopify.com\/collections\" title=\"All collections\">Language<\/a><\/h2>",
+        "button_link": "shopify:\/\/collections",
+        "button_text": "Explore More",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "featured_collection",
-    "hero_banner_FjzrNR"
+    "hero_banner_FjzrNR",
+    "ricktext_section_Peqmfz"
   ]
 }
