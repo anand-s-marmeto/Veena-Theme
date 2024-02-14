@@ -27,6 +27,28 @@
   width: fit-content;
   margin-top: 30px;
   margin-bottom: 0;
+  position: relative;
+}
+
+.richtext-section__button span {
+  z-index: 10;
+}
+.richtext-section__button::before {
+  content: "";
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  /* border: 1px solid red; */
+  top: 0px;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  transition: all 0.5s ease-in-out;
+  /* z-index: -1; */
+  border-radius: 31px;
+}
+
+.richtext-section__button:hover::before {
+  width: 100%;
 }
 .richtext-section__section-title {
   text-align: center;
@@ -36,4 +58,10 @@
 .richtext-section__section-title h2 {
   font-size: 52px;
   font-weight: 600;
+}
+
+@media screen and (max-width: 991px) {
+  .richtext-section__section-title h2 {
+    font-size: 32px;
+  }
 }

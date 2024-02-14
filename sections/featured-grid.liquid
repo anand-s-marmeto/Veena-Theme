@@ -15,7 +15,8 @@
 {% endstyle %} 
 
 <div class="featured-grid padding-{{section.id}}">
-    <div class="page-width grid">
+    <div class="page-width">
+        <div class="grid">
         {% for block in section.blocks %}
         <div class="grid__item">
             <div class="featured-grid__section">
@@ -39,6 +40,7 @@
             
         </div>
         {% endfor %}
+        </div>
     </div>
 </div>
 

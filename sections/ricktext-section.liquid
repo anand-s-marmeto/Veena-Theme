@@ -13,6 +13,12 @@
     }
   }
 {% endstyle %} 
+{% assign texts= section.settings.title |  split: ',' %}
+
+<script>
+    
+    console.log({{ texts }})
+</script>
 
 <div class="richtext-section padding-{{ section.id }}">
     <div class="page-width">
@@ -24,11 +30,13 @@
             {% endif %}
 
             {% if section.settings.title != blank %}
-                <div class="richtext-section__section-title"> {{ section.settings.title }}</div>
+                <div class="richtext-section__section-title "> {{ section.settings.title }}</div>
             {% endif %}
 
             {% if section.settings.button_text !=blank and section.settings.button_link != blank %}
-                <a class="richtext-section__button" href="{{ section.settings.button_link }}"><span>{{ section.settings.button_text }}</span></a>
+                <a class="richtext-section__button" href="{{ section.settings.button_link }}"><span>{{ section.settings.button_text }}</span>
+                </a>
+                
             {% endif %}
         </div>
 
