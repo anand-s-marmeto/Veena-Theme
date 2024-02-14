@@ -92,20 +92,6 @@ a {
 .splide__pagination__page {
   background: white;
 }
-
-.hero-banner__tag {
-  color: rgb(255, 255, 255);
-  font-size: 14px;
-  font-weight: 400;
-  padding-inline-start: 30px;
-  padding-right: 13px;
-  padding-left: 30px;
-  border: 0.8px solid rgb(255, 255, 255);
-  border-radius: 30px;
-  backdrop-filter: blur(10px);
-  text-align: center;
-  width: fit-content;
-}
 .hero-banner__title {
   color: rgb(255, 255, 255);
   font-weight: 600;
