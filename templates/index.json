@@ -60,10 +60,12 @@
         "product_content_qcWwVF": {
           "type": "product-content",
           "settings": {
-            "banner_tag": "",
-            "banner_title": "",
-            "button_link": "",
-            "button_text": "",
+            "image_desktop": "shopify:\/\/shop_images\/banner-image3.webp",
+            "image_mobile": "shopify:\/\/shop_images\/banner-image3.webp",
+            "banner_tag": "Modern Elegance",
+            "banner_title": "Step into the World of Style with the Latest Fashion Trends Unveiled!",
+            "button_link": "shopify:\/\/collections",
+            "button_text": "Explore Now",
             "content_alignment": "center",
             "text_alignment": "center"
           }
