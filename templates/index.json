@@ -47,12 +47,14 @@
         "product_content_UQJNCL": {
           "type": "product-content",
           "settings": {
-            "banner_tag": "",
-            "banner_title": "",
-            "button_link": "",
-            "button_text": "",
-            "content_alignment": "center",
-            "text_alignment": "center"
+            "image_desktop": "shopify:\/\/shop_images\/banner-image2.webp",
+            "image_mobile": "shopify:\/\/shop_images\/banner-image2.webp",
+            "banner_tag": "Trendy Classics",
+            "banner_title": "Discover Signature Look: Fashion Forward and Fabulous!",
+            "button_link": "shopify:\/\/collections",
+            "button_text": "Shop Now",
+            "content_alignment": "bottom-left",
+            "text_alignment": "left"
           }
         },
         "product_content_qcWwVF": {
