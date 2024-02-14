@@ -319,6 +319,20 @@ h6 {
 .hxl {
   font-size: calc(var(--font-heading-scale) * 5rem);
 }
+@media (max-width: 991px) {
+  .hxl {
+    font-size: calc(var(--font-heading-scale) * 30px);
+  }
+  .h0 {
+    font-size: calc(var(--font-heading-scale) * 26px);
+  }
+  .h1 {
+    font-size: calc(var(--font-heading-scale) * 22px);
+  }
+  .h2 {
+    font-size: calc(var(--font-heading-scale) * 18px);
+  }
+}
 
 @media only screen and (min-width: 768px) {
   .hxl {
