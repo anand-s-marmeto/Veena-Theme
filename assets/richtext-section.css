@@ -1,0 +1,39 @@
+.page-width {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.richtext-section__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.richtext-section__section-tag {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.richtext-section__button {
+  color: rgb(255, 255, 255);
+  display: flex;
+  padding: 5px 15px;
+  border: 1px solid rgb(255, 255, 255);
+  background-clip: border-box;
+  border-radius: 31px;
+  background-color: rgb(208, 60, 63);
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(18, 18, 18, 0) 0px 0px 0px 0px;
+  width: fit-content;
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+.richtext-section__section-title {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.richtext-section__section-title h2 {
+  font-size: 52px;
+  font-weight: 600;
+}
