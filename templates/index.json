@@ -1,75 +1,72 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "hero_banner_FjzrNR": {
+      "type": "hero-banner",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "product_content_x9p8qp": {
+          "type": "product-content",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "image_desktop": "shopify:\/\/shop_images\/banner-image1.webp",
+            "image_mobile": "shopify:\/\/shop_images\/banner-image1.webp",
+            "banner_tag": "Women's Apparel",
+            "banner_title": "Elevate your wardrobe with our limited-time fashion offer!",
+            "button_link": "shopify:\/\/collections",
+            "button_text": "Explore More",
+            "content_alignment": "center",
+            "text_alignment": "center"
           }
         },
-        "button": {
-          "type": "buttons",
+        "product_content_UQJNCL": {
+          "type": "product-content",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify:\/\/collections\/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "image_desktop": "shopify:\/\/shop_images\/banner-image2.webp",
+            "image_mobile": "shopify:\/\/shop_images\/banner-image2.webp",
+            "banner_tag": "Trendy Classics",
+            "banner_title": "Discover Signature Look: Fashion Forward and Fabulous!",
+            "button_link": "shopify:\/\/collections",
+            "button_text": "Shop Now",
+            "content_alignment": "bottom-left",
+            "text_alignment": "left"
+          }
+        },
+        "product_content_qcWwVF": {
+          "type": "product-content",
+          "settings": {
+            "image_desktop": "shopify:\/\/shop_images\/banner-image3.webp",
+            "image_mobile": "shopify:\/\/shop_images\/banner-image3.webp",
+            "banner_tag": "Modern Elegance",
+            "banner_title": "Step into the World of Style with the Latest Fashion Trends Unveiled!",
+            "button_link": "shopify:\/\/collections",
+            "button_text": "Explore Now",
+            "content_alignment": "bottom-left",
+            "text_alignment": "center"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "product_content_x9p8qp",
+        "product_content_UQJNCL",
+        "product_content_qcWwVF"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "ricktext_section_Peqmfz": {
+      "type": "ricktext-section",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "enable_quick_add": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
+        "tag": "What You Wear",
+        "title": "<h2>Fashion Emerges<br\/>As A Universal <a href=\"https:\/\/veena-theme-fashion.myshopify.com\/collections\" title=\"All collections\">Language<\/a><\/h2>",
+        "button_link": "shopify:\/\/collections",
+        "button_text": "Explore More",
+        "padding_top": 36,
         "padding_bottom": 36
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "hero_banner_FjzrNR",
+    "ricktext_section_Peqmfz"
   ]
 }
