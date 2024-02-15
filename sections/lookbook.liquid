@@ -1,0 +1,274 @@
+<link rel="stylesheet" href="{{ 'lookbook.css' |  asset_url }}">
+
+{%  style  %} 
+.padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+
+  @media (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}%;
+      padding-bottom: {{ section.settings.padding_bottom }}%;
+    }
+  }
+{% for block in section.blocks %}
+  .lookbook__first-dot.block-{{ block.id }}{
+    top:{{ block.settings.top_position_1 }}%;
+    left:{{ block.settings.left_position_1 }}%;
+    z-index:10;
+  }
+  .lookbook__second-dot.block-{{ block.id }}{
+    top:{{ block.settings.top_position_2 }}%;
+    left:{{ block.settings.left_position_2 }}%;
+    z-index:10;
+  }
+{% endfor %}
+
+{% endstyle %} 
+
+<div class="lookbook">
+  <div class="page-width">
+    <div class="grid grid--1-col-tablet-down grid--3-col-desktop grid--3-col-tablet">
+      {% for block in section.blocks %}
+        <div class="grid__item">
+          <div class="lookbook__image-section">
+            {% if block.settings.desktop_image != blank %}
+              {% render 'responsive-picture', 
+                class:'media media--portrait', 
+                desktopImage: block.settings.desktop_image, 
+                mobileImage: block.settings.mobile_image 
+              %} 
+            {% endif %}
+            <div class="lookbook__first-dot block-{{ block.id }}">
+              <div class="lookbook__data">
+                <div class="lookbook__data-inner">
+                  <div class="lookbook__data-img">
+                    <a href="{{ block.settings.product_1_link }}" title="{{ block.settings.product_1.title }}">
+                        <div class="lookbook__img-small">
+                          <img src="{{ block.settings.product_1.featured_image |  image_url }}" alt="product_1-image">
+                        </div>
+                    </a>
+                  </div>
+
+                  <div class="lookbook__data-desc">
+                    <h3>
+                      <a class="title" href="{{ block.settings.product_1_link }}" title="{{ block.settings.product_1.title }}">
+                        {{ block.settings.product_1.title }}
+                      </a>
+                    </h3>
+                    <div class="lookbook__data-price-container">
+                      {% if block.settings.product_1.price_varies %}
+                        <div class="lookbook__data-price-regular">
+                          <span class="item-price">From {{ block.settings.product_1.price_min |  money_with_currency}}</span>
+                        </div>
+                      {%  else %}
+                        <div class="lookbook__data-price-regular">
+                          <span class="item-price">{{ block.settings.product_1.price |  money_with_currency }}</span>
+                        </div>
+                      {% endif %}
+                      <div class="lookbook__data-compare-price">
+                        <s>{{ block.settings.product_1.compare_at_price }}</s>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lookbook__second-dot block-{{ block.id }}">
+              <div class="lookbook__data">
+                <div class="lookbook__data-inner">
+                  <div class="lookbook__data-img">
+                    <a href="{{ block.settings.product_2_link }}" title="{{ block.settings.product_2.title }}">
+                        <div class="lookbook__img-small">
+                          <img src="{{ block.settings.product_2.featured_image |  image_url }}" alt="product_2-image">
+                        </div>
+                    </a>
+                  </div>
+
+                  <div class="lookbook__data-desc">
+                    <h3 class="second-product-title">
+                      <a class="title" href="{{ block.settings.product_2_link }}" title="{{ block.settings.product_2.title }}">
+                        {{ block.settings.product_2.title }}
+                      </a>
+                    </h3>
+                    <div class="lookbook__data-price-container">
+                      {% if block.settings.product_2.price_varies %}
+                        <div class="lookbook__data-price-regular">
+                          <span class="item-price">From {{ block.settings.product_2.price_min |  money_with_currency}}</span>
+                        </div>
+                      {%  else %}
+                        <div class="lookbook__data-price-regular">
+                          <span class="item-price">{{ block.settings.product_2.price |  money_with_currency }}</span>
+                        </div>
+                      {% endif %}
+                      <div class="lookbook__data-compare-price">
+                        <s>{{ block.settings.product_2.compare_at_price }}</s>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lookbook__text-content">
+            {% if block.settings.title!= blank %}
+            <h3 class="product-title">{{ block.settings.title }}</h3>
+            {% endif %}
+            {% if block.settings.description != blank %}
+            <div class="lookbook__description">
+              {{ block.settings.description }}
+            </div>
+            {% endif %}
+            {% if block.settings.button_link != blank and block.settings.button_text != blank %}
+            <a class="product-button" href="{{ block.settings.button_link }}">
+              <span>{{ block.settings.button_text }}</span>
+            </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+
+{%  schema  %} 
+  {
+    "name":"Lookbook",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content":"Section padding"
+      },
+      {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 36
+        }
+    ],
+    "blocks": [
+      {
+        "name":"Content block",
+        "type":"product-content",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "desktop_image",
+            "label": "Desktop image"
+          },
+          {
+            "type": "image_picker",
+            "id": "mobile_image",
+            "label": "Mobile image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label":"Title"
+          },
+          {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+          },
+          {
+            "type": "text",
+            "id":"button_text",
+            "label":"Button text"
+          },
+          {
+            "type": "product",
+            "id":"product_1",
+            "label": "First product"
+          },
+          {
+            "type": "url",
+            "id": "product_1_link",
+            "label":"Product link",
+            "info":"The link to the first product."
+          },
+          {
+            "type": "range",
+            "id": "left_position_1",
+            "label": "Distance from left",
+            "min": 10,
+            "max": 100,
+            "default": 20,
+            "step": 1,
+            "info": "The distance from the left for the first product"
+          },
+          {
+            "type": "range",
+            "id": "top_position_1",
+            "label": "Distance from top",
+            "min": 10,
+            "max": 100,
+            "default": 20,
+            "step": 1,
+            "info": "The distance from the top for the first product"
+          },
+          {
+            "type": "product",
+            "id":"product_2",
+            "label": "Second product"
+          },
+          {
+            "type": "url",
+            "id": "product_2_link",
+            "label": "Product link",
+            "info": "The link for the second product."
+          },
+          {
+            "type": "range",
+            "id": "left_position_2",
+            "label": "Distance from left",
+            "min": 10,
+            "max": 100,
+            "default": 20,
+            "step": 1,
+            "info": "The distance from the left for the second product"
+          },
+          {
+            "type": "range",
+            "id": "top_position_2",
+            "label": "Distance from top",
+            "min": 10,
+            "max": 100,
+            "default": 20,
+            "step": 1,
+            "info": "The distance from the top for the second product"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Lookbook"
+      }
+    ]
+  }
+{% endschema %}

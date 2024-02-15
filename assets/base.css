@@ -76,6 +76,10 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+p {
+  margin: 0;
+}
 .tag {
   color: rgb(255, 255, 255);
   font-size: 14px;
@@ -120,7 +124,7 @@ html.no-js .no-js-hidden {
 .page-width {
   max-width: var(--page-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.4rem;
 }
 
 body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
@@ -143,7 +147,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 
 @media screen and (min-width: 750px) {
   .page-width {
-    padding: 0 5rem;
+    padding: 0 4rem;
   }
 
   .header.page-width,

@@ -25,6 +25,7 @@
 }
 
 .usp-section__logo {
+  display: inline-flex;
   transform: rotateY(0deg);
   transition: transform 0.25s ease-in-out;
 }
