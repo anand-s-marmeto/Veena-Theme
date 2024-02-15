@@ -149,23 +149,25 @@
             "product_2": "fleece-shorts",
             "product_2_link": "shopify:\/\/products\/fleece-shorts",
             "left_position_2": 15,
-            "top_position_2": 20
+            "top_position_2": 70
           }
         },
         "product_content_pX4tW7": {
           "type": "product-content",
           "settings": {
-            "title": "",
-            "description": "",
-            "button_link": "",
-            "button_text": "",
-            "product_1": "",
-            "product_1_link": "",
-            "left_position_1": 20,
-            "top_position_1": 20,
-            "product_2": "",
-            "product_2_link": "",
-            "left_position_2": 20,
+            "desktop_image": "shopify:\/\/shop_images\/lookbook-3.webp",
+            "mobile_image": "shopify:\/\/shop_images\/lookbook-3.webp",
+            "title": "Women's Outdoor Clothes Collection",
+            "description": "<p>Embrace the beauty of nature with gear that complements your adventurous spirit.<\/p>",
+            "button_link": "shopify:\/\/collections",
+            "button_text": "Discover More",
+            "product_1": "bucket-hat",
+            "product_1_link": "shopify:\/\/products\/bucket-hat",
+            "left_position_1": 30,
+            "top_position_1": 14,
+            "product_2": "chiller-pant",
+            "product_2_link": "shopify:\/\/products\/chiller-pant",
+            "left_position_2": 34,
             "top_position_2": 20
           }
         }
