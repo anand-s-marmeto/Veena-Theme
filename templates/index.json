@@ -133,20 +133,22 @@
             "top_position_2": 86
           }
         },
-        "product_content_LdUXf4": {
+        "product_content_99p8nr": {
           "type": "product-content",
           "settings": {
-            "title": "",
-            "description": "",
-            "button_link": "",
-            "button_text": "",
-            "product_1": "",
-            "product_1_link": "",
-            "left_position_1": 20,
-            "top_position_1": 20,
-            "product_2": "",
-            "product_2_link": "",
-            "left_position_2": 20,
+            "desktop_image": "shopify:\/\/shop_images\/lookbook-2.webp",
+            "mobile_image": "shopify:\/\/shop_images\/lookbook-2.webp",
+            "title": "Our Men's Winter Clothes",
+            "description": "<p>welcome to our Men's Winter Clothes Collection, where every piece is a statement in comfort and style.<\/p>",
+            "button_link": "shopify:\/\/collections",
+            "button_text": "Discover More",
+            "product_1": "black-stripe-spring-oxford-shirt",
+            "product_1_link": "shopify:\/\/products\/black-stripe-spring-oxford-shirt",
+            "left_position_1": 29,
+            "top_position_1": 25,
+            "product_2": "fleece-shorts",
+            "product_2_link": "shopify:\/\/products\/fleece-shorts",
+            "left_position_2": 15,
             "top_position_2": 20
           }
         },
@@ -170,7 +172,7 @@
       },
       "block_order": [
         "product_content_aEU7xV",
-        "product_content_LdUXf4",
+        "product_content_99p8nr",
         "product_content_pX4tW7"
       ],
       "settings": {
