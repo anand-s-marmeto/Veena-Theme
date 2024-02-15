@@ -110,11 +110,79 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "lookbook_KfJGg4": {
+      "type": "lookbook",
+      "blocks": {
+        "product_content_aEU7xV": {
+          "type": "product-content",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/lookbook-1.webp",
+            "mobile_image": "shopify:\/\/shop_images\/lookbook-1.webp",
+            "title": "Women's Winter Clothes",
+            "description": "<p>Welcome the season in style with our Women's Winter Clothes Collection – where warmth meets sophistication.<\/p>",
+            "button_link": "shopify:\/\/collections",
+            "button_text": "Discover More",
+            "product_1": "august-rib-wool-oak",
+            "product_1_link": "shopify:\/\/products\/august-rib-wool-oak",
+            "left_position_1": 30,
+            "top_position_1": 30,
+            "product_2": "90s-fit-denim-1",
+            "product_2_link": "shopify:\/\/products\/90s-fit-denim",
+            "left_position_2": 30,
+            "top_position_2": 86
+          }
+        },
+        "product_content_LdUXf4": {
+          "type": "product-content",
+          "settings": {
+            "title": "",
+            "description": "",
+            "button_link": "",
+            "button_text": "",
+            "product_1": "",
+            "product_1_link": "",
+            "left_position_1": 20,
+            "top_position_1": 20,
+            "product_2": "",
+            "product_2_link": "",
+            "left_position_2": 20,
+            "top_position_2": 20
+          }
+        },
+        "product_content_pX4tW7": {
+          "type": "product-content",
+          "settings": {
+            "title": "",
+            "description": "",
+            "button_link": "",
+            "button_text": "",
+            "product_1": "",
+            "product_1_link": "",
+            "left_position_1": 20,
+            "top_position_1": 20,
+            "product_2": "",
+            "product_2_link": "",
+            "left_position_2": 20,
+            "top_position_2": 20
+          }
+        }
+      },
+      "block_order": [
+        "product_content_aEU7xV",
+        "product_content_LdUXf4",
+        "product_content_pX4tW7"
+      ],
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "hero_banner_FjzrNR",
     "ricktext_section_Peqmfz",
-    "usp_nb3Bhy"
+    "usp_nb3Bhy",
+    "lookbook_KfJGg4"
   ]
 }
