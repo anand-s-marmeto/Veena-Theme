@@ -16,8 +16,46 @@
 <div class="collections padding-{{ section.id }}">
     <div class="page-width">
         <div class="collections__wrapper">
-            <div class="collections__text-content">
-                <div class="collections__heading"></div>
+            <div class="collections__header-section">
+                <div class="collections__heading">
+                    {% if section.settings.heading !=blank %}
+                    <h2 class="h0">{{ section.settings.heading }}</h2>
+                    {% endif %}
+                </div>
+                {% if section.settings.button_link != blank and section.settings.button_text != blank %}
+                    <a class="collection__button" href="{{ section.settings.button_link }}"><span>{{ section.settings.button_text }}</span></a>
+                {% endif %}
+            </div>
+
+            {% comment %} Slider {% endcomment %}
+
+            <div class="collection__slider">
+                <my-splide>
+                    <div class="splide">
+                        <div class="splide__track">
+                            <div class="splide__list">
+                                {% if section.blocks.size !=0 %}
+                                    {% for block in section.blocks %}
+                                        <div class="splide__slide">
+                                        {% render 'responsive-picture', desktopImage:{{ block.settings.desktop_image }} , mobileImage:{{ block.settings.mobile_image }} %}
+                                        {% if block.settings.title != blank and block.settings.title_link != blank %}
+                                            <h3 class="collections__card-heading">
+                                                <a href="{{ block.settings.title_link }}">{{ block.settings.title }}</a>
+                                            </h3>  
+                                        {% endif %}
+                                        {% if block.settings.button_link != blank and block.settings.button_text != blank %}
+                                            <div class="collections__card-button">
+                                                <a href="{{ block.settings.button_link }}"><span>{{ block.settings.button_text }}</span></a>
+                                            </div>
+                                        {% endif %}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                </my-splide>
             </div>
         </div>
     </div>
@@ -43,6 +81,10 @@
             "type": "text",
             "id": "button_text",
             "label": "Button Text"
+        },
+        {
+            "type": "header",
+            "content":"Section Padding"
         },
         {
             "type": "range",
@@ -72,13 +114,23 @@
             "settings":[
                 {
                     "type": "image_picker",
-                    "id":"image",
-                    "label":"Image"
+                    "id":"desktop_image",
+                    "label":"Desktop Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id":"mobile_image",
+                    "label":"Mobile Image"
                 },
                 {
                     "type":"text",
                     "id": "title",
                     "label": "Title"
+                },
+                {
+                    "type":"url",
+                    "id": "title__link",
+                    "label": "Title Link"
                 },
                 {
                     "type": "url",

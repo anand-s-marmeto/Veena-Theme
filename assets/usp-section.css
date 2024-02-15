@@ -4,6 +4,11 @@
   height: 100%;
   padding: 40px 0;
 }
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .grid__item {
   display: flex;
   flex-direction: column;
