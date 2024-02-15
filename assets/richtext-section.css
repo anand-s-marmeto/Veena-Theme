@@ -14,6 +14,7 @@
 }
 
 .richtext-section__button {
+  overflow: hidden;
   color: rgb(255, 255, 255);
   display: flex;
   padding: 5px 15px;

@@ -399,6 +399,11 @@ h6,
   color: rgba(var(--color-foreground), 0.75);
 }
 
+.h3.large {
+  font-size: calc(var(--font-heading-scale) * 20px);
+  font-weight: 600;
+}
+
 blockquote {
   font-style: italic;
   color: rgba(var(--color-foreground), 0.75);

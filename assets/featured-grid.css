@@ -33,6 +33,7 @@
 }
 
 .featured-grid__button span {
+  overflow: hidden;
   padding: 5px 15px;
   border-radius: 30px;
   background-color: rgb(255, 255, 255);
