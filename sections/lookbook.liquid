@@ -68,7 +68,7 @@
                         </div>
                       {% endif %}
                       <div class="lookbook__data-compare-price">
-                        <s>{{ block.settings.product_1.compare_at_price }}</s>
+                        <s>{{ block.settings.product_1.compare_at_price |  money_with_currency }}</s>
                       </div>
                     </div>
                   </div>
