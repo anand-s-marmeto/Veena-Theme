@@ -110,11 +110,83 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "lookbook_KfJGg4": {
+      "type": "lookbook",
+      "blocks": {
+        "product_content_aEU7xV": {
+          "type": "product-content",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/lookbook-1.webp",
+            "mobile_image": "shopify:\/\/shop_images\/lookbook-1.webp",
+            "title": "Women's Winter Clothes",
+            "description": "<p>Welcome the season in style with our Women's Winter Clothes Collection – where warmth meets sophistication.<\/p>",
+            "button_link": "shopify:\/\/collections",
+            "button_text": "Discover More",
+            "product_1": "august-rib-wool-oak",
+            "product_1_link": "shopify:\/\/products\/august-rib-wool-oak",
+            "left_position_1": 30,
+            "top_position_1": 30,
+            "product_2": "90s-fit-denim-1",
+            "product_2_link": "shopify:\/\/products\/90s-fit-denim",
+            "left_position_2": 30,
+            "top_position_2": 86
+          }
+        },
+        "product_content_99p8nr": {
+          "type": "product-content",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/lookbook-2.webp",
+            "mobile_image": "shopify:\/\/shop_images\/lookbook-2.webp",
+            "title": "Our Men's Winter Clothes",
+            "description": "<p>welcome to our Men's Winter Clothes Collection, where every piece is a statement in comfort and style.<\/p>",
+            "button_link": "shopify:\/\/collections",
+            "button_text": "Discover More",
+            "product_1": "black-stripe-spring-oxford-shirt",
+            "product_1_link": "shopify:\/\/products\/black-stripe-spring-oxford-shirt",
+            "left_position_1": 29,
+            "top_position_1": 25,
+            "product_2": "fleece-shorts",
+            "product_2_link": "shopify:\/\/products\/fleece-shorts",
+            "left_position_2": 15,
+            "top_position_2": 70
+          }
+        },
+        "product_content_pX4tW7": {
+          "type": "product-content",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/lookbook-3.webp",
+            "mobile_image": "shopify:\/\/shop_images\/lookbook-3.webp",
+            "title": "Women's Outdoor Clothes Collection",
+            "description": "<p>Embrace the beauty of nature with gear that complements your adventurous spirit.<\/p>",
+            "button_link": "shopify:\/\/collections",
+            "button_text": "Discover More",
+            "product_1": "bucket-hat",
+            "product_1_link": "shopify:\/\/products\/bucket-hat",
+            "left_position_1": 30,
+            "top_position_1": 14,
+            "product_2": "chiller-pant",
+            "product_2_link": "shopify:\/\/products\/chiller-pant",
+            "left_position_2": 34,
+            "top_position_2": 89
+          }
+        }
+      },
+      "block_order": [
+        "product_content_aEU7xV",
+        "product_content_99p8nr",
+        "product_content_pX4tW7"
+      ],
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "hero_banner_FjzrNR",
     "ricktext_section_Peqmfz",
-    "usp_nb3Bhy"
+    "usp_nb3Bhy",
+    "lookbook_KfJGg4"
   ]
 }
