@@ -1,0 +1,126 @@
+{% liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign featured_image = current_variant.image | default: product.featured_image
+  assign secondary_image = product.images[1] | default: product.featured_image
+%}
+
+
+<product-card 
+  class="product-card"
+  data-product-handle="{{ product.handle }}" 
+  data-section-id="{{ section_id }}"
+>
+  <a href="{{ product.url }}" class="product-card__link">
+    <div class="media media--square media--transparent media--hover-effect">
+      <img
+        srcset="
+          {%- if featured_image.width >= 165 -%}{{ featured_image | image_url: width: 165 }} 165w,{%- endif -%}
+          {%- if featured_image.width >= 360 -%}{{ featured_image | image_url: width: 360 }} 360w,{%- endif -%}
+          {%- if featured_image.width >= 533 -%}{{ featured_image | image_url: width: 533 }} 533w,{%- endif -%}
+          {%- if featured_image.width >= 720 -%}{{ featured_image | image_url: width: 720 }} 720w,{%- endif -%}
+          {%- if featured_image.width >= 940 -%}{{ featured_image | image_url: width: 940 }} 940w,{%- endif -%}
+          {%- if featured_image.width >= 1066 -%}{{ featured_image | image_url: width: 1066 }} 1066w,{%- endif -%}
+          {{ featured_image | image_url }} {{ featured_image.width }}w
+        "
+        src="{{ featured_image | image_url: width: 533 }}"
+        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+        alt="{{ featured_image.alt | escape }}"
+        class="motion-reduce"
+        {% unless lazy_load == false %}
+          loading="lazy"
+        {% endunless %}
+        width="{{ featured_image.width }}"
+        height="{{ featured_image.height }}"
+      >     
+      <img
+        srcset="
+          {%- if secondary_image.width >= 165 -%}{{ secondary_image | image_url: width: 165 }} 165w,{%- endif -%}
+          {%- if secondary_image.width >= 360 -%}{{ secondary_image | image_url: width: 360 }} 360w,{%- endif -%}
+          {%- if secondary_image.width >= 533 -%}{{ secondary_image | image_url: width: 533 }} 533w,{%- endif -%}
+          {%- if secondary_image.width >= 720 -%}{{ secondary_image | image_url: width: 720 }} 720w,{%- endif -%}
+          {%- if secondary_image.width >= 940 -%}{{ secondary_image | image_url: width: 940 }} 940w,{%- endif -%}
+          {%- if secondary_image.width >= 1066 -%}{{ secondary_image | image_url: width: 1066 }} 1066w,{%- endif -%}
+          {{ secondary_image | image_url }} {{ secondary_image.width }}w
+        "
+        src="{{ secondary_image | image_url: width: 533 }}"
+        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+        alt=""
+        class="motion-reduce"
+        loading="lazy"
+        width="{{ secondary_image.width }}"
+        height="{{ secondary_image.height }}"
+      >
+    </div>
+  </a>
+
+  <div class="product-card__info">
+    <a href="{{ product.url }}" class="product-card__title h3">{{ product.title }}</a>
+
+    <div class="product-card__prices">
+      <span class="product-card__price">{{ current_variant.price | money_without_trailing_zeros }}</span>
+
+      {% if current_variant.compare_at_price > current_variant.price %}
+        <s class="product-card__compareprice">{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
+      {% endif %}
+    </div>
+
+    <div class="product-card__form">
+      {% form 'product', product %}
+        {% comment %}
+          Product without any variant
+          <input type="hidden" name="id" value="{{ current_variant.id }}">
+        {% endcomment %}
+
+        {% comment %}
+          Product with variant selector
+          <select name="id">
+            {% for variant in product.variants %}
+              <option 
+                value="{{ variant.id }}" 
+                {% if current_variant.id == variant.id %}selected{% endif %}            
+              >{{ variant.title }}</option>
+            {% endfor %}
+          </select>
+        {% endcomment %}
+
+
+        <input type="hidden" name="id" value="{{ current_variant.id }}">
+
+        {% unless product.has_only_default_variant %}
+          <div class="product-card__options"> 
+            {% for product_option in product.options_with_values %}
+              <div class="product-card__option">
+                <label>{{ product_option.name }}</label>
+  
+                <ul>
+                  {% for option_value in product_option.values %}
+                    <li>
+                      <input 
+                        type="radio" 
+                        name="option-{{ product_option.name | handleize }}" 
+                        value="{{ option_value }}"
+                        {% if product_option.selected_value == option_value %}checked{% endif %}
+                      >
+                      {{ option_value }}
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endfor %}
+          </div>
+        {% endunless %}
+        
+
+        {% if current_variant.available %}
+          <button type="submit" class="button">Add to cart</button>
+        {% else %}
+          <button type="button" class="button" disabled>Sold out</button>
+        {% endif %}
+      {% endform %}
+    </div>
+  </div>
+
+  <script>
+    {{ product.variants | json }}
+  </script>
+</product-card>

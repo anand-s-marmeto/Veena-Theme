@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ 'featured-products.css' |  asset_url }}">
+
 {%  style  %} 
 .padding-{{ section.id }} {
     padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
@@ -12,8 +14,97 @@
   }
 {% endstyle %} 
 
+<div class="featured-products padding-{{ section.id }}">
+  <div class="page-width">
+    {% comment %} Header Section {% endcomment %}
+    <div class="featured-products__header-section">
+      {% if section.settings.heading != blank %}
+        <div class="featured-products__heading">
+          {{ section.settings.heading }}
+        </div>
+      {% endif %}
+      {% if section.settings.button_url != blank and section.settings.button_text != blank %}
+        <a href="{{ section.settings.button_url }}" class="featured-products__button">
+          <span>{{ section.settings.button_text }}</span>
+        </a>
+      {% endif %}
+    </div>
 
-{%  schema %} 
+    {% comment %} Slider Section {% endcomment %}
+
+    {% comment %} <div class="featured-products__slider">
+      <div class="featured-products__slider-wrapper">
+        <div class="splide" id="splide">
+          <div class="splide__track">
+            <div class="splide__list">
+              {% for product in section.settings.product_list %}
+                <div class="splide__slide">
+                  <div class="product-card">
+                    <div class="product-card-image media media--portrait">
+                      <img src="{{ product.featured_image |  image_url  }}" alt="product-image"/>
+                    </div>
+                  </div>
+                </div>
+                {%  else %}
+                {% for i in (1..4) %}
+                  <div class="splide__slide">
+                  {{ 'product-' | append: i | placeholder_svg_tag }}
+                  </div>
+                {% endfor %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> {% endcomment %}
+
+    <div class="featured-products__grid">
+        <div class="grid grid--4-col-desktop grid--2-col-tablet grid--1-col">
+          {% for product in section.settings.product_list %}
+            <div class="grid__item">
+              {%  render 'product-card' , product: product, section_id : section.id %}
+            </div>
+            {%  else  %}
+            {% for i in (1..5) %}
+            <div class="grid__item">
+              <div class="media media--portrait">
+                {{ 'product-' | append: i | placeholder_svg_tag }}
+              </div>
+
+            </div>
+            {% endfor %}
+          {% endfor %}
+        </div>
+    </div>
+  </div>
+
+</div>
+
+{% comment %} <script>
+  document.addEventListener('DOMContentLoaded', function(){
+    new Splide( '#splide', {
+      grid: {
+        rows: 3,
+        cols: 3
+      },
+      breakpoints: {
+        800: {
+          grid: {
+            rows: 2,
+            cols: 2
+          },
+        },
+        600: {
+          grid: false
+        }
+      }
+    }).mount( window.splide.Extensions )
+
+  })
+ </script> {% endcomment %}
+
+
+{% schema %} 
   {
     "name":"Featured products",
     "tag": "section",
