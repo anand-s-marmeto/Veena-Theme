@@ -1,0 +1,163 @@
+<link rel="stylesheet" href="{{ 'feedback.css' |  asset_url }}">
+
+{% style %} 
+.padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+
+  @media (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .feedback-section {
+    background-color: {{ section.settings.background_color }}
+  }
+{% endstyle %} 
+
+<div class="feedback-section padding-{{ section.id }}">
+  <div class="page-width">
+    <div class="feedback-section__wrapper">
+      <div class="feedback-section__heading">
+        <h2 class="h0">{{ section.settings.heading}}</h2>
+      </div>
+      <my-splide>
+        <div class="splide">
+          <div class="splide__arrows splide__arrows--ltr">
+            <button class="splide__arrow splide__arrow--prev" type="button" disabled="" aria-label="Previous slide" aria-controls="splide03-track">
+              <span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" focusable="false"><path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path>
+              </svg>
+              </span>
+            </button>
+            <button class="splide__arrow splide__arrow--next" type="button" aria-label="Next slide" aria-controls="splide03-track">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" focusable="false">
+                <path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path>
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div class="splide__track">
+            <div class="splide__list">
+              {% for block in section.blocks %}
+                <div class="splide__slide">
+                  <div class="feedback-card-info">
+                    <div class="card-image">
+                      <img src="{{ block.settings.image |  image_url }}" alt="image- {{ forloop.index }}">
+                    </div>
+                    <div class="card-name-designation">
+                      <p class="card-name">{{ block.settings.name}}</p>
+                      <p class="card-designation">{{ block.settings.designation }}</p>
+                    </div>
+                  </div>
+                  <div class="feedback-card-description">
+                      {{ block.settings.description }}
+                  </div>
+                  </div>
+                {% else %}
+                {% for i in (1..5) %}
+                  <div class="splide__slide">
+                  {{ 'product-' |  append: i |  placeholder_svg_tag }}
+                  </div>
+                {% endfor %}
+              {% endfor %}
+              </div>
+            </div>
+          </div>
+        <script>
+          {
+            "arrows": true,
+            "pagination": true,
+            "perPage": 3,
+            "gap":"20px",
+            "perMove":1,
+            "breakpoints":{
+              "768":{
+                "perPage":1
+              }
+            }
+          }
+        </script>
+      </my-splide>
+      </div>
+    </div>
+  </div>
+
+{%  schema  %} 
+  {
+    "name":"Feedback section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color"
+      },
+      {
+        "type": "header",
+        "content":" Section Padding"
+      },
+      {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 36
+            },
+            {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 36
+        }
+    ],
+    "blocks": [
+      {
+        "name": "Feedback block",
+        "type": "feedback",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id":"image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Name"
+          },
+          {
+            "type": "text",
+            "id": "designation",
+            "label": "Designation"
+          },
+          {
+            "type": "richtext",
+            "id":"description",
+            "label": "Description"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Feedback section"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,13 @@
+.splide__slide img {
+  height: 50px;
+  width: 85px;
+}
+.logo-list__wrapper {
+  width: 100%;
+}
+
+.splide__slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
