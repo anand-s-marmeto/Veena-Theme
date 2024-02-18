@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ 'collections.css' |  asset_url }}">
+
 {%  style  %} 
 .padding-{{ section.id }} {
     padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
@@ -23,43 +25,72 @@
                     {% endif %}
                 </div>
                 {% if section.settings.button_link != blank and section.settings.button_text != blank %}
-                    <a class="collection__button" href="{{ section.settings.button_link }}"><span>{{ section.settings.button_text }}</span></a>
+                    <a class="collections__button" href="{{ section.settings.button_link }}"><span>{{ section.settings.button_text }}</span></a>
                 {% endif %}
             </div>
 
             {% comment %} Slider {% endcomment %}
 
-            <div class="collection__slider">
+            <div class="collections__slider">
                 <my-splide>
-                    <div class="splide">
+                    <div class="splide collections__splide">
+                        <div class="splide__arrows splide__arrows--ltr">
+                            <button class="splide__arrow splide__arrow--prev" type="button" disabled="" aria-label="Previous slide" aria-controls="splide03-track">
+                            <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" focusable="false"><path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path>
+                            </svg>
+                            </span>
+                            </button>
+                            <button class="splide__arrow splide__arrow--next" type="button" aria-label="Next slide" aria-controls="splide03-track">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" focusable="false">
+                                <path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path>
+                                </svg>
+                            </span>
+                            </button>
+                        </div>
                         <div class="splide__track">
                             <div class="splide__list">
-                                {% if section.blocks.size !=0 %}
                                     {% for block in section.blocks %}
                                         <div class="splide__slide">
-                                        {% render 'responsive-picture', desktopImage:{{ block.settings.desktop_image }} , mobileImage:{{ block.settings.mobile_image }} %}
+                                        {% render 'responsive-picture',class:'collections__card-image' ,desktopImage: block.settings.desktop_image  , mobileImage: block.settings.mobile_image %}
+                                        <div class="collections__text-wrapper">
                                         {% if block.settings.title != blank and block.settings.title_link != blank %}
                                             <h3 class="collections__card-heading">
                                                 <a href="{{ block.settings.title_link }}">{{ block.settings.title }}</a>
                                             </h3>  
                                         {% endif %}
                                         {% if block.settings.button_link != blank and block.settings.button_text != blank %}
-                                            <div class="collections__card-button">
-                                                <a href="{{ block.settings.button_link }}"><span>{{ block.settings.button_text }}</span></a>
-                                            </div>
+                                            <a class="collections__card-button" href="{{ block.settings.button_link }}"><span>{{ block.settings.button_text }}</span></a>
                                         {% endif %}
                                         </div>
+                                        </div>
+                                        {% else %}
+                                        {% for i in (1..5) %}
+                                            <div class="splide__slide">
+                                                {{ 'product-' |  append: i |  placeholder_svg_tag }}
+                                            </div>
+                                        {% endfor %}
                                     {% endfor %}
-                                {% endif %}
                             </div>
                         </div>
                     </div>
                     <script>
                         {
-                            
+                            "arrows":true,
+                            "pagination":false,
+                            "perPage":5,
+                            "gap":"20px",
+                            "breakpoints":{
+                                "991":{
+                                    "perPage":3
+                                },
+                                "768":{
+                                    "perPage":2
+                                }
+                            }
                         }
                     </script>
-
                 </my-splide>
             </div>
         </div>
@@ -134,7 +165,7 @@
                 },
                 {
                     "type":"url",
-                    "id": "title__link",
+                    "id": "title_link",
                     "label": "Title Link"
                 },
                 {
