@@ -115,18 +115,18 @@
   color: rgb(221, 29, 29);
 }
 
-.splide__arrow--next {
+.collections__splide .splide__arrow--next {
   top: 50%;
   right: 0;
   border-radius: 31px 0 0 31px;
 }
-.splide__arrow--prev {
+.collections__splide .splide__arrow--prev {
   top: 50%;
   left: 0;
   border-radius: 0 31px 31px 0;
 }
 
-.splide__arrow {
+.collections__splide .splide__arrow {
   background-color: rgb(221, 29, 29);
   opacity: 1;
   height: 44px;
@@ -134,8 +134,8 @@
   overflow: hidden;
 }
 
-.splide__arrow--next span,
-.splide__arrow--prev span {
+.collections__splide .splide__arrow--next span,
+.collections__splide .splide__arrow--prev span {
   position: absolute;
   top: 0;
   left: 0;
@@ -147,8 +147,8 @@
   overflow: hidden;
 }
 
-.splide__arrow--prev span::before,
-.splide__arrow--next span::before {
+.collections__splide .splide__arrow--prev span::before,
+.collections__splide .splide__arrow--next span::before {
   content: "";
   position: absolute;
   top: 0;
@@ -160,16 +160,16 @@
   z-index: -1;
 }
 
-.splide__arrow--prev span:hover::before,
-.splide__arrow--next span:hover::before {
+.collections__splide .splide__arrow--prev span:hover::before,
+.collections__splide .splide__arrow--next span:hover::before {
   width: 100%;
 }
 
-.splide__arrow:disabled {
+.collections__splide .splide__arrow:disabled {
   opacity: 0;
 }
 
-.splide__arrow svg {
+.collections__splide .splide__arrow svg {
   height: 14px;
   width: 14px;
 }
