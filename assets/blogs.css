@@ -213,3 +213,7 @@
   height: 14px;
   width: 14px;
 }
+
+.blogs__slider-section .splide__slide {
+  border-radius: 16px;
+}
