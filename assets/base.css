@@ -101,6 +101,10 @@ img {
   object-fit: cover;
 }
 
+h2.h0 {
+  font-size: calc(var(--font-heading-scale) * 34px);
+}
+
 .no-js:not(html) {
   display: none !important;
 }
