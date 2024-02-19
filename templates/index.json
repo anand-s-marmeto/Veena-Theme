@@ -373,6 +373,56 @@
     },
     "feedback_BpD8XQ": {
       "type": "feedback",
+      "blocks": {
+        "feedback_cTyAVC": {
+          "type": "feedback",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/feedback-1.webp",
+            "name": "Emma Watson",
+            "designation": "Fashion Blogger",
+            "description": "<p>\"Absolutely love the trendy collection! The quality is unmatched, and each piece tells a unique style story. My followers can't get enough. His empathy, patience and expertise in fostering a positive environment is truly commendable.\"<\/p>"
+          }
+        },
+        "feedback_ra3HKb": {
+          "type": "feedback",
+          "settings": {
+            "name": "",
+            "designation": "",
+            "description": ""
+          }
+        },
+        "feedback_qW8mUJ": {
+          "type": "feedback",
+          "settings": {
+            "name": "",
+            "designation": "",
+            "description": ""
+          }
+        },
+        "feedback_HhrTbi": {
+          "type": "feedback",
+          "settings": {
+            "name": "",
+            "designation": "",
+            "description": ""
+          }
+        },
+        "feedback_xYMK4w": {
+          "type": "feedback",
+          "settings": {
+            "name": "",
+            "designation": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "feedback_cTyAVC",
+        "feedback_ra3HKb",
+        "feedback_qW8mUJ",
+        "feedback_HhrTbi",
+        "feedback_xYMK4w"
+      ],
       "settings": {
         "heading": "",
         "background_color": "",
