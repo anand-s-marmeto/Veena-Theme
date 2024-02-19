@@ -272,15 +272,17 @@
             "title": "Best Selling",
             "title_link": "shopify:\/\/collections",
             "button_link": "shopify:\/\/collections",
-            "button_text": "Shpo"
+            "button_text": "Shop Now"
           }
         },
         "product_content_KK48yr": {
           "type": "product-content",
           "settings": {
-            "title": "",
-            "title_link": "",
-            "button_link": "",
+            "desktop_image": "shopify:\/\/shop_images\/collections-6.webp",
+            "mobile_image": "shopify:\/\/shop_images\/collections-6.webp",
+            "title": "T Shirt",
+            "title_link": "shopify:\/\/collections",
+            "button_link": "shopify:\/\/collections",
             "button_text": ""
           }
         }
