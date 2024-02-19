@@ -256,10 +256,12 @@
         "product_content_Lqxjiw": {
           "type": "product-content",
           "settings": {
-            "title": "",
-            "title_link": "",
-            "button_link": "",
-            "button_text": ""
+            "desktop_image": "shopify:\/\/shop_images\/collections-4.webp",
+            "mobile_image": "shopify:\/\/shop_images\/collections-4.webp",
+            "title": "Handbags",
+            "title_link": "shopify:\/\/collections",
+            "button_link": "shopify:\/\/collections",
+            "button_text": "Shop Now"
           }
         },
         "product_content_cdLaXf": {
