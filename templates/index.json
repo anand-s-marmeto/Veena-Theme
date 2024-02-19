@@ -404,8 +404,9 @@
         "feedback_HhrTbi": {
           "type": "feedback",
           "settings": {
-            "name": "",
-            "designation": "",
+            "image": "shopify:\/\/shop_images\/feedback-4.webp",
+            "name": "Alex Rodriguez",
+            "designation": "Fashion Enthusiast",
             "description": ""
           }
         },
