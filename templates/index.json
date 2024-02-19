@@ -193,16 +193,18 @@
             "tag": "Women's",
             "title": "Women's Clothing Collection",
             "button_link": "shopify:\/\/collections",
-            "button_text": ""
+            "button_text": "Explore"
           }
         },
         "featured_content_tY8NVh": {
           "type": "featured-content",
           "settings": {
-            "tag": "",
-            "title": "",
-            "button_link": "",
-            "button_text": ""
+            "desktop_image": "shopify:\/\/shop_images\/featured-grid-2.webp",
+            "mobile_image": "shopify:\/\/shop_images\/featured-grid-2.webp",
+            "tag": "Fashion",
+            "title": "Women's Sustainable Style Hub",
+            "button_link": "shopify:\/\/collections",
+            "button_text": "Explore"
           }
         }
       },
