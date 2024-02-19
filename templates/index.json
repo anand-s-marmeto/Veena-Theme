@@ -234,9 +234,11 @@
         "product_content_aq8bdK": {
           "type": "product-content",
           "settings": {
-            "title": "",
-            "title_link": "",
-            "button_link": "",
+            "desktop_image": "shopify:\/\/shop_images\/collections-2.webp",
+            "mobile_image": "shopify:\/\/shop_images\/collections-2.webp",
+            "title": "Mens Jacket",
+            "title_link": "shopify:\/\/collections",
+            "button_link": "shopify:\/\/collections",
             "button_text": ""
           }
         },
