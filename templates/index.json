@@ -239,16 +239,18 @@
             "title": "Mens Jacket",
             "title_link": "shopify:\/\/collections",
             "button_link": "shopify:\/\/collections",
-            "button_text": ""
+            "button_text": "Shop Now"
           }
         },
         "product_content_BYbcJn": {
           "type": "product-content",
           "settings": {
-            "title": "",
-            "title_link": "",
-            "button_link": "",
-            "button_text": ""
+            "desktop_image": "shopify:\/\/shop_images\/collections-3.webp",
+            "mobile_image": "shopify:\/\/shop_images\/collections-3.webp",
+            "title": "Shoes",
+            "title_link": "shopify:\/\/collections",
+            "button_link": "shopify:\/\/collections",
+            "button_text": "Shop Now"
           }
         },
         "product_content_Lqxjiw": {
