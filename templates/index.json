@@ -433,6 +433,17 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "blogs_QcMXjN": {
+      "type": "blogs",
+      "settings": {
+        "heading": "Let You Know",
+        "button_link": "shopify:\/\/collections",
+        "button_text": "Read All",
+        "blog": "veena-blogs",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -443,6 +454,7 @@
     "usp_nb3Bhy",
     "lookbook_KfJGg4",
     "logo_list_9zgtjw",
-    "feedback_BpD8XQ"
+    "feedback_BpD8XQ",
+    "blogs_QcMXjN"
   ]
 }
