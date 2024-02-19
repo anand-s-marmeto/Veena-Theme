@@ -386,17 +386,19 @@
         "feedback_ra3HKb": {
           "type": "feedback",
           "settings": {
-            "name": "",
-            "designation": "",
-            "description": ""
+            "image": "shopify:\/\/shop_images\/feedback-2.webp",
+            "name": "James Harper",
+            "designation": "Fashion Editor",
+            "description": "<p>\"As a fashion editor, I've seen it all. This store stands out with its curated selection and attention to detail. The clothing is not just fashion; it's art in motion. His effective communication and ability to motivate and guide the sales team is second to none.\"<\/p>"
           }
         },
         "feedback_qW8mUJ": {
           "type": "feedback",
           "settings": {
-            "name": "",
-            "designation": "",
-            "description": ""
+            "image": "shopify:\/\/shop_images\/feedback-3.webp",
+            "name": "Sarah Mitchell",
+            "designation": "Stylist",
+            "description": "<p>\"A go-to destination for my clients. The diversity in styles is impressive, catering to every taste. The quality and elegance never disappoint. Her quick response and innovative solutions make him an invaluable asset to our team.\"<\/p>"
           }
         },
         "feedback_HhrTbi": {
