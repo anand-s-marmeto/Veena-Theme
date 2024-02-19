@@ -373,9 +373,63 @@
     },
     "feedback_BpD8XQ": {
       "type": "feedback",
+      "blocks": {
+        "feedback_cTyAVC": {
+          "type": "feedback",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/feedback-1.webp",
+            "name": "Emma Watson",
+            "designation": "Fashion Blogger",
+            "description": "<p>\"Absolutely love the trendy collection! The quality is unmatched, and each piece tells a unique style story. My followers can't get enough. His empathy, patience and expertise in fostering a positive environment is truly commendable.\"<\/p>"
+          }
+        },
+        "feedback_ra3HKb": {
+          "type": "feedback",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/feedback-2.webp",
+            "name": "James Harper",
+            "designation": "Fashion Editor",
+            "description": "<p>\"As a fashion editor, I've seen it all. This store stands out with its curated selection and attention to detail. The clothing is not just fashion; it's art in motion. His effective communication and ability to motivate and guide the sales team is second to none.\"<\/p>"
+          }
+        },
+        "feedback_qW8mUJ": {
+          "type": "feedback",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/feedback-3.webp",
+            "name": "Sarah Mitchell",
+            "designation": "Stylist",
+            "description": "<p>\"A go-to destination for my clients. The diversity in styles is impressive, catering to every taste. The quality and elegance never disappoint. Her quick response and innovative solutions make him an invaluable asset to our team.\"<\/p>"
+          }
+        },
+        "feedback_HhrTbi": {
+          "type": "feedback",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/feedback-4.webp",
+            "name": "Alex Rodriguez",
+            "designation": "Fashion Enthusiast",
+            "description": "<p>\"Being a fashion enthusiast, I'm always on the lookout for unique pieces. This store exceeds expectations with its exceptional customer service. Her attention to detail, and ability to meet deadlines have made every project a success.\"<\/p>"
+          }
+        },
+        "feedback_xYMK4w": {
+          "type": "feedback",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/feedback-5.webp",
+            "name": "Grace Turner",
+            "designation": "Influencer",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "feedback_cTyAVC",
+        "feedback_ra3HKb",
+        "feedback_qW8mUJ",
+        "feedback_HhrTbi",
+        "feedback_xYMK4w"
+      ],
       "settings": {
-        "heading": "",
-        "background_color": "",
+        "heading": "Our Customers Review",
+        "background_color": "#f5f5f5",
         "padding_top": 36,
         "padding_bottom": 36
       }
