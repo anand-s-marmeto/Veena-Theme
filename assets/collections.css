@@ -50,6 +50,8 @@
   border-radius: 16px;
   height: 334.275px;
   position: relative;
+  transform: scale(1);
+  transition: transition 0.25s ease-in-out;
 }
 
 .collections__text-wrapper {
@@ -172,6 +174,12 @@
 .collections__splide .splide__arrow svg {
   height: 14px;
   width: 14px;
+}
+
+.collections__splide .splide__slide:hover {
+  .collections__card-image img {
+    transform: scale(1.1);
+  }
 }
 
 @media screen and (max-width: 991px) {
