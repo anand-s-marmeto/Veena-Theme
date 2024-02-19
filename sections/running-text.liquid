@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ 'running-text.css' |  asset_url }}">
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -10,8 +12,34 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  
 {%- endstyle -%}
 
+<div class="running-text padding-{{ section.id }}">
+  <div class="page-width">
+    <div class="running-text__wrapper">
+      {% for block in section.blocks %}
+        <div class="running-block">
+          {% if block.settings.logo %}
+            <div class="running-block-logo">
+              {{ block.settings.logo }}
+            </div>
+          {% endif %}
+          {% if block.settings.title != blank %}
+            <p class="uppercase running-block-title">{{ block.settings.title }}</p>
+          {% endif %}
+          {% if block.settings.button_link != blank and block.settings.button_text != blank %}
+            <a href="{{ block.settings.button_link }}" class="running-block-button uppercase">{{ block.settings.button_text }}</a>
+          {% endif %}
+          {% else %}
+          {% for i in (1..5) %}
+            {{ 'product-' |  append: i |  placeholder_svg_tag }}
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 
 {%  schema  %} 
   {
@@ -74,6 +102,11 @@
             "label": "Button text"
           }
         ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Running text"
       }
     ]
   }

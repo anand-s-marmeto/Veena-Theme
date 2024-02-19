@@ -1,0 +1,11 @@
+.running-text__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.running-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
