@@ -407,14 +407,15 @@
             "image": "shopify:\/\/shop_images\/feedback-4.webp",
             "name": "Alex Rodriguez",
             "designation": "Fashion Enthusiast",
-            "description": ""
+            "description": "<p>\"Being a fashion enthusiast, I'm always on the lookout for unique pieces. This store exceeds expectations with its exceptional customer service. Her attention to detail, and ability to meet deadlines have made every project a success.\"<\/p>"
           }
         },
         "feedback_xYMK4w": {
           "type": "feedback",
           "settings": {
-            "name": "",
-            "designation": "",
+            "image": "shopify:\/\/shop_images\/feedback-5.webp",
+            "name": "Grace Turner",
+            "designation": "Influencer",
             "description": ""
           }
         }
