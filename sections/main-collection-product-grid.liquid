@@ -248,18 +248,22 @@
 
   <script>
   var filterButtons= document.querySeletorAll('.facet-filter__button')
-  
-  filterButtons.addEventListener('click',()=>{
-    var productGrid = document.querySelector('#product-grid');
 
-  // Iterate over the classList and replace the class ending with "desktop"
-    productGrid.classList.forEach(function(className) {
-      if (className.endsWith('desktop')) {
-        // Replace the class name
-        productGrid.classList.replace(className, 'grid--3-col-desktop');
-      }
+  filterButtons.forEach((btn)=>{
+    btn.addEventListener('click',()=>{
+      let columns= btn.dataset.cols
+      var productGrid = document.querySelector('#product-grid');
+  
+    // Iterate over the classList and replace the class ending with "desktop"
+      productGrid.classList.forEach(function(className) {
+        if (className.endsWith('desktop')) {
+          // Replace the class name
+          productGrid.classList.replace(className, 'grid--{{ columns }}-col-desktop');
+        }
   });
   })
+  })
+  
   
 </script>
 {% schema %}
