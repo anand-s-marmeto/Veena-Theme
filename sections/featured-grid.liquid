@@ -23,7 +23,7 @@
                 {% if block.settings.desktop_image != blank and block.settings.mobile_image!= blank %}
                     {%  render 'responsive-picture', class:'featured-grid__section-image' , desktopImage:block.settings.desktop_image, mobileImage: block.settings.mobile_image %}
                 {% endif %}
-                <div class="featured-grid-section__text-content">
+                <div class="featured-grid__section-text-content">
                 {% if block.settings.tag != blank %}
                     <ul class="tag">
                         <li>{{ block.settings.tag }}</li>
