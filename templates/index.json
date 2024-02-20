@@ -303,6 +303,28 @@
         "padding_bottom": 36
       }
     },
+    "featured_products_dxeJEp": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "Featured Collection",
+        "button_url": "shopify:\/\/collections",
+        "button_text": "See All Products",
+        "slider_checkbox": false,
+        "featured_checkbox": false,
+        "product_list": [
+          "90s-fit-denim-1",
+          "august-rib-wool-oak",
+          "black-stripe-spring-oxford-shirt",
+          "blue-oxford-shirt",
+          "bucket-hat",
+          "carhartt-coat-black",
+          "carson-chore-jacket-black-hole",
+          "chiller-pant"
+        ],
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "logo_list_9zgtjw": {
       "type": "logo-list",
       "blocks": {
@@ -453,6 +475,7 @@
     "collections_BzXHMB",
     "usp_nb3Bhy",
     "lookbook_KfJGg4",
+    "featured_products_dxeJEp",
     "logo_list_9zgtjw",
     "feedback_BpD8XQ",
     "blogs_QcMXjN"
