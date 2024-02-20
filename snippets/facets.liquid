@@ -55,7 +55,7 @@
             {%- if filter_type == 'vertical' -%}
               <div class="active-facets active-facets-desktop">
                 <div class="active-facets-vertical-filter">
-                  {%- unless results.filters == empty -%}
+                  <!-- {%- unless results.filters == empty -%}
                     <h2
                       class="facets__heading facets__heading--vertical caption-large text-body"
                       id="verticalTitle"
@@ -63,7 +63,7 @@
                     >
                       {{ 'products.facets.filter_by_label' | t }}
                     </h2>
-                  {%- endunless -%}
+                  {%- endunless -%} -->
                   <facet-remove class="active-facets__button-wrapper">
                     <a href="{{ results_url }}" class="active-facets__button-remove underlined-link">
                       <span>{{ 'products.facets.clear_all' | t }}</span>
