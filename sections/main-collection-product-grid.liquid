@@ -102,13 +102,16 @@
             id="main-collection-filters"
             data-id="{{ section.id }}"
           >
-            {% render 'facets',
+            <!-- {% render 'facets',
               results: collection,
               enable_filtering: section.settings.enable_filtering,
               enable_sorting: section.settings.enable_sorting,
               filter_type: section.settings.filter_type,
               paginate: paginate
-            %}
+            %} -->
+          <!-- Adding my custom filter-section -->
+            
+          
           </aside>
         {%- endif -%}
   
@@ -285,6 +288,12 @@
       "id": "show_secondary_image",
       "default": false,
       "label": "t:sections.main-collection-product-grid.settings.show_secondary_image.label"
+    },
+
+    {
+      "type":"link_list",
+      "id":"link_list",
+      "label":"Filters"
     },
     {
       "type": "checkbox",
