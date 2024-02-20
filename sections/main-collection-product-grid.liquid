@@ -113,7 +113,7 @@
           
             {%  if section.settings.link_list != blank %}
               <ul class="parent">
-                {%  for link in section.settings.linklist.links %}
+                {%  for link in section.settings.link_list.links %}
                   <li>
                   <a href= "{{ link.url }}">{{ link.title }}</a>
                    {%  if link.links != blank %} 
