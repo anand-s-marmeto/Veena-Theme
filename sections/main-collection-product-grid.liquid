@@ -250,8 +250,8 @@
   var filterButtons= document.querySeletorAll('.facet-filter__button')
 
   filterButtons.forEach((btn)=>{
+    let columns = btn.dataset.cols
     btn.addEventListener('click',()=>{
-      let columns = btn.dataset.cols
       console.log(columns)
       var productGrid = document.querySelector('#product-grid');
   
