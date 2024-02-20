@@ -246,15 +246,15 @@
 </div>
 
 
-  <script>
+<script>
     
-  let filterButtons = document.querySeletorAll('.facet-filter__button')
+const filterButtons = document.querySeletorAll('.facet-filter__button')
 
   filterButtons.forEach((btn)=>{
-    let columns = btn.dataset.cols
+    const columns = btn.dataset.cols
     btn.addEventListener('click',()=>{
       console.log(columns)
-      var productGrid = document.querySelector('#product-grid');
+      const productGrid = document.querySelector('#product-grid');
   
       // Iterate over the classList and replace the class ending with "desktop"
         productGrid.classList.forEach(function(className) {
