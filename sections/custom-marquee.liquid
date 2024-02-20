@@ -1,0 +1,143 @@
+{{ 'custom-marquee.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  @media screen and (min-width: 750px) {
+    .padding--{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .padding--{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by:2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom |  divided_by: 2 }}px;
+  }
+{% endstyle %}
+
+<div class="custom-marquee padding--{{section.id}}">
+  <div class="marquee">
+    {% for i in (1..9) %}
+      {% for block in section.blocks %}
+        <div class="marquee-item">
+          <div class="marquee-svg">
+            {{ block.settings.svg }}
+          </div>
+          <div class="marquee-text">
+            {{ block.settings.slider_text }}
+          </div>
+          <div class="marquee--button">
+            <a href="{{block.settings.button_url}}" class="button {{block.settings.button_type}}">
+              <span>{{ block.settings.button_label }}</span>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Custom text slider",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Text Slider"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+            "value": "h0",
+            "label": "Large"
+          }, {
+            "value": "h1",
+            "label": "Medium"
+          }, {
+            "value": "h2",
+            "label": "Small"
+          }
+        ],
+        "default": "h1",
+        "label": "Heading Size"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 30
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 30
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Text content block",
+        "type": "text_block",
+        "settings": [
+          {
+            "type": "html",
+            "id": "svg",
+            "label": "svg"
+          },
+          {
+            "type": "text",
+            "id": "slider_text",
+            "label": "Slider text",
+            "default": "New collection"
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label",
+            "default": "explore"
+          },
+          {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button url"
+          }, {
+            "type": "select",
+            "id": "button_type",
+            "label": "Button Type",
+            "options": [
+              {
+                "label": "Primary buttton",
+                "value": "button--primary"
+              }, {
+                "label": "Secondary button",
+                "value": "button--secondary"
+              }, {
+                "label": "Ternary button",
+                "value": "button--tertiary"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom text slider"
+      }
+    ]
+  }
+{% endschema %}

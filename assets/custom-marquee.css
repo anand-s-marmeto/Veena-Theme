@@ -1,0 +1,115 @@
+.custom-marquee {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    rgba(218, 64, 68, 0.25),
+    rgba(255, 250, 126, 0.25) 30.21%,
+    rgba(218, 64, 68, 0.25) 64.1%,
+    rgba(255, 250, 126, 0.25) 100%
+  );
+}
+
+.custom-marquee .marquee {
+  display: flex;
+  flex-wrap: nowrap;
+  text-align: center;
+  gap: 40px;
+  position: absolute;
+  width: 300%;
+  overflow: hidden;
+  animation: marquee 40s linear infinite;
+}
+
+.custom-marquee div:hover {
+  animation-play-state: paused;
+}
+
+.custom-marquee span {
+  float: left;
+  width: 50%;
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: -100%;
+  }
+}
+
+.custom-marquee svg {
+  width: 30px;
+  height: 30px;
+}
+
+.marquee-item {
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  text-align: center;
+  align-items: center;
+  gap: 20px;
+  line-height: normal;
+  font-size: 35px;
+  color: #000;
+}
+
+.marquee-item .button {
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+  line-height: calc(1 + 0.2 / var(--font-body-scale));
+}
+
+.button {
+  overflow: hidden;
+  transition: color 0.7s ease;
+}
+
+.button:hover {
+  color: #fff;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #000;
+  transform: translateX(-100%);
+  transition: transform 0.7s ease;
+  border: none;
+  line-height: normal;
+  border: 1px solid #000;
+  scale: 1.2;
+}
+
+.button:hover::after {
+  transform: translateX(0%);
+}
+
+.marquee-item .button span {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  z-index: 2;
+}
+
+.marquee-item .button--secondary {
+  background-color: transparent;
+  border: 1px solid #000;
+}
+
+.marquee--button {
+  display: flex;
+  align-items: center;
+}
