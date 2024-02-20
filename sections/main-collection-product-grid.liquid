@@ -260,7 +260,7 @@ const filterButtons = document.querySelectorAll('.facet-filter__button')
         productGrid.classList.forEach(function(className) {
           if (className.endsWith('desktop')) {
             // Replace the class name
-            productGrid.classList.replace(className, `grid--{{ columns }}-col-desktop`);
+            productGrid.classList.replace(className, `grid--${columns}-col-desktop`);
           }
       });
   })
