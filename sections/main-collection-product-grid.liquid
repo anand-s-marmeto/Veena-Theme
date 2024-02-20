@@ -251,16 +251,17 @@
 
   filterButtons.forEach((btn)=>{
     btn.addEventListener('click',()=>{
-      let columns= btn.dataset.cols
+      let columns = btn.dataset.cols
+      console.log(columns)
       var productGrid = document.querySelector('#product-grid');
   
-    // Iterate over the classList and replace the class ending with "desktop"
-      productGrid.classList.forEach(function(className) {
-        if (className.endsWith('desktop')) {
-          // Replace the class name
-          productGrid.classList.replace(className, 'grid--{{ columns }}-col-desktop');
-        }
-  });
+      // Iterate over the classList and replace the class ending with "desktop"
+        productGrid.classList.forEach(function(className) {
+          if (className.endsWith('desktop')) {
+            // Replace the class name
+            productGrid.classList.replace(className, 'grid--{{ columns }}-col-desktop');
+          }
+      });
   })
   })
   
