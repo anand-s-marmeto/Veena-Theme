@@ -97,3 +97,14 @@
 .collection__view-all a:not(.link) {
   margin-top: 1rem;
 }
+
+.facet-filter__layout-buttons{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.facet-filter__layout-buttons{
+  cursor: pointer;
+}
