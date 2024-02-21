@@ -209,7 +209,7 @@
                                 class="facets__label facet-checkbox{% if is_disabled %} facet-checkbox--disabled disabled{% endif %}{% if has_visual_display %} visual-display-parent visual-display-parent--{{ filter.presentation }}{% endif %}{% if value.active %} active{% endif %}"
                               >
                                 <input
-                                  background-color="{{ filter.value | handlize }}"
+                                  type="checkbox"
                                   name="{{ value.param_name }}"
                                   value="{{ value.value }}"
                                   id="Filter-{{ filter.param_name | escape }}-{{ forloop.index }}"
@@ -220,6 +220,7 @@
                                     disabled
                                   {% endif %}
                                 >
+                                
 
                                 {% if has_visual_display %}
                                   <div class="facets__visual-display-wrapper">
@@ -258,7 +259,7 @@
                                 {% endif %}
 
                                 <span class="facet-checkbox__text" aria-hidden="true">
-                                  {{- value.label | escape }} ({{ value.count }})</span
+                                  {{- value.label | escape }} ({{  value.count }}) </span
                                 >
                                 <span class="visually-hidden">
                                   {{- value.label | escape }} (
