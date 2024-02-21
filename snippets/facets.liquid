@@ -246,10 +246,11 @@
                                   </div>
                                 {% else %}
                                   {% if label == "color" %}
-                                    <svg class="facet-color-swatches" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="{{ value.value |  handleize }}">
-                                        <circle cx="12" cy="12" r="10" stroke="none"/>
-                                    </svg>
-                                    <div class="facet-color-border" style="border: 1px solid {{ value.value |  handleize }};"></div>
+                                    <div class="facet-swatches-border">
+                                      <svg class="facet-color-swatches" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="{{ value.value |  handleize }}">
+                                          <circle cx="12" cy="12" r="10" stroke="none"/>
+                                      </svg>
+                                    </div>
                                   {% else %}
                                     <svg
                                       width="1.6rem"

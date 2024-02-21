@@ -10,6 +10,7 @@
     width:10px;
     height:10px;
     border-radius:50%;
+    border:1px solid black;
   }
 {% endstyle %} 
 
@@ -83,42 +84,32 @@
             {% for product_option in product.options_with_values %}
               {% comment %} Converts the option name to a lowercase value {% endcomment %}
               {% assign downcased_option_name = product_option.name |  handleize %} 
-                
                 <div class="product-card__option">
-                  <ul class="product-variants">
-                    {% for option_value in product_option.values %}
-                      {% assign downcased_option_value = option_value | handleize %}
-                      <li class="item-swatch">
-                        <label for="product-card-{{ product_option.name | escape }}-{{ forloop.index }}" class="product-card__label">
-                        {% if downcased_option_name == 'color' %} 
-                        <input 
-                          type="radio" 
-                          style="visibility: hidden;"
-                          name="option-{{ downcased_option_name | handleize }}" 
-                          value="{{ option_value }}"
-                          {% if product_option.selected_value == option_value %}checked{% endif %}
-                        >
-                        {% assign swatch_image = downcased_option_value | append: '.jpg' | file_url %}
-                          <span
-                            class="product-card__swatch product-card__colorswatch"
-                            style="background-color: {{ downcased_option_value  |  handleize}};"
-                          >
-                          </span>
-                        {% comment %} Showing other variant options if color is not there. {% endcomment %}
-                        {% else %}
+                  {% assign product_option_name = product_option.name |  handleize %}
+                  {% if product_option_name == 'color' %}
+                    <ul class="product-variants">
+                      {% for option_value in product_option.values %}
+                        <li class="item-swatch">
+                          <label for="product-card-{{ product_option.name | escape }}-{{ forloop.index }}" class="product-card__label">
                           <input 
-                            type="radio"
-                            name="option-{{ downcased_option_name | handleize }}" 
+                            type="radio" 
+                            name="option-{{ product_option.name | handleize }}" 
                             value="{{ option_value }}"
                             {% if product_option.selected_value == option_value %}checked{% endif %}
                           >
-                            <span class="product-card__swatch">{{ option_value }}</span>
-                        {% endif %}
-                        </label>
-                      </li>
-                      
-                    {% endfor %}
-                  </ul>
+                          {% assign swatch_image = downcased_option_value  %}
+                            <span
+                              class="product-card__swatch product-card__colorswatch"
+                              style="background-color: {{ product_option.value |  handleize}}"
+                            >
+                            </span>
+                          </label>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                    {% else %}
+                    <ul>
+                  {% endif %}
                 </div>
             {% endfor %}
           </div>
