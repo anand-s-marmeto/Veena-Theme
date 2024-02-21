@@ -7,7 +7,11 @@ class ProductCard extends HTMLElement {
     this.sectionId = this.dataset.sectionId;
 
     this.variantData = JSON.parse(this.querySelector("script").textContent);
-    this.addEventListener("change", this.onOptionChange);
+    this.onMouseOver();
+  }
+
+  onMouseOver() {
+    this.querySelectorAll(".product-card__swatch");
   }
 
   onOptionChange() {
