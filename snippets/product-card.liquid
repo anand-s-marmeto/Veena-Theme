@@ -96,7 +96,7 @@
                   <ul class="product-variants">
                     {% for option_value in product_option.values %}
                       <li class="item-swatch">
-                        <label for="product-card-{{ product_option.name | escape }}-{{ forloop.index }}" class="product-card__label">
+                        <label class="product-card__label">
                           <input 
                             type="radio" 
                             name="option-{{ product_option.name | handleize }}" 
