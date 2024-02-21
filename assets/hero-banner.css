@@ -60,36 +60,34 @@ img {
   align-items: flex-end;
 }
 
-.splide__slide {
+.hero-banner .splide__slide {
   border-radius: 20px;
   width: calc(100%);
   overflow: hidden;
 }
-a {
-  text-decoration: none;
-}
-.splide__arrow {
+
+.hero-banner .splide__arrow {
   top: 97%;
   background: transparent;
 }
-.splide__arrow svg,
-.splide__arrow svg::before,
-.splide__arrow svg::after {
+.hero-banner .splide__arrow svg,
+.hero-banner .splide__arrow svg::before,
+.hero-banner .splide__arrow svg::after {
   fill: white;
 }
-.splide__arrow--next {
+.hero-banner .splide__arrow--next {
   right: 45%;
 }
-.splide__arrow--prev {
+.hero-banner .splide__arrow--prev {
   left: 45%;
 }
-.splide__pagination__page.is-active {
+.hero-banner .splide__pagination__page.is-active {
   background: #fff;
   transform: scale(1.4);
   width: 20px;
   border-radius: 10px;
 }
-.splide__pagination__page {
+.hero-banner .splide__pagination__page {
   background: white;
 }
 .hero-banner__title {
@@ -111,6 +109,9 @@ a {
   line-height: 28.8px;
   font-size: 16px;
   font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-banner__button ::before {
