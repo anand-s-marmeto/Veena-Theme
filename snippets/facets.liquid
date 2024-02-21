@@ -258,10 +258,7 @@
                                 {% endif %}
 
                                 <span class="facet-checkbox__text" aria-hidden="true">
-                                  {%  for value in filter.values %}  
-                                    {{ value }}
-                                  {%  endfor %}
-                                </span>
+                                  {{- value.label | escape }} </span
                                 
                                 <span class="visually-hidden">
                                   {{- value.label | escape }} (
