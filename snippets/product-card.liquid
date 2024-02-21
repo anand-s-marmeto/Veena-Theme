@@ -79,37 +79,42 @@
     <div class="product-card__form">
       {% form 'product', product %}
         <input type="hidden" name="id" value="{{ current_variant.id }}">
+      
         {% unless product.has_only_default_variant %}
           <div class="product-card__options"> 
             {% for product_option in product.options_with_values %}
               {% comment %} Converts the option name to a lowercase value {% endcomment %}
               {% assign downcased_option_name = product_option.name |  handleize %} 
-                <div class="product-card__option">
-                  {% assign product_option_name = product_option.name |  handleize %}
-                  {% if product_option_name == 'color' %}
-                    <ul class="product-variants">
-                      {% for option_value in product_option.values %}
-                        <li class="item-swatch">
-                          <label for="product-card-{{ product_option.name | escape }}-{{ forloop.index }}" class="product-card__label">
+              
+                <div class="product-card__option">                                    
+                  <ul class="product-variants">
+                    {% for option_value in product_option.values %}
+                      <li class="item-swatch">
+                        <label for="product-card-{{ product_option.name | escape }}-{{ forloop.index }}" class="product-card__label">
                           <input 
                             type="radio" 
                             name="option-{{ product_option.name | handleize }}" 
                             value="{{ option_value }}"
                             {% if product_option.selected_value == option_value %}checked{% endif %}
                           >
-                          {% assign swatch_image = downcased_option_value  %}
+
+                          {% assign downcased_option_value = option_value | handleize %}
+                          {% assign swatch_image = downcased_option_value | append: '.jpg' | file_url %}
+
+                          {% if downcased_option_name == 'color' %}
                             <span
                               class="product-card__swatch product-card__colorswatch"
-                              style="background-color: {{ product_option.value |  handleize}}"
-                            >
+                              style="background-color: {{ downcased_option_value }}; background-image: url({{ swatch_image }});">
                             </span>
-                          </label>
-                        </li>
-                      {% endfor %}
-                    </ul>
-                    {% else %}
-                    <ul>
-                  {% endif %}
+                          {% else %}
+                            <span class="product-card__swatch product-card__colorswatch">
+                              {{ option_value }}
+                            </span>
+                          {% endif %}
+                        </label>
+                      </li>
+                    {% endfor %}
+                  </ul>                    
                 </div>
             {% endfor %}
           </div>
