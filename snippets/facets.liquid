@@ -208,6 +208,21 @@
                                 for="Filter-{{ filter.param_name | escape }}-{{ forloop.index }}"
                                 class="facets__label facet-checkbox{% if is_disabled %} facet-checkbox--disabled disabled{% endif %}{% if has_visual_display %} visual-display-parent visual-display-parent--{{ filter.presentation }}{% endif %}{% if value.active %} active{% endif %}"
                               >
+                              {% assign label= filter.label | handleize %}
+                              {% if label  == 'color' %}
+                                <input
+                                style="visibility : hidden;"
+                                type="checkbox"
+                                id="Filter-{{ filter.param_name | escape }}-{{ forloop.index }}"
+                                hidden="true"
+                                {% if value.active %}
+                                  checked
+                                {% endif %}
+                                {% if is_disabled %}
+                                  disabled
+                                {% endif %}
+                                >
+                              {%  else  %}
                                 <input
                                   type="checkbox"
                                   name="{{ value.param_name }}"
@@ -220,8 +235,7 @@
                                     disabled
                                   {% endif %}
                                 >
-                                
-
+                              {% endif %}
                                 {% if has_visual_display %}
                                   <div class="facets__visual-display-wrapper">
                                     {% render 'visual-display',
@@ -231,31 +245,39 @@
                                     %}
                                   </div>
                                 {% else %}
-                                  <svg
-                                    width="1.6rem"
-                                    height="1.6rem"
-                                    viewBox="0 0 16 16"
-                                    aria-hidden="true"
-                                    focusable="false"
-                                  >
-                                    <rect width="16" height="16" stroke="currentColor" fill="none" stroke-width="1"></rect>
-                                  </svg>
+                                  {% if label == "color" %}
+                                    <svg class="facet-color-swatches" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="{{ value.value |  handleize }}">
+                                        <circle cx="12" cy="12" r="10" stroke="none"/>
+                                    </svg>
+                                    <div class="facet-color-border" style="border: 1px solid {{ value.value |  handleize }};"></div>
+                                  {% else %}
+                                    <svg
+                                      width="1.6rem"
+                                      height="1.6rem"
+                                      viewBox="0 0 16 16"
+                                      aria-hidden="true"
+                                      focusable="false"
+                                    >
+                                      <rect width="16" height="16" stroke="currentColor" fill="none" stroke-width="1"></rect>
+                                    </svg>
 
-                                  <svg
-                                    aria-hidden="true"
-                                    class="icon icon-checkmark"
-                                    width="1.1rem"
-                                    height="0.7rem"
-                                    viewBox="0 0 11 7"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1"
-                                      stroke="currentColor"
-                                      stroke-width="1.75"
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round" />
-                                  </svg>
+                                    <svg
+                                      aria-hidden="true"
+                                      class="icon icon-checkmark"
+                                      width="1.1rem"
+                                      height="0.7rem"
+                                      viewBox="0 0 11 7"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1"
+                                        stroke="currentColor"
+                                        stroke-width="1.75"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    </svg>
+                                {% endif %}
+                                  
                                 {% endif %}
 
                                 <span class="facet-checkbox__text" aria-hidden="true">

@@ -11,6 +11,40 @@
   border-style: dashed;
 }
 
+.facets-layout-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.facet-color-swatches {
+  position: relative;
+  transform: scale(1);
+  transition: transform 0.25s ease-in-out;
+}
+.facet-color-border {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.facets-label:hover {
+  .facet-color-border {
+    opacity: 1;
+  }
+  .facet-color-swatches {
+    transform: scale(0.8);
+  }
+}
+
+.facets__label {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
 .visual-display--presentation-swatch {
   --visual-display__size: min(2.4rem, 100%);
 
@@ -26,7 +60,8 @@
 :is(
     .visual-display-parent:hover .visual-display--presentation-swatch,
     .visual-display-parent.active .visual-display--presentation-swatch,
-    .visual-display-parent:has(:focus-visible) .visual-display--presentation-swatch
+    .visual-display-parent:has(:focus-visible)
+      .visual-display--presentation-swatch
   ) {
   outline-style: solid;
 }
@@ -44,10 +79,12 @@
 }
 
 /* Focus state */
-.visual-display-parent:has(:focus-visible) .visual-display--presentation-swatch {
+.visual-display-parent:has(:focus-visible)
+  .visual-display--presentation-swatch {
   outline-width: 0.2rem;
   outline-color: rgb(var(--color-foreground), 0.4);
-  box-shadow: 0 0 0 0.6rem rgb(var(--color-background)), 0 0 0 0.8rem rgba(var(--color-foreground), 0.5),
+  box-shadow: 0 0 0 0.6rem rgb(var(--color-background)),
+    0 0 0 0.8rem rgba(var(--color-foreground), 0.5),
     0 0 1.2rem 0.4rem rgba(var(--color-foreground), 0.3);
 }
 
@@ -56,7 +93,8 @@
   .visual-display-parent:focus-within .visual-display--presentation-swatch {
     outline-offset: 0.2rem;
     outline: 0.2rem solid rgb(var(--color-foreground), 0.4);
-    box-shadow: 0 0 0 0.6rem rgb(var(--color-background)), 0 0 0 0.8rem rgba(var(--color-foreground), 0.5),
+    box-shadow: 0 0 0 0.6rem rgb(var(--color-background)),
+      0 0 0 0.8rem rgba(var(--color-foreground), 0.5),
       0 0 1.2rem 0.4rem rgba(var(--color-foreground), 0.3);
   }
 }
@@ -69,7 +107,7 @@
 /* Used to display the disabled dash */
 .visual-display-parent.disabled .visual-display::after {
   display: block;
-  content: '';
+  content: "";
 
   /* 1.414 is not a magic number, it's the square root of 2, or the length of the diagonal */
   width: calc(var(--visual-display__size) * 1.414);
