@@ -89,12 +89,12 @@
         <input type="hidden" name="id" value="{{ current_variant.id }}">
       
         {% unless product.has_only_default_variant %}
-          <div class="product-card__options"> 
+          <ul class="product-card__options"> 
             {% for product_option in product.options_with_values %}
               {% comment %} Converts the option name to a lowercase value {% endcomment %}
               {% assign downcased_option_name = product_option.name |  handleize %} 
               
-                <div class="product-card__option">                                    
+                <li class="product-card__option">                                    
                   <ul class="product-variants">
                     {% for option_value in product_option.values %}
                       <li class="item-swatch">
@@ -123,9 +123,9 @@
                       </li>
                     {% endfor %}
                   </ul>                    
-                </div>
+                </li>
             {% endfor %}
-          </div>
+          </ul>
         {% endunless %}
         
       {% endform %}
