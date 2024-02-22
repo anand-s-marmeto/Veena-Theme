@@ -1201,7 +1201,7 @@ class VariantSelects extends HTMLElement {
     const price= document.getElementById(`price-${this.dataset.section}`)
     const currentPrice= price.querySelector('.price-item').textContent
 
-    const quantity= document.querySelector('.quantity__input').value
+    const quantity= document.querySelector('.quantity__input').value || 1
     console.log(quantity)
     
     if (!addButton) return;
@@ -1211,7 +1211,7 @@ class VariantSelects extends HTMLElement {
       if (text) addButtonText.textContent = text;
     } else {
       addButton.removeAttribute('disabled');
-      addButtonText.textContent = currentPrice* (quantity || 1);
+      addButtonText.textContent = currentPrice* quantity;
     }
 
     if (!modifyClass) return;
