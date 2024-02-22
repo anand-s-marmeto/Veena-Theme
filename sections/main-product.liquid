@@ -177,12 +177,12 @@
                 {%- endif -%}
               </p>
             {%- when 'description' -%}
-              {%- if product.description != blank -%}
+              <!-- {%- if product.description != blank -%} -->
                <!--  adding the description received from metafield  -->
                 <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                   {{ product.selected_or_first_available_variant.metafields.import_information.trade_item_description }}
                 </div>
-              {%- endif -%}
+              <!-- {%- endif -%} -->
             {%- when 'sku' -%}
               <p
                 class="product__sku no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
