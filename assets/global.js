@@ -178,6 +178,7 @@ class QuantityInput extends HTMLElement {
 
   onInputChange(event) {
     this.validateQtyRules();
+    
   }
 
   onButtonClick(event) {
@@ -1198,7 +1199,10 @@ class VariantSelects extends HTMLElement {
 
     const quantity= document.querySelector('.quantity__input').value || 1
     console.log(quantity)
-    
+
+    document.querySelector('.quantity-input').addEventListener('change',(event)=>{
+        console.log(event.target.value)
+    })
     
     if (!addButton) return;
 
