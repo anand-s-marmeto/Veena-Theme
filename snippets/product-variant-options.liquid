@@ -96,10 +96,16 @@
         class="disabled"
       {% endif %}
     >
-    <label for="{{ input_id }}">
+    {%  assign optionName= option.name | handleize %}
+    {%  if optionName == 'color' %}
+      <label for="{{ input_id }}" {% if  optionName  == "color" %} class="product-variant-options__color-swatch" style = "background-color: {{ value }}" {%  endif %}  ></label>
+    {%  else %}
+      <label for="{{ input_id }}">
       {{ value -}}
       {{ label_unavailable }}
-    </label>
+      </label>
+    {%  endif %}
+    
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option
       value="{{ value | escape }}"
