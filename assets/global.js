@@ -1168,12 +1168,6 @@ class VariantSelects extends HTMLElement {
 
         const price = document.getElementById(`price-${this.dataset.section}`);
         
-        // const currentPrice= price.querySelector('.price-item').textContent
-        // console.log(currentPrice)
-
-        // toggleAddButton(true, currentPrice, true)
-
-        
         if (price) price.classList.remove('hidden');
 
         if (inventoryDestination) inventoryDestination.classList.toggle('hidden', inventorySource.innerText === '');
@@ -1203,7 +1197,7 @@ class VariantSelects extends HTMLElement {
     const currentPrice= price.querySelector('.price-item').textContent
 
     const quantity= document.querySelector('.quantity__input').value || 1
-    // console.log(quantity)
+    console.log(quantity)
     
     if (!addButton) return;
 
