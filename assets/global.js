@@ -1203,9 +1203,8 @@ class VariantSelects extends HTMLElement {
     const quantity= document.querySelector('.quantity__input').value || 1
     console.log(quantity)
 
-    // document.querySelector('.quantity-input').addEventListener('change',(event)=>{
-    //     console.log(event.target.value)
-    // })
+    const quantity= document.getElementById(`Quantity-${this.dataset.section}`)
+    console.log(quantity)
     
     if (!addButton) return;
 
