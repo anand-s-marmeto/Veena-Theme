@@ -1200,6 +1200,9 @@ class VariantSelects extends HTMLElement {
     const addButtonText = productForm.querySelector('[name="add"] > span');
     const price= document.getElementById(`price-${this.dataset.section}`)
     const currentPrice= price.querySelector('.price-item').textContent
+
+    const quantity= document.querySelector('.quantity__input').value
+    console.log(quantity)
     
     if (!addButton) return;
 
