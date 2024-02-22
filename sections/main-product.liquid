@@ -179,7 +179,7 @@
             {%- when 'description' -%}
               {%- if product.description != blank -%}
                 <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
-                  {{ product.description }}
+                  {{ product.selected_or_first_available_variant.metafields.import_information.trade_item_description }}
                 </div>
               {%- endif -%}
             {%- when 'sku' -%}
