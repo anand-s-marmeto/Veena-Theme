@@ -1136,7 +1136,7 @@ class VariantSelects extends HTMLElement {
 
         // Adding the price on add_to_cart button:
 
-        console.log( destination)
+        console.log( destination.querySelector('.price-item').textContent())
 
         const pricePerItemDestination = document.getElementById(`Price-Per-Item-${this.dataset.section}`);
         const pricePerItemSource = html.getElementById(
