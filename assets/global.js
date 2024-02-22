@@ -975,6 +975,7 @@ class VariantSelects extends HTMLElement {
     }
   }
 
+
   updateOptions() {
     this.options = Array.from(this.querySelectorAll('select, fieldset'), (element) => {
       if (element.tagName === 'SELECT') {
@@ -1197,12 +1198,14 @@ class VariantSelects extends HTMLElement {
     const price= document.getElementById(`price-${this.dataset.section}`)
     const currentPrice= price.querySelector('.price-item').textContent
 
+    console.log(currentPrice)
+
     const quantity= document.querySelector('.quantity__input').value || 1
     console.log(quantity)
 
-    document.querySelector('.quantity-input').addEventListener('change',(event)=>{
-        console.log(event.target.value)
-    })
+    // document.querySelector('.quantity-input').addEventListener('change',(event)=>{
+    //     console.log(event.target.value)
+    // })
     
     if (!addButton) return;
 
