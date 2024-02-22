@@ -1199,6 +1199,7 @@ class VariantSelects extends HTMLElement {
     const quantity= document.querySelector('.quantity__input').value || 1
     console.log(quantity)
     
+    
     if (!addButton) return;
 
     if (disable) {
@@ -1206,7 +1207,7 @@ class VariantSelects extends HTMLElement {
       if (text) addButtonText.textContent = text;
     } else {
       addButton.removeAttribute('disabled');
-      addButtonText.textContent = currentPrice;
+      addButtonText.textContent = currentPrice * parseInt(quantity);
     }
 
     if (!modifyClass) return;
