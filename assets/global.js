@@ -1203,7 +1203,7 @@ class VariantSelects extends HTMLElement {
       if (text) addButtonText.textContent = text;
     } else {
       addButton.removeAttribute('disabled');
-      addButtonText.textContent = 'Added';
+      addButtonText.textContent = currentPrice;
     }
 
     if (!modifyClass) return;
