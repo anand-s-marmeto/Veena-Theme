@@ -1136,7 +1136,6 @@ class VariantSelects extends HTMLElement {
 
         // Adding the price on add_to_cart button:
         // console.log( destination.querySelector('.price-item').textContent)
-        const currentPrice= destination.querySelector('.price-item').textContent
         
 
         const pricePerItemDestination = document.getElementById(`Price-Per-Item-${this.dataset.section}`);
@@ -1169,7 +1168,9 @@ class VariantSelects extends HTMLElement {
         }
 
         const price = document.getElementById(`price-${this.dataset.section}`);
-        console.log(price)
+        
+        const currentPrice= price.querySelector('.price-item').textContent
+        console.log(currentPrice)
         if (price) price.classList.remove('hidden');
 
         if (inventoryDestination) inventoryDestination.classList.toggle('hidden', inventorySource.innerText === '');
