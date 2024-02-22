@@ -1185,7 +1185,7 @@ class VariantSelects extends HTMLElement {
       });
   }
 
-  toggleAddButton(disable = true, text="hi", modifyClass = true) {
+  toggleAddButton(disable = true, text, modifyClass = true) {
     const productForm = document.getElementById(`product-form-${this.dataset.section}`);
     if (!productForm) return;
     const addButton = productForm.querySelector('[name="add"]');
@@ -1197,7 +1197,7 @@ class VariantSelects extends HTMLElement {
       if (text) addButtonText.textContent = text;
     } else {
       addButton.removeAttribute('disabled');
-      addButtonText.textContent = window.variantStrings.addToCart;
+      addButtonText.textContent = Added;
     }
 
     if (!modifyClass) return;
