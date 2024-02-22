@@ -1194,10 +1194,10 @@ class VariantSelects extends HTMLElement {
 
     if (disable) {
       addButton.setAttribute('disabled', 'disabled');
-      if (text) addButtonText.textContent = something;
+      if (text) addButtonText.textContent = text;
     } else {
       addButton.removeAttribute('disabled');
-      addButtonText.textContent = text;
+      addButtonText.textContent = '';
     }
 
     if (!modifyClass) return;
