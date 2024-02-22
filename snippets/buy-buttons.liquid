@@ -90,6 +90,7 @@
                 {{  product.selected_or_first_available_variant.price }}
               {%- else -%}
                 {{ 'products.product.add_to_cart' | t }}
+                {{  product.selected_or_first_available_variant.price }}
               {%- endif -%}
             </span>
             {%- render 'loading-spinner' -%}
