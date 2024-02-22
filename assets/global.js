@@ -1134,8 +1134,6 @@ class VariantSelects extends HTMLElement {
           `Volume-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
         );
 
-        // Adding the price on add_to_cart button:
-        // console.log( destination.querySelector('.price-item').textContent)
         
 
         const pricePerItemDestination = document.getElementById(`Price-Per-Item-${this.dataset.section}`);
@@ -1171,6 +1169,10 @@ class VariantSelects extends HTMLElement {
         
         const currentPrice= price.querySelector('.price-item').textContent
         console.log(currentPrice)
+
+        toggleAddButton(true, currentPrice, true)
+
+        
         if (price) price.classList.remove('hidden');
 
         if (inventoryDestination) inventoryDestination.classList.toggle('hidden', inventorySource.innerText === '');
@@ -1203,7 +1205,7 @@ class VariantSelects extends HTMLElement {
       if (text) addButtonText.textContent = text;
     } else {
       addButton.removeAttribute('disabled');
-      addButtonText.textContent = currentPrice;
+      addButtonText.textContent = text;
     }
 
     if (!modifyClass) return;
