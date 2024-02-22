@@ -1137,8 +1137,6 @@ class VariantSelects extends HTMLElement {
           `Volume-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
         );
 
-        const description = document.querySelector('.product__description')
-        console.log(description.textContent)
 
         
 
@@ -1200,7 +1198,9 @@ class VariantSelects extends HTMLElement {
     const addButtonText = productForm.querySelector('[name="add"] > span');
     const price= document.getElementById(`price-${this.dataset.section}`)
     const currentPrice= price.querySelector('.price-item').textContent
-
+  
+    const description = document.querySelector('.product__description')
+    console.log(description.textContent)
     console.log(currentPrice)
 
     // const quantity= document.querySelector('.quantity__input').value || 1
