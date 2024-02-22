@@ -1200,8 +1200,8 @@ class VariantSelects extends HTMLElement {
 
     console.log(currentPrice)
 
-    const quantity= document.querySelector('.quantity__input').value || 1
-    console.log(quantity)
+    // const quantity= document.querySelector('.quantity__input').value || 1
+    // console.log(quantity)
 
     const quantity= document.getElementById(`Quantity-${this.dataset.section}`)
     console.log(quantity)
