@@ -190,6 +190,7 @@ class QuantityInput extends HTMLElement {
 
   validateQtyRules() {
     const value = parseInt(this.input.value);
+    console.log(value)
     if (this.input.min) {
       const min = parseInt(this.input.min);
       const buttonMinus = this.querySelector(".quantity__button[name='minus']");
@@ -1202,7 +1203,7 @@ class VariantSelects extends HTMLElement {
     const currentPrice= price.querySelector('.price-item').textContent
 
     const quantity= document.querySelector('.quantity__input').value || 1
-    console.log(quantity)
+    // console.log(quantity)
     
     if (!addButton) return;
 
