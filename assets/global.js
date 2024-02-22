@@ -1170,7 +1170,7 @@ class VariantSelects extends HTMLElement {
         // const currentPrice= price.querySelector('.price-item').textContent
         // console.log(currentPrice)
 
-        toggleAddButton(true, currentPrice, true)
+        // toggleAddButton(true, currentPrice, true)
 
         
         if (price) price.classList.remove('hidden');
