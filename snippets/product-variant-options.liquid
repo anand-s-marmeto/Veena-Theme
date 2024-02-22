@@ -25,6 +25,16 @@
   assign product_form_id = 'product-form-' | append: section.id
 -%}
 
+{%  style %}
+  .product-variant-options__color-swatch{
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 0 0 3px rgb(var(--color-background)) inset;
+  border: 1px solid white;
+}
+{% endstyle %}
+
 {%- for value in option.values -%}
   {%- liquid
     assign option_disabled = true
