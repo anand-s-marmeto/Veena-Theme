@@ -1137,6 +1137,9 @@ class VariantSelects extends HTMLElement {
           `Volume-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
         );
 
+        const description = document.querySelector('.product__description')
+        console.log(description.textContent)
+
         
 
         const pricePerItemDestination = document.getElementById(`Price-Per-Item-${this.dataset.section}`);
