@@ -202,7 +202,7 @@ class QuantityInput extends HTMLElement {
     const addButtonText = productForm.querySelector('[name="add"] > span');
     
     // addButtonText.textContent = window.variantStrings.addToCart + "-" + " " + (parseInt(currentPrice) * value);
-    addButtonText.textContent = `${window.variantStrings.addToCart} - ${typeof parseInt(currentPrice) * value}`;
+    addButtonText.textContent = `${window.variantStrings.addToCart} - ${parseInt(currentPrice) * value}`;
 
     
     
