@@ -191,7 +191,7 @@ class QuantityInput extends HTMLElement {
 
   validateQtyRules() {
     const value = parseInt(this.input.value);
-    // console.log(value)
+    console.log(value)
 
     const price= document.getElementById(`price-${this.dataset.section}`)
     const currentPrice= price.querySelector('.price-item').textContent;
