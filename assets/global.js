@@ -1199,7 +1199,7 @@ class VariantSelects extends HTMLElement {
     const price= document.getElementById(`price-${this.dataset.section}`)
   
     const description = document.querySelector('.product__description')
-    console.log(description.textContent)
+    // console.log(description.textContent)
 
     // const quantity= document.querySelector('.quantity__input').value || 1
     // console.log(quantity)
