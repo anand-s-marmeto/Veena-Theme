@@ -198,10 +198,10 @@ class QuantityInput extends HTMLElement {
     console.log(price.querySelector('.price-item').textContent.split(' '))
 
     // Find the element that contains the value
-    const valueElement = priceWithCurrency.find(element => element.includes('Rs.'));
-    
-    // Extract the value
-    const currentPrice = valueElement.trim().replace('Rs.', '');
+    const valueElement = priceWithCurrency.filter(element => /[0-9,]+/.test(element));
+
+    // Extract the first element from the filtered array
+    const currentPrice = filteredArray[0].trim();
     console.log(currentPrice)
 
     const productForm = document.getElementById(`product-form-${this.dataset.section}`);
