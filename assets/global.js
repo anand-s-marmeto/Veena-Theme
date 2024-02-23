@@ -184,7 +184,7 @@ class QuantityInput extends HTMLElement {
   onButtonClick(event) {
     event.preventDefault();
     const previousValue = this.input.value;
-
+    
     event.target.name === 'plus' ? this.input.stepUp() : this.input.stepDown();
     if (previousValue !== this.input.value) this.input.dispatchEvent(this.changeEvent);
   }
@@ -192,6 +192,11 @@ class QuantityInput extends HTMLElement {
   validateQtyRules() {
     const value = parseInt(this.input.value);
     // console.log(value)
+
+    const price= document.getElementById(`price-${this.dataset.section}`)
+    const currentPrice= price.querySelector('.price-item').textContent;
+    console.log(currentPrice)
+    
     if (this.input.min) {
       const min = parseInt(this.input.min);
       const buttonMinus = this.querySelector(".quantity__button[name='minus']");
@@ -1197,9 +1202,8 @@ class VariantSelects extends HTMLElement {
     const addButton = productForm.querySelector('[name="add"]');
     const addButtonText = productForm.querySelector('[name="add"] > span');
     const price= document.getElementById(`price-${this.dataset.section}`)
-  
+    const currentPrice= price.querySelector('.price-item').textContent;
     const description = document.querySelector('.product__description')
-    // console.log(description.textContent)
 
     // const quantity= document.querySelector('.quantity__input').value || 1
     // console.log(quantity)
