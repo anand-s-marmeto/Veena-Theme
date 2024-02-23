@@ -201,8 +201,8 @@ class QuantityInput extends HTMLElement {
     const valueElement = priceWithCurrency.find(element => element.includes('Rs.'));
     
     // Extract the value
-    const value = valueElement.trim().replace('Rs.', '');
-    console.log(value)
+    const price = valueElement.trim().replace('Rs.', '');
+    console.log(price)
 
     const productForm = document.getElementById(`product-form-${this.dataset.section}`);
     if (!productForm) return;
