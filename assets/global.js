@@ -194,8 +194,16 @@ class QuantityInput extends HTMLElement {
     // console.log(typeof value)
 
     const price= document.getElementById(`price-${this.dataset.section}`)
-    const priceWithCurrency= price.querySelector('.price-item').textContent;
-    console.log(priceWithCurrency.split(' '))
+    const priceWithCurrency= price.querySelector('.price-item').textContent.split(' ');
+    // console.log(priceWithCurrency.split(' '))
+
+    // Find the element that contains the value
+    const valueElement = priceWithCurrency.find(element => element.includes('Rs.'));
+    
+    // Extract the value
+    const value = valueElement.trim().replace('Rs.', '');
+    console.log(value)
+
     const productForm = document.getElementById(`product-form-${this.dataset.section}`);
     if (!productForm) return;
     const addButton = productForm.querySelector('[name="add"]');
