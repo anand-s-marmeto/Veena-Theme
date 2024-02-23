@@ -202,13 +202,14 @@ class QuantityInput extends HTMLElement {
 
     // Extract the first element from the filtered array
     const currentPrice = valueElement[0].trim();
-    console.log(currentPrice)
+    console.log(currentPrice.replace(',',''))
 
     const productForm = document.getElementById(`product-form-${this.dataset.section}`);
     if (!productForm) return;
     const addButton = productForm.querySelector('[name="add"]');
     const addButtonText = productForm.querySelector('[name="add"] > span');
     addButtonText.textContent = window.variantStrings.addToCart + "-" +(parseInt(currentPrice) * value)
+    
     if (this.input.min) {
       const min = parseInt(this.input.min);
       const buttonMinus = this.querySelector(".quantity__button[name='minus']");
