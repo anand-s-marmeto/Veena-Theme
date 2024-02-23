@@ -192,6 +192,7 @@ class QuantityInput extends HTMLElement {
   validateQtyRules() {
     const value = parseInt(this.input.value);
     // console.log(value)
+    
     if (this.input.min) {
       const min = parseInt(this.input.min);
       const buttonMinus = this.querySelector(".quantity__button[name='minus']");
