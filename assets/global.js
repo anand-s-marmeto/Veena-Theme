@@ -194,15 +194,13 @@ class QuantityInput extends HTMLElement {
     console.log(typeof value)
 
     const price= document.getElementById(`price-${this.dataset.section}`)
-    const currentPrice= price.querySelector('.price-item').textContent;
-    console.log(typeof parseInt(currentPrice))
+    const priceWithCurrency= price.querySelector('.price-item').textContent;
+    console.log(currentPrice.split(' ')[1])
     const productForm = document.getElementById(`product-form-${this.dataset.section}`);
     if (!productForm) return;
     const addButton = productForm.querySelector('[name="add"]');
     const addButtonText = productForm.querySelector('[name="add"] > span');
-    
-
-    
+    // console.log()
     
     if (this.input.min) {
       const min = parseInt(this.input.min);
