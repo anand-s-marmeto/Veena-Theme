@@ -17,7 +17,43 @@
     <!-- {% render 'icon-share' %} -->
     <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/share_icon_1.png?v=1689752691" alt = "share-img" class=" share-image"width="auto" height="auto"/>
     
-    {{ block.settings.share_label | escape }}
+    <!-- {{ block.settings.share_label | escape }} -->
+
+    <div class="share-options">
+      <ul class="social_media_platforms">
+        <li>
+          <a class="product-meta__share-button-item product-meta__share-button-item--facebook link tap-area" href="https://www.facebook.com/sharer.php?u=https://www.boat-lifestyle.com/products/airdopes-141?utm_source=Website&amp;utm_medium=PDP&amp;utm_campaign=Sharebutton" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg focusable="false" width="8" height="14" class="icon icon--facebook" viewBox="0 0 9 17">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.486 16.2084L2.486 8.81845H0L0 5.93845L2.486 5.93845L2.486 3.81845C2.38483 2.79982 2.73793 1.78841 3.45107 1.05407C4.16421 0.319722 5.16485 -0.0628415 6.186 0.00844868C6.9284 0.00408689 7.67039 0.0441585 8.408 0.128449V2.69845L6.883 2.69845C6.4898 2.61523 6.08104 2.73438 5.79414 3.01585C5.50724 3.29732 5.3803 3.70373 5.456 4.09845L5.456 5.93845H8.308L7.936 8.81845H5.46L5.46 16.2084H2.486Z" fill="currentColor"></path>
+          </svg><span>Facebook</span>
+          </a>
+            </li>
+        <li>
+          <a class="product-meta__share-button-item product-meta__share-button-item--pinterest link tap-area" href="https://pinterest.com/pin/create/button/?url=https://www.boat-lifestyle.com/products/airdopes-141?utm_source=Website&amp;utm_medium=PDP&amp;utm_campaign=Sharebutton&amp;media=https://www.boat-lifestyle.com/cdn/shop/files/AD141-FI_Grey01_800x.png?v=1698391770&amp;description=Airdopes%20141%20-%20Wireless%20Earbuds%20Let%20the%20noise%20of%20the%20world%20drown%20as%20you%20jam..." target="_blank" rel="noopener" aria-label="Pin on Pinterest"><svg focusable="false" width="10" height="14" class="icon icon--pinterest" viewBox="0 0 12 16">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.8042 0.00123531C8.79537 -0.0442356 10.6685 1.16769 11.5498 3.29299C11.8407 3.99433 12.1516 5.28439 11.9181 6.35474C11.825 6.78208 11.7985 7.22812 11.6726 7.63086C11.4163 8.4496 11.0829 9.17441 10.6413 9.79945C10.0418 10.6486 9.13196 11.2212 7.98951 11.5091C6.97899 11.7637 6.04959 11.3826 5.50954 10.9732C5.33747 10.843 5.10674 10.6728 5.04304 10.4377C5.03488 10.4377 5.0267 10.4377 5.01853 10.4377C4.97972 10.8669 4.81532 11.3224 4.69924 11.7135C4.53858 12.2545 4.50733 12.8146 4.3064 13.3208C4.08349 13.8828 3.81274 14.3978 3.52072 14.8776C3.36739 15.1292 2.94427 15.9904 2.63675 16C2.60311 15.9354 2.58964 15.9105 2.58761 15.796C2.48858 15.6383 2.55757 15.3724 2.51393 15.1578C2.44604 14.8236 2.39317 14.2217 2.46491 13.8824C2.46491 13.7038 2.46491 13.5248 2.46491 13.3465C2.54397 12.9786 2.54085 12.6015 2.63675 12.2494C2.84537 11.4824 2.96145 10.6699 3.17692 9.87611C3.38398 9.11352 3.57396 8.27939 3.74172 7.50321C3.77957 7.32789 3.56652 6.82389 3.52072 6.63572C3.37628 6.04186 3.48624 5.21874 3.66805 4.77269C3.89698 4.21111 4.56717 3.3535 5.43589 3.57359C6.13407 3.75039 6.57846 4.50528 6.34437 5.46192C6.09862 6.46589 5.7798 7.3653 5.5587 8.37035C5.50173 8.62933 5.59968 8.90442 5.65687 9.05958C5.86357 9.61934 6.49037 10.163 7.32652 9.95278C8.59396 9.63365 9.15431 8.48627 9.53645 7.24791C9.63981 6.91302 9.62743 6.59647 9.70831 6.22709C9.87894 5.44763 9.80648 4.28411 9.56098 3.67556C9.16753 2.70023 8.43329 2.07518 7.42471 1.73624C7.1465 1.68526 6.86819 1.63427 6.58988 1.58329C6.12397 1.47655 5.23532 1.63685 4.92023 1.73624C3.51171 2.18156 2.63952 2.92544 2.09658 4.26247C1.91177 4.71767 1.81046 5.17911 1.77741 5.81884C1.76913 5.8955 1.76094 5.97217 1.75278 6.04883C1.86153 6.62068 1.87259 6.99959 2.09658 7.42657C2.20715 7.63711 2.46971 7.8029 2.51393 8.06444C2.54001 8.2185 2.42705 8.45105 2.39125 8.57467C2.33705 8.76137 2.35676 8.97522 2.26844 9.13625C2.10873 9.42678 1.67383 9.20852 1.48275 9.08491C0.489307 8.44373 -0.329526 6.5895 0.132284 4.79837C0.20342 4.5218 0.206915 4.28118 0.304126 4.03285C0.906661 2.49554 1.80565 1.55101 3.10325 0.741098C3.58947 0.437749 4.24511 0.287354 4.84657 0.128885C5.16574 0.0863481 5.48503 0.0437917 5.8042 0.00123531Z" fill="currentColor"></path>
+            </svg><span>Pinterest</span>
+          </a>
+        </li>
+        <li>
+        <a class="product-meta__share-button-item product-meta__share-button-item--twitter link tap-area" href="https://twitter.com/share?text=boAt%20Airdopes%20141%20%7C%20Wireless%20Earbuds%20with%208mm%20drivers,%20Upto%2042%20Hours%20Playback,%20ENx%E2%84%A2%20Technology,%20IPX4%20Water%20Resistance&amp;url=https://www.boat-lifestyle.com/products/airdopes-141?utm_source=Website&amp;utm_medium=PDP&amp;utm_campaign=Sharebutton" target="_blank" rel="noopener" aria-label="Tweet on Twitter">
+    
+    
+            <!--?xml version="1.0" encoding="UTF-8"?--><svg id="Layer_2" height="16" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95.4 86.45"><defs><style>.cls-1{stroke-width:0px;}</style></defs><g id="Layer_1-2"><path class="cls-1" d="m58.14,36.92c12.4,16.38,24.52,32.38,37.26,49.21-9.99,0-19.06.11-28.12-.13-1.27-.03-2.73-1.65-3.68-2.86-6.76-8.64-13.42-17.37-20.45-26.53-6.8,7.73-13.72,14.92-19.81,22.75-4.08,5.24-8.5,8-15.16,6.83-1.44-.25-2.96-.04-5.68-.04,11.61-13.26,22.58-25.81,33.74-38.55C24.29,32,12.49,16.57,0,.26c10.24,0,19.61-.11,28.97.13,1.24.03,2.67,1.71,3.62,2.93,6.2,8.01,12.3,16.1,18.73,24.56,6.67-7.61,13.25-14.67,19.28-22.17,3.32-4.14,6.85-6.39,12.23-5.54,2.05.32,4.19.05,7.44.05-11.1,12.67-21.46,24.51-32.13,36.69ZM17.62,9.03c1.33,1.8,2.37,3.26,3.46,4.69,15.27,19.94,30.68,39.78,45.73,59.89,3.05,4.07,6.18,5.29,11.21,3.97-.71-1.03-1.21-1.83-1.79-2.58-15.47-20.42-31.07-40.73-46.3-61.33-3.2-4.33-6.52-6.17-12.31-4.63Z"></path></g></svg><span>Twitter</span>
+        </a>
+        </li>
+        <li>
+          <a class="product-meta__share-button-item product-meta__share-button-item--mail link tap-area" href="mailto:?&amp;subject=boAt Airdopes 141 | Wireless Earbuds with 8mm drivers, Upto 42 Hours Playback, ENx™ Technology, IPX4 Water Resistance&amp;body=https://www.boat-lifestyle.com/products/airdopes-141?utm_source=Website&amp;utm_medium=PDP&amp;utm_campaign=Sharebutton" aria-label="Share by e-mail">
+            
+            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/gmail_icon_9d04fc22-9b08-430d-8946-298d4a3d0a84.png?v=1689660207" style="width: 16px;" width="100%" height="auto">
+            <span>Email</span>
+          </a>
+        </li>
+        <li>
+        <span class="copy_link">
+          <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Copy-Link.png?v=1689242690" height="auto" width="100%"><span>Copy Link</span>
+        </span>
+        </li>
+      </ul>
+    </div>
   </button>
   <details id="Details-{{ block.id }}-{{ section.id }}">
     <summary class="share-button__button">
