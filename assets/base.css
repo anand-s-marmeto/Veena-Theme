@@ -1318,8 +1318,7 @@ button.shopify-payment-button__button--unbranded {
 .shopify-challenge__button:before,
 .customer button:before,
 .shopify-payment-button__button--unbranded:before,
-.shopify-payment-button [role="button"]:before,
-.cart__dynamic-checkout-buttons [role="button"]:before {
+.shopify-payment-button [role="button"]:before, {
   content: "";
   position: absolute;
   top: 0;
@@ -1328,8 +1327,19 @@ button.shopify-payment-button__button--unbranded {
   left: 0;
   z-index: -1;
   border-radius: var(--buttons-radius-outset);
-  box-shadow: var(--shadow-horizontal-offset) var(--shadow-vertical-offset)
-    var(--shadow-blur-radius) rgba(var(--color-shadow), var(--shadow-opacity));
+  background-color: rgb(208,60,63);
+}
+.cart__dynamic-checkout-buttons [role="button"]:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width:0;
+  height:100%;
+  z-index: -1;
+  border-radius: var(--buttons-radius-outset);
 }
 
 .button:after,
@@ -1344,22 +1354,15 @@ button.shopify-payment-button__button--unbranded {
   left: var(--buttons-border-width);
   z-index: 1;
   border-radius: var(--buttons-radius);
-  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))
-      rgba(var(--color-button-text), var(--border-opacity)),
-    0 0 0 var(--buttons-border-width)
-      rgba(var(--color-button), var(--alpha-button-background));
-  transition: box-shadow var(--duration-short) ease;
+  background-color: rgb(0,0,0)
+  transition: all var(--duration-short) ease;
 }
 
 .button:not([disabled]):hover::after,
 .shopify-challenge__button:hover::after,
 .customer button:hover::after,
 .shopify-payment-button__button--unbranded:hover::after {
-  --border-offset: 1.3px;
-  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))
-      rgba(var(--color-button-text), var(--border-opacity)),
-    0 0 0 calc(var(--buttons-border-width) + 1px)
-      rgba(var(--color-button), var(--alpha-button-background));
+ width:100%;
 }
 
 .button--secondary:after {
