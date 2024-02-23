@@ -195,7 +195,7 @@ class QuantityInput extends HTMLElement {
 
     const price= document.getElementById(`price-${this.dataset.section}`)
     const priceWithCurrency= price.querySelector('.price-item').textContent;
-    console.log(priceWithCurrency.split(' ')[1])
+    console.log(priceWithCurrency)
     const productForm = document.getElementById(`product-form-${this.dataset.section}`);
     if (!productForm) return;
     const addButton = productForm.querySelector('[name="add"]');
