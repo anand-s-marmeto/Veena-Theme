@@ -195,7 +195,7 @@ class QuantityInput extends HTMLElement {
 
     const price= document.getElementById(`price-${this.dataset.section}`)
     const priceWithCurrency= price.querySelector('.price-item').textContent.split(' ');
-    // console.log(priceWithCurrency.split(' '))
+    console.log(price.querySelector('.price-item').textContent.split(' '))
 
     // Find the element that contains the value
     const valueElement = priceWithCurrency.find(element => element.includes('Rs.'));
