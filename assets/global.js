@@ -191,18 +191,18 @@ class QuantityInput extends HTMLElement {
 
   validateQtyRules() {
     const value = parseInt(this.input.value);
-    console.log(value)
+    console.log(typeof value)
 
     const price= document.getElementById(`price-${this.dataset.section}`)
     const currentPrice= price.querySelector('.price-item').textContent;
-    console.log(currentPrice)
+    console.log(typeof parseInt(currentPrice))
     const productForm = document.getElementById(`product-form-${this.dataset.section}`);
     if (!productForm) return;
     const addButton = productForm.querySelector('[name="add"]');
     const addButtonText = productForm.querySelector('[name="add"] > span');
     
     // addButtonText.textContent = window.variantStrings.addToCart + "-" + " " + (parseInt(currentPrice) * value);
-    addButtonText.textContent = `${window.variantStrings.addToCart} - ${Number(parseInt(currentPrice) * value)}`;
+    addButtonText.textContent = `${window.variantStrings.addToCart} - ${typeof parseInt(currentPrice) * value}`;
 
     
     
