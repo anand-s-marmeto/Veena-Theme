@@ -191,6 +191,7 @@ class QuantityInput extends HTMLElement {
 
   validateQtyRules() {
     const value = parseInt(this.input.value);
+    // console.log(value)
     if (this.input.min) {
       const min = parseInt(this.input.min);
       const buttonMinus = this.querySelector(".quantity__button[name='minus']");
@@ -1119,7 +1120,6 @@ class VariantSelects extends HTMLElement {
         if (this.currentVariant.id !== requestedVariantId) return;
 
         const html = new DOMParser().parseFromString(responseText, 'text/html');
-        console.log(html)
         const destination = document.getElementById(`price-${this.dataset.section}`);
         const source = html.getElementById(
           `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
@@ -1203,8 +1203,8 @@ class VariantSelects extends HTMLElement {
     console.log(description.textContent)
     console.log(currentPrice)
 
-    const quantity= document.querySelector('.quantity__input').value || 1
-    console.log(quantity)
+    // const quantity= document.querySelector('.quantity__input').value || 1
+    // console.log(quantity)
 
     const quantity= document.getElementById(`Quantity-${this.dataset.section}`)
     // console.log(quantity)
