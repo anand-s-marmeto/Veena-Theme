@@ -14,7 +14,9 @@
 
 <share-button id="Share-{{ section.id }}" class="share-button quick-add-hidden" {{ block.shopify_attributes }}>
   <button class="share-button__button hidden">
-    {% render 'icon-share' %}
+    <!-- {% render 'icon-share' %} -->
+    <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/share_icon_1.png?v=1689752691" alt = "share-img" class=" share-image"width="auto" height="auto"/>
+    
     {{ block.settings.share_label | escape }}
   </button>
   <details id="Details-{{ block.id }}-{{ section.id }}">
