@@ -196,6 +196,8 @@ class QuantityInput extends HTMLElement {
     const price= document.getElementById(`price-${this.dataset.section}`)
     const currentPrice= price.querySelector('.price-item').textContent;
     console.log(currentPrice)
+
+    
     
     if (this.input.min) {
       const min = parseInt(this.input.min);
@@ -1210,7 +1212,7 @@ class VariantSelects extends HTMLElement {
 
     const quantity= document.getElementById(`Quantity-${this.dataset.section}`)
     // console.log(quantity)
-    quantity.addEventListener('change',(event)=> console.log(event.target.value))
+    // quantity.addEventListener('change',(event)=> console.log(event.target.value))
     
     if (!addButton) return;
 
