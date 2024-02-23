@@ -201,7 +201,7 @@ class QuantityInput extends HTMLElement {
     const valueElement = priceWithCurrency.filter(element => /[0-9,]+/.test(element));
 
     // Extract the first element from the filtered array
-    const currentPrice = filteredArray[0].trim();
+    const currentPrice = valueElement.trim();
     console.log(currentPrice)
 
     const productForm = document.getElementById(`product-form-${this.dataset.section}`);
