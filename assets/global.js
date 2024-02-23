@@ -972,7 +972,7 @@ class VariantSelects extends HTMLElement {
     this.updateOptions();
     this.updateMasterId();
     this.updateSelectedSwatchValue(event);
-    this.toggleAddButton(true, event.target.value, false);
+    this.toggleAddButton(true, event, false);
     this.updatePickupAvailability();
     this.removeErrorMessage();
     this.updateVariantStatuses();
