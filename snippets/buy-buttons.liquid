@@ -90,7 +90,7 @@
               {%- else -%}
                 <link rel="stylesheet" href={{ 'buy-button.css' | asset_url }}>
                 {{ 'products.product.add_to_cart' | t }}  <span class="product-price-decorator "></span>
-              Hello   {{  product.selected_or_first_available_variant.price | money_with_currency }}
+               {{  window.variantStrings.addToCart }}
                 
               {%- endif -%}
             </span>
