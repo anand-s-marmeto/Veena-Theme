@@ -208,7 +208,7 @@ class QuantityInput extends HTMLElement {
     if (!productForm) return;
     const addButton = productForm.querySelector('[name="add"]');
     const addButtonText = productForm.querySelector('[name="add"] > span');
-    addButtonText.textContent = window.variantStrings.addToCart + "-" + parseFloat(Number(currentPrice.replace(',','')) * value)
+    addButtonText.textContent = window.variantStrings.addToCart + "-" + "₹" parseFloat(Number(currentPrice.replace(',','')) * value)
     
     if (this.input.min) {
       const min = parseInt(this.input.min);
