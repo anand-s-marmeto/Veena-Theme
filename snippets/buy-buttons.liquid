@@ -89,8 +89,7 @@
                 {{ 'products.product.sold_out' | t }}
               {%- else -%}
                 <link rel="stylesheet" href={{ 'buy-button.css' | asset_url }}>
-                {{ 'products.product.add_to_cart' | t }}  <span class="product-price-decorator "></span>
-               {{  window.variantStrings.addToCart }}
+                {{ 'products.product.add_to_cart' | t }} 
                 
               {%- endif -%}
             </span>
