@@ -56,6 +56,28 @@
   margin-top: 10px;
 }
 
+.richtext-section__section-title a {
+  color: rgb(208, 60, 63);
+  position: relative;
+}
+
+.richtext-section__section-title a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  color: rgb(208, 60, 63);
+  text-decoration: underline;
+  text-underline-offset: 15px;
+  transition: all 0.25s ease-in-out;
+}
+
+.richtext-section__section-title a:hover::before {
+  width: 100%;
+}
+
 .richtext-section__section-title h2 {
   font-size: 52px;
   font-weight: 600;

@@ -135,6 +135,10 @@
   width: 44px;
   overflow: hidden;
 }
+.collections__splide .splide__slide {
+  border-radius: 16px;
+  overflow: hidden;
+}
 
 .collections__splide .splide__arrow--next span,
 .collections__splide .splide__arrow--prev span {

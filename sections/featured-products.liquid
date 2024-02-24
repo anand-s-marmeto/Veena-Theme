@@ -30,34 +30,6 @@
       {% endif %}
     </div>
 
-    {% comment %} Slider Section {% endcomment %}
-
-    {% comment %} <div class="featured-products__slider">
-      <div class="featured-products__slider-wrapper">
-        <div class="splide" id="splide">
-          <div class="splide__track">
-            <div class="splide__list">
-              {% for product in section.settings.product_list %}
-                <div class="splide__slide">
-                  <div class="product-card">
-                    <div class="product-card-image media media--portrait">
-                      <img src="{{ product.featured_image |  image_url  }}" alt="product-image"/>
-                    </div>
-                  </div>
-                </div>
-                {%  else %}
-                {% for i in (1..4) %}
-                  <div class="splide__slide">
-                  {{ 'product-' | append: i | placeholder_svg_tag }}
-                  </div>
-                {% endfor %}
-              {% endfor %}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> {% endcomment %}
-
     <div class="featured-products__grid">
         <div class="grid grid--4-col-desktop grid--2-col-tablet grid--1-col">
           {% for product in section.settings.product_list %}

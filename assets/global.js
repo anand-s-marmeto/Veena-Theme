@@ -178,18 +178,38 @@ class QuantityInput extends HTMLElement {
 
   onInputChange(event) {
     this.validateQtyRules();
+    
   }
 
   onButtonClick(event) {
     event.preventDefault();
     const previousValue = this.input.value;
-
+    
     event.target.name === 'plus' ? this.input.stepUp() : this.input.stepDown();
     if (previousValue !== this.input.value) this.input.dispatchEvent(this.changeEvent);
   }
 
   validateQtyRules() {
     const value = parseInt(this.input.value);
+    // console.log(typeof value)
+
+    const price= document.getElementById(`price-${this.dataset.section}`)
+    const priceWithCurrency= price.querySelector('.price-item').textContent.split(' ');
+    // console.log(price.querySelector('.price-item').textContent.split(' '))
+
+    // Find the element that contains the value
+    const valueElement = priceWithCurrency.filter(element => /[0-9,]+/.test(element));
+
+    // Extract the first element from the filtered array
+    const currentPrice = valueElement[0].trim();
+    // console.log(Number(currentPrice.replace(',','')))
+
+    const productForm = document.getElementById(`product-form-${this.dataset.section}`);
+    if (!productForm) return;
+    const addButton = productForm.querySelector('[name="add"]');
+    const addButtonText = productForm.querySelector('[name="add"] > span');
+    addButtonText.textContent = window.variantStrings.addToCart + "- ₹" + parseFloat(Number(currentPrice.replace(',','')) * value)
+    
     if (this.input.min) {
       const min = parseInt(this.input.min);
       const buttonMinus = this.querySelector(".quantity__button[name='minus']");
@@ -956,7 +976,7 @@ class VariantSelects extends HTMLElement {
     this.updateOptions();
     this.updateMasterId();
     this.updateSelectedSwatchValue(event);
-    this.toggleAddButton(true, '', false);
+    this.toggleAddButton(true, event, false);
     this.updatePickupAvailability();
     this.removeErrorMessage();
     this.updateVariantStatuses();
@@ -972,6 +992,7 @@ class VariantSelects extends HTMLElement {
       this.updateShareUrl();
     }
   }
+
 
   updateOptions() {
     this.options = Array.from(this.querySelectorAll('select, fieldset'), (element) => {
@@ -1134,6 +1155,9 @@ class VariantSelects extends HTMLElement {
           `Volume-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
         );
 
+
+        
+
         const pricePerItemDestination = document.getElementById(`Price-Per-Item-${this.dataset.section}`);
         const pricePerItemSource = html.getElementById(
           `Price-Per-Item-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
@@ -1164,7 +1188,7 @@ class VariantSelects extends HTMLElement {
         }
 
         const price = document.getElementById(`price-${this.dataset.section}`);
-
+        
         if (price) price.classList.remove('hidden');
 
         if (inventoryDestination) inventoryDestination.classList.toggle('hidden', inventorySource.innerText === '');
@@ -1190,6 +1214,17 @@ class VariantSelects extends HTMLElement {
     if (!productForm) return;
     const addButton = productForm.querySelector('[name="add"]');
     const addButtonText = productForm.querySelector('[name="add"] > span');
+    const price= document.getElementById(`price-${this.dataset.section}`)
+    const currentPrice= price.querySelector('.price-item').textContent;
+    const description = document.querySelector('.product__description')
+
+    // const quantity= document.querySelector('.quantity__input').value || 1
+    // console.log(quantity)
+
+    const quantity= document.getElementById(`Quantity-${this.dataset.section}`)
+    // console.log(quantity)
+    // quantity.addEventListener('change',(event)=> console.log(event.target.value))
+    
     if (!addButton) return;
 
     if (disable) {
@@ -1197,7 +1232,7 @@ class VariantSelects extends HTMLElement {
       if (text) addButtonText.textContent = text;
     } else {
       addButton.removeAttribute('disabled');
-      addButtonText.textContent = window.variantStrings.addToCart;
+      addButtonText.textContent = window.variantStrings.addToCart + currentPrice;
     }
 
     if (!modifyClass) return;

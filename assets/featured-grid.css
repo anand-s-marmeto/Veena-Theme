@@ -1,6 +1,7 @@
 .featured-grid__section {
   position: relative;
   overflow: hidden;
+  border-radius: 16px;
 }
 
 .featured-grid__section-text-content {
@@ -71,6 +72,7 @@
   border-radius: 16px;
   height: 350px;
   transform: scale(1);
+  display: block;
 }
 .featured-grid__section:hover {
   .featured-grid__section-image img {

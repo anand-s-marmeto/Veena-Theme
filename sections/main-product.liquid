@@ -177,11 +177,13 @@
                 {%- endif -%}
               </p>
             {%- when 'description' -%}
-              {%- if product.description != blank -%}
+            <!-- Adding data received from the metafield as the description. -->
+              <!-- {%- if product.description != blank -%} -->
+               <!--  adding the description received from metafield  -->
                 <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
-                  {{ product.description }}
+                  {{ product.selected_or_first_available_variant.metafields.import_information.trade_item_description }}
                 </div>
-              {%- endif -%}
+              <!-- {%- endif -%} -->
             {%- when 'sku' -%}
               <p
                 class="product__sku no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -192,7 +194,7 @@
                 <span class="visually-hidden">{{ 'products.product.sku' | t }}:</span> {{- product.selected_or_first_available_variant.sku -}}
               </p>
             {%- when 'custom_liquid' -%}
-              {{ block.settings.custom_liquid }}
+              {{ product.selected_or_first_available_variant.metafields.import_information.trade_item_description }}
             {%- when 'collapsible_tab' -%}
               <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
                 <details id="Details-{{ block.id }}-{{ section.id }}">
@@ -415,7 +417,47 @@
             {%- when 'variant_picker' -%}
               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
             {%- when 'buy_buttons' -%}
-              {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
+              {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true, cart_qty: cart_qty -%}
+           
+              <style>
+                .payments{
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  border: 1px solid rgb(0,0,0,0.1);
+                  border-radius: 5px;
+                  padding: 8px 20px;
+                }
+                .payment-options{
+                  display:flex;
+                  list-style:none;
+                  margin:0px;
+                }
+                .payment-text{
+                  font-weight: 700;
+                  line-height: 28.8px;
+                }
+                .icon {
+                  width: 3.125em;
+                }
+              </style>
+  
+              {%- unless shop.enabled_payment_types == empty -%}
+                <div class="payments">
+                  <span class=" payment-text">Supported payment methods</span>
+                
+                  <ul class="payment-options">
+                    {%- for type in shop.enabled_payment_types -%}
+                      <li>
+                        {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+                
+              {%- endunless -%}
+                
+            
             {%- when 'rating' -%}
               {%- if product.metafields.reviews.rating.value != blank -%}
                 {% liquid

@@ -3,14 +3,29 @@
   assign featured_image = current_variant.image | default: product.featured_image
   assign secondary_image = product.images[1] | default: product.featured_image
 %}
- 
+
+{%  style  %} 
+  .product-card__swatch{
+    display: block;
+    min-width:30px;
+    min-height:25px;
+    border:1px solid black;
+  }
+  .product-card__label {
+    position: relative;
+    display: block;
+  }
+  .product-card__label input {
+    position: absolute;
+  }
+{% endstyle %} 
 
 <product-card 
   class="product-card"
   data-product-handle="{{ product.handle }}" 
   data-section-id="{{ section_id }}"
 >
-  <a href="{{ product.url }}" class="media media--portrait media--hover-effect product-card-image">
+  <a href="{{ product.url }}" class="media media--portrait media--hover-effect product-card-image ">
     <img
         srcset="
           {%- if featured_image.width >= 165 -%}{{ featured_image | image_url: width: 165 }} 165w,{%- endif -%}
@@ -24,14 +39,14 @@
         src="{{ featured_image | image_url: width: 533 }}"
         sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
         alt="{{ featured_image.alt | escape }}"
-        class="motion-reduce"
+        class="motion-reduce image-1"
         {% unless lazy_load == false %}
           loading="lazy"
         {% endunless %}
         width="{{ featured_image.width }}"
         height="{{ featured_image.height }}"
       >     
-      <img
+      <img 
         srcset="
           {%- if secondary_image.width >= 165 -%}{{ secondary_image | image_url: width: 165 }} 165w,{%- endif -%}
           {%- if secondary_image.width >= 360 -%}{{ secondary_image | image_url: width: 360 }} 360w,{%- endif -%}
@@ -44,7 +59,7 @@
         src="{{ secondary_image | image_url: width: 533 }}"
         sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
         alt=""
-        class="motion-reduce"
+        class="motion-reduce image-2"
         loading="lazy"
         width="{{ secondary_image.width }}"
         height="{{ secondary_image.height }}"
@@ -88,18 +103,19 @@
                             value="{{ option_value }}"
                             {% if product_option.selected_value == option_value %}checked{% endif %}
                           >
+
                           {% assign downcased_option_value = option_value | handleize %}
                           {% assign swatch_image = downcased_option_value | append: '.jpg' | file_url %}
 
                           {% if downcased_option_name == 'color' %}
                             <span
-                              class="product-card__swatch product-card__colorswatch" data-color="{{ downcased_option_value }}"
+                              class="product-card__swatch product-card__colorswatch"
                               style="background-color: {{ downcased_option_value }}; background-image: url({{ swatch_image }});">
                             </span>
-                          {% comment %} {% else %}
+                          {% else %}
                             <span class="product-card__swatch">
                               {{ option_value }}
-                            </span> {% endcomment %}
+                            </span>
                           {% endif %}
                         </label>
                       </li>
