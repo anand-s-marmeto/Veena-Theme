@@ -1231,7 +1231,7 @@ summary::-webkit-details-marker {
 }
 
 .media.media--hover-effect > img + img {
-  opacity: 1;
+  opacity: 0;
 }
 
 @media screen and (min-width: 990px) {
