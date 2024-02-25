@@ -4,25 +4,10 @@
   assign secondary_image = product.images[1] | default: product.featured_image
 %}
 
-{%  style  %} 
-  .product-card__swatch{
-    display: block;
-    min-width:30px;
-    min-height:25px;
-    border:1px solid black;
-  }
-  .product-card__label {
-    position: relative;
-    display: block;
-  }
-  .product-card__label input {
-    position: absolute;
-  }
-{% endstyle %} 
 
 <product-card 
   class="product-card"
-  data-product-handle="{{ product.handle }}" 
+  data-product-handle="{{ product.url |  within: collection }}" 
   data-section-id="{{ section_id }}"
 >
   <a href="{{ product.url }}" class="media media--portrait media--hover-effect product-card-image ">
@@ -112,10 +97,10 @@
                               class="product-card__swatch product-card__colorswatch"
                               style="background-color: {{ downcased_option_value }}; background-image: url({{ swatch_image }});">
                             </span>
-                          {% else %}
+                          {% comment %} {% else %}
                             <span class="product-card__swatch">
                               {{ option_value }}
-                            </span>
+                            </span> {% endcomment %}
                           {% endif %}
                         </label>
                       </li>

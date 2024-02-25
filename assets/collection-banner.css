@@ -1,0 +1,48 @@
+.collection-banner__wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.collection-banner__image-section {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.collection-banner__info-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  padding: 24px;
+}
+
+.collection-banner__info {
+  padding: 10px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.content-title {
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+}
+.collection-banner__image {
+  transform: scale(1);
+  transition: all 0.35s ease-in-out;
+}
+
+.collection-banner__image-section:hover {
+  .collection-banner__image {
+    transform: scale(1.05);
+  }
+}

@@ -1,0 +1,14 @@
+.counter-section__wrapper {
+  display: flex;
+}
+
+.counter-section__text-container {
+  width: 40%;
+}
+
+.counter-section__description {
+  max-width: 500px;
+}
+.counter-section__countdown-timer {
+  display: flex;
+}

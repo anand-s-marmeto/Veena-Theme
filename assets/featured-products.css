@@ -9,9 +9,9 @@
 .media > * {
   display: flex !important;
 }
-.page-width {
+/* .page-width {
   display: block;
-}
+} */
 
 .featured-products__button {
   overflow: hidden;
@@ -201,4 +201,20 @@
   .image-2 {
     opacity: 1;
   }
+}
+
+.product-card__swatch {
+  display: block;
+  min-width: 30px;
+  min-height: 25px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+.product-card__label {
+  position: relative;
+  display: block;
+}
+.product-card__label input {
+  position: absolute;
+  display: none;
 }

@@ -22,6 +22,11 @@
   font-weight: 600;
   line-height: 44.2px;
 }
+.card-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .card-image img {
   height: 60px;
   border-radius: 100%;

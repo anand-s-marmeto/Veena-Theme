@@ -99,10 +99,12 @@ img {
   height: auto;
   object-position: center;
   object-fit: cover;
+  display: block;
 }
 
 h2.h0 {
   font-size: calc(var(--font-heading-scale) * 34px);
+  font-weight: 600;
 }
 
 .no-js:not(html) {

@@ -1,0 +1,122 @@
+{%  style  %} 
+.padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+
+  @media (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{% endstyle %}
+
+<link rel="stylesheet" href="{{ 'counter.css' |  asset_url }}">
+
+<script src="{{ 'counter.js' |  asset_url }}" defer></script>
+
+<div class="counter-section padding-{{ section.id }}">
+  <div class="page-width">
+    <div class="counter-section__wrapper">
+    <div class="counter-section__text-container">
+      <div class="counter-section__text-content">
+        {% if section.settings.heading != blank %}
+          <h2 class="h0">{{section.settings.heading}}</h2>
+        {% endif %}
+        {% if section.settings.sub_heading != blank %}
+          <div class="counter-section__description">
+            {{ section.settings.sub_heading }}
+          </div>
+        {% endif %}
+      </div>
+      {% if section.settings.button_link != blank and section.settings.button_text != blank %}
+      <a class="counter-section__button" href="{{ section.settings.button_link }}"><span>{{ section.settings.button_text }}</span></a>
+      {% endif %}
+    </div>
+    <div class="counter-section__countdown-timer" id="counter" data-date="hello">
+      <div class="time-days">
+        <div class="days"></div>
+        <span>Days</span>
+      </div>
+      <div class="time-hours">
+        <div class="hours"></div>
+        <span>Hours</span>
+      </div>
+      <div class="time-mins">
+        <div class="mins"></div>
+        <span>Mins</span>
+      </div>
+      <div class="time-secs">
+        <div class="secs"></div>
+        <span>Secs</span>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+{%  schema  %} 
+{
+  "name":"Counter section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type":"richtext",
+      "id": "sub_heading",
+      "label":"Sub heading"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "text",
+      "id": "end_date",
+      "label": "Counter end date",
+      "default": "30/05/2023",
+      "info": "Format: dd/mm/yyyy"
+    },
+    {
+      "type": "header",
+      "content":"Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Counter section"
+    }
+  ]
+}
+{% endschema %}

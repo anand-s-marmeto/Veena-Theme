@@ -1,0 +1,55 @@
+.new-arrivals__header-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.heading {
+  font-weight: 600;
+}
+
+.new-arrivals__products-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.new-arrivals__featured-product {
+  width: 30%;
+  height: 100%;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.new-arrivals__product-slider {
+  width: 65%;
+  height: 100%;
+}
+
+.featured-product-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  color: white;
+  display: flex;
+  padding: 25px;
+  align-items: start;
+  /* justify-content: space-around; */
+  justify-content: end;
+  flex-direction: column;
+}
+
+.content_heading {
+  color: rgb(255, 255, 255);
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+}
+.featured-product-tag {
+  margin-bottom: 10px;
+}

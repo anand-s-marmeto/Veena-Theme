@@ -1,0 +1,124 @@
+<link rel="stylesheet" href="{{ 'collection-banner.css' |  asset_url }}">
+
+{%  style  %} 
+.padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+
+  @media (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="collection-banner padding-{{ section.id }}">
+  <div class="page-width">
+    <div class="collection-banner__wrapper">
+      {% for block in section.blocks %}
+        <div class="collection-banner__image-section">
+          <div class="collection-banner__image">
+            {% if block.settings.desktop_image != blank %}
+              {%  render 'responsive-picture' , class= "banner-image", desktopImage: block.settings.desktop_image , mobileImage: block.settings.mobileImage %}
+            {% endif %}
+          </div>
+          <div class="collection-banner__info-wrapper">
+            <div class="collection-banner__info">
+            {% if block.settings.tag != blank %}
+              <ul class="tag">
+                <li>
+                  {{ block.settings.tag }}
+                </li>
+              </ul>
+            {% endif %}
+            {% if block.settings.title != blank %}
+              <h3 class="content-title h2">
+                {{ block.settings.title }}
+              </h3>
+            {% endif %}
+            {% if block.settings.button_link != blank and block.settings.button_text != blank %}
+              <a href="{{ block.settings.button_link }}" class="collection-banner__button"><span>{{ block.settings.button_text }}</span></a>
+            {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+  </div>
+</div>
+{%  schema  %} 
+  {
+    "name":"Collection banner",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content":"Section padding"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 36
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Collection block",
+        "type":"image-with-text",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "desktop_image",
+            "label": "Desktop image"
+          },
+          {
+            "type": "image_picker",
+            "id": "mobile_image",
+            "label": "Mobile image"
+          },
+          {
+            "type": "text",
+            "id": "tag",
+            "label": "Tag"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label":"Title"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label":"Button link"
+          },
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection banner"
+      }
+    ]
+  }
+{% endschema %} 
