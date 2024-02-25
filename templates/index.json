@@ -512,6 +512,80 @@
         "padding_top": 30,
         "padding_bottom": 30
       }
+    },
+    "collection_banner_cqrEWQ": {
+      "type": "collection-banner",
+      "blocks": {
+        "image_with_text_9mVfPb": {
+          "type": "image-with-text",
+          "settings": {
+            "tag": "",
+            "title": "",
+            "button_link": "",
+            "button_text": ""
+          }
+        },
+        "image_with_text_enE6cg": {
+          "type": "image-with-text",
+          "settings": {
+            "tag": "",
+            "title": "",
+            "button_link": "",
+            "button_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_9mVfPb",
+        "image_with_text_enE6cg"
+      ],
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "new_arrivals_PqJKXz": {
+      "type": "new-arrivals",
+      "settings": {
+        "heading": "New Arrivals",
+        "button_url": "shopify:\/\/collections",
+        "button_text": "See All Products",
+        "desktop_image": "shopify:\/\/shop_images\/new-arrivals_featured_prod.webp",
+        "mobile_image": "shopify:\/\/shop_images\/new-arrivals_featured_prod.webp",
+        "featured_tag": "Women's Apparel",
+        "featured_title": "exclusive Best & New Arrivals collection",
+        "featured_button_link": "shopify:\/\/collections",
+        "featured_button_text": "Explore",
+        "product_list": [
+
+        ],
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_text_gBdWhC": {
+      "type": "image-text",
+      "settings": {
+        "caption": "",
+        "heading": "",
+        "description": "",
+        "button_link": "",
+        "button_text": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "counter_yQHBKf": {
+      "type": "counter",
+      "settings": {
+        "heading": "",
+        "sub_heading": "",
+        "button_link": "",
+        "button_text": "",
+        "end_date": "30\/05\/2023",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -525,6 +599,10 @@
     "logo_list_9zgtjw",
     "feedback_BpD8XQ",
     "blogs_QcMXjN",
-    "custom_marquee_Tp3rwB"
+    "custom_marquee_Tp3rwB",
+    "collection_banner_cqrEWQ",
+    "new_arrivals_PqJKXz",
+    "image_text_gBdWhC",
+    "counter_yQHBKf"
   ]
 }
