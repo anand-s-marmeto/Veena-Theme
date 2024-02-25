@@ -519,10 +519,12 @@
         "image_with_text_9mVfPb": {
           "type": "image-with-text",
           "settings": {
-            "tag": "",
-            "title": "",
-            "button_link": "",
-            "button_text": ""
+            "desktop_image": "shopify:\/\/shop_images\/mens-collection.webp",
+            "mobile_image": "shopify:\/\/shop_images\/mens-collection.webp",
+            "tag": "Men's",
+            "title": "Introducing Our Distinguished Men's Clothing Collection",
+            "button_link": "shopify:\/\/collections",
+            "button_text": "Explore"
           }
         },
         "image_with_text_enE6cg": {
@@ -572,7 +574,7 @@
         "heading": "We Believe in the Power of Fashion",
         "description": "<p>fashion emerges as the universal language that speaks volumes without words.<\/p>",
         "button_link": "shopify:\/\/collections",
-        "button_text": "",
+        "button_text": "Show More",
         "padding_top": 36,
         "padding_bottom": 36
       }
