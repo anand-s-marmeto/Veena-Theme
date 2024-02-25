@@ -14,7 +14,7 @@
 
 <link rel="stylesheet" href="{{ 'counter.css' |  asset_url }}">
 
-<script src="{{ 'counter.js' |  asset_url }}" defer></script>
+{% comment %} <script src="{{ 'counter.js' |  asset_url }}" defer></script> {% endcomment %}
 
 <div class="counter-section padding-{{ section.id }}">
   <div class="page-width">
@@ -34,27 +34,67 @@
       <a class="counter-section__button" href="{{ section.settings.button_link }}"><span>{{ section.settings.button_text }}</span></a>
       {% endif %}
     </div>
-    <div class="counter-section__countdown-timer" id="counter" data-date="hello">
-      <div class="time-days">
-        <div class="days"></div>
-        <span>Days</span>
+    <div class="counter-section__countdown-timer" id="counter" data-date="{{ section.settings.end_date}}">
+      <div class="time-days time">
+        <span class="days"></span>
+        <span class="title">Days</span>
       </div>
-      <div class="time-hours">
-        <div class="hours"></div>
-        <span>Hours</span>
+      <div class="time-hours time">
+        <span class="hours"></span>
+        <span class="title">Hours</span>
       </div>
-      <div class="time-mins">
-        <div class="mins"></div>
-        <span>Mins</span>
+      <div class="time-mins time">
+        <span class="mins"></span>
+        <span class="title">Mins</span>
       </div>
-      <div class="time-secs">
-        <div class="secs"></div>
-        <span>Secs</span>
+      <div class="time-secs time">
+        <span class="secs"></span>
+        <span class="title">Secs</span>
       </div>
     </div>
     </div>
   </div>
 </div>
+
+<script>
+  const data = document.querySelector('.counter-section__countdown-timer')
+  // console.log(data.dataset.date)
+  const requiredDate= data.dataset.date
+  console.log(requiredDate)
+  var countDownDate = new Date(requiredDate).getTime();
+  console.log(countDownDate)
+
+// Update the countdown every 1 second
+  var x = setInterval(function() {
+
+  // Get the current date and time
+  var now = new Date().getTime();
+
+  // Calculate the remaining time
+  var distance = countDownDate - now;
+  console.log(distance)
+
+  // Calculate days, hours, minutes, and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the countdown
+  // document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+  document.querySelector('.days').textContent= days
+  document.querySelector('.hours').textContent = hours
+  document.querySelector('.mins').textContent= minutes
+  document.querySelector('.secs').textContent = seconds
+
+  // If the countdown is over, display a message
+  if (distance < 0) {
+      clearInterval(x);
+      // document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
+
+</script>
 
 {%  schema  %} 
 {
@@ -85,8 +125,8 @@
       "type": "text",
       "id": "end_date",
       "label": "Counter end date",
-      "default": "30/05/2023",
-      "info": "Format: dd/mm/yyyy"
+      "default": "2024/08/23",
+      "info": "Format: yyyy/mm/dd"
     },
     {
       "type": "header",

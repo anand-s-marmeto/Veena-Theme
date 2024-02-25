@@ -1,6 +1,6 @@
 // Set the date we're counting down to
-const date = document.getElementById("#counter");
-console.log(date.getAttribute(date));
+// const date = document.getElementById("#counter");
+// console.log(date.getAttribute(date));
 // var countDownDate = new Date("Jan 1, 2025 00:00:00").getTime();
 
 // // Update the countdown every 1 second

@@ -12,3 +12,52 @@
 .counter-section__countdown-timer {
   display: flex;
 }
+
+.counter-section__countdown-timer {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 60px;
+  justify-content: end;
+}
+
+.time {
+  position: relative;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  min-width: 180px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.days,
+.hours,
+.mins,
+.secs {
+  font-size: 46px;
+  color: rgb(0, 0, 0);
+}
+
+.title {
+  margin-top: 5px;
+  color: rgb(0, 0, 0);
+}
+/* .time:nth-last-child(n + 2)::after {
+  content: ":";
+} */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .time {
+    min-width: 100px;
+    padding: 18px 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .counter-section__wrapper {
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+  }
+}

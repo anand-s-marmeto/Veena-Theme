@@ -20,6 +20,7 @@
   align-items: center;
   justify-content: end;
   padding: 24px;
+  flex-wrap: wrap;
 }
 
 .collection-banner__info {
