@@ -288,9 +288,9 @@
     "counter_yQHBKf": {
       "type": "counter",
       "settings": {
-        "heading": "",
-        "sub_heading": "",
-        "button_link": "",
+        "heading": "Our Women's Clothing Collection.",
+        "sub_heading": "<p>where fashion meets flair, and every outfit becomes a statement.<\/p>",
+        "button_link": "shopify:\/\/collections",
         "button_text": "",
         "end_date": "30\/05\/2023",
         "padding_top": 36,
