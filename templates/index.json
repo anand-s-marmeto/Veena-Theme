@@ -530,10 +530,12 @@
         "image_with_text_enE6cg": {
           "type": "image-with-text",
           "settings": {
-            "tag": "",
-            "title": "",
-            "button_link": "",
-            "button_text": ""
+            "desktop_image": "shopify:\/\/shop_images\/women_s-collection.webp",
+            "mobile_image": "shopify:\/\/shop_images\/women_s-collection.webp",
+            "tag": "Women's",
+            "title": "Elevate Your Wardrobe With Our Women's Clothing Collection",
+            "button_link": "shopify:\/\/collections",
+            "button_text": "Explore"
           }
         }
       },
