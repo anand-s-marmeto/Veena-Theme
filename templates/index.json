@@ -566,10 +566,12 @@
     "image_text_gBdWhC": {
       "type": "image-text",
       "settings": {
-        "caption": "",
-        "heading": "",
-        "description": "",
-        "button_link": "",
+        "desktop_image": "shopify:\/\/shop_images\/image-banner.webp",
+        "mobile_image": "shopify:\/\/shop_images\/image-banner.webp",
+        "caption": "Introduce",
+        "heading": "We Believe in the Power of Fashion",
+        "description": "<p>fashion emerges as the universal language that speaks volumes without words.<\/p>",
+        "button_link": "shopify:\/\/collections",
         "button_text": "",
         "padding_top": 36,
         "padding_bottom": 36
