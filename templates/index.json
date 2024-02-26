@@ -592,6 +592,58 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "faq_HKzqU9": {
+      "type": "faq",
+      "blocks": {
+        "product_content_LYzePg": {
+          "type": "product-content",
+          "settings": {
+            "detail_heading": "How can I track my order?",
+            "detail_summary": "<p>Once your order has been processed and shipped, you will receive a confirmation email with a tracking number. You can use this tracking number to monitor the status and location of your package through our shipping carrier's website.<\/p>"
+          }
+        },
+        "product_content_CzjwmQ": {
+          "type": "product-content",
+          "settings": {
+            "detail_heading": "What is your return policy?",
+            "detail_summary": "<p>We offer a hassle-free return policy. If you're not completely satisfied with your purchase, you can return it within 30 days for a full refund or exchange. Please visit our Returns & Exchanges page for more details on the process and any eligibility criteria.<\/p>"
+          }
+        },
+        "product_content_7p4yGA": {
+          "type": "product-content",
+          "settings": {
+            "detail_heading": "Are the product images accurate representations of the items?",
+            "detail_summary": "<p>Yes, we strive to provide accurate and high-quality images of our products. However, please note that colors may vary slightly due to differences in monitor settings. If you have any specific questions about a product, feel free to contact our customer support team.<\/p>"
+          }
+        },
+        "product_content_DVJNzD": {
+          "type": "product-content",
+          "settings": {
+            "detail_heading": "How do I determine my size?",
+            "detail_summary": "<p>To find the right size, please refer to our detailed size guide available on each product page. Measurements may vary by product, so it's essential to check the specific sizing information provided. If you have further questions or need assistance, our customer support team is here to help.<\/p>"
+          }
+        },
+        "product_content_A3XiYc": {
+          "type": "product-content",
+          "settings": {
+            "detail_heading": "What payment methods do you accept?",
+            "detail_summary": "<p>We accept a variety of payment methods, including major credit cards (Visa, MasterCard, American Express), PayPal, and other secure payment options. During the checkout process, you can choose the payment method that suits you best.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "product_content_LYzePg",
+        "product_content_CzjwmQ",
+        "product_content_7p4yGA",
+        "product_content_DVJNzD",
+        "product_content_A3XiYc"
+      ],
+      "settings": {
+        "heading": "FAQ",
+        "background_color": "#f5f5f5",
+        "subheading": "<p>Ensure that your FAQs are regularly updated based on common customer queries and changes in your business operations..<\/p>"
+      }
     }
   },
   "order": [
@@ -609,6 +661,7 @@
     "logo_list_9zgtjw",
     "image_text_gBdWhC",
     "feedback_BpD8XQ",
-    "blogs_QcMXjN"
+    "blogs_QcMXjN",
+    "faq_HKzqU9"
   ]
 }
