@@ -109,6 +109,7 @@
                 {% endif %}
                 class="full-unstyled-link"
               >
+                {%  render 'breadcrums' %}
                 {%- if card_collection.title != blank -%}
                   {{- card_collection.title | escape -}}
                 {%- else -%}
