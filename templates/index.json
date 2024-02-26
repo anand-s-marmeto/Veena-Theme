@@ -613,21 +613,21 @@
         "product_content_7p4yGA": {
           "type": "product-content",
           "settings": {
-            "detail_heading": "",
-            "detail_summary": ""
+            "detail_heading": "Are the product images accurate representations of the items?",
+            "detail_summary": "<p>Yes, we strive to provide accurate and high-quality images of our products. However, please note that colors may vary slightly due to differences in monitor settings. If you have any specific questions about a product, feel free to contact our customer support team.<\/p>"
           }
         },
         "product_content_DVJNzD": {
           "type": "product-content",
           "settings": {
-            "detail_heading": "",
-            "detail_summary": ""
+            "detail_heading": "How do I determine my size?",
+            "detail_summary": "<p>To find the right size, please refer to our detailed size guide available on each product page. Measurements may vary by product, so it's essential to check the specific sizing information provided. If you have further questions or need assistance, our customer support team is here to help.<\/p>"
           }
         },
         "product_content_A3XiYc": {
           "type": "product-content",
           "settings": {
-            "detail_heading": "",
+            "detail_heading": "What payment methods do you accept?",
             "detail_summary": ""
           }
         }
