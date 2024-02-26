@@ -4,3 +4,10 @@
   border-radius:50%;
   color:black;
 }
+
+.quantity-and-cart-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
