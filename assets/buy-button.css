@@ -15,20 +15,3 @@
   box-shadow: rgba(18, 18, 18, 0) 0px 0px 0px 0px;
   margin-bottom: 10px;
 }
-.cart-btn{
-  position:relative;
-}
-
-.cart-btn::before{
-  position: absolute;
-  top:0;
-  left:0;
-  width:0;
-  height:100;
-  background-color:rgb(208,63,60)
-  transition: all 0.35s ease-in-out
-}
-
-.cart-btn:hover::before{
-  width:100%;
-}
