@@ -51,12 +51,12 @@
         for (var j = 0; j < words.length; j++) {
             var cw = wordArray[j];
             for (var i = 0; i < cw.length; i++) {
-            animateLetterOut(cw, i);
+                animateLetterOut(cw, i);
             }
             for (var i = 0; i < cw.length; i++) {
-            cw[i].className = "letter behind";
-            cw[0].parentElement.style.opacity = 1;
-            animateLetterIn(cw, i);
+                cw[i].className = "letter behind";
+                cw[0].parentElement.style.opacity = 1;
+                animateLetterIn(cw, i);
             }
         }
     }

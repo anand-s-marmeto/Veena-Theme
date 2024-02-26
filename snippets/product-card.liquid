@@ -95,7 +95,7 @@
                           {% if downcased_option_name == 'color' %}
                             <span
                               class="product-card__swatch product-card__colorswatch"
-                              style="background-color: {{ downcased_option_value }}; background-image: url({{ swatch_image }});">
+                              style="background-color: {{ downcased_option_value }}; background-image: url({{ swatch_image }});{% if product_option.selected_value == option_value %} border: 1px solid red {% endif %};">
                             </span>
                           {% comment %} {% else %}
                             <span class="product-card__swatch">
@@ -155,12 +155,19 @@
     <div class="product-vendor">
       {{ product.vendor }}
     </div>
-    <h3 class="product-title h5">
+    <h3 class="product-card-title">
       <a href="{{ product.url }}">{{ product.title }}</a>
     </h3>
     <div class="product-price">
       <div class="regular-price">{{ current_variant.price |  money_with_currency}}</div>
       <s class="compare-price">{{ current_variant.compare_at_price |  money_with_currency }}</s>
+    </div>
+    <div class="product-in-stock">
+      {% if current_variant.inventory_quantity >0 %}
+        <span class="in-stock" style="color:{% if current_variant.inventory_quantity > 10 %} green {% else %} red {% endif %};">{{ current_variant.inventory_quantity }} in stock</span>
+      {% else %}
+        <span class="out-of-stock" style="color: red;">Out of stock</span>
+      {% endif %}
     </div>
   </div>
   

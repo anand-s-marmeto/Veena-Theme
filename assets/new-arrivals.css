@@ -10,13 +10,13 @@
 
 .new-arrivals__products-section {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   gap: 20px;
 }
 
 .new-arrivals__featured-product {
-  width: 30%;
+  width: 25%;
   height: 100%;
   position: relative;
   border-radius: 16px;
@@ -24,8 +24,7 @@
 }
 
 .new-arrivals__product-slider {
-  width: 65%;
-  height: 100%;
+  max-width: 75%;
 }
 
 .featured-product-info {
@@ -86,4 +85,67 @@
 
 .header-button span {
   z-index: 10;
+}
+
+.new-arrivals .splide__arrow--next {
+  top: 50%;
+  right: 0;
+  border-radius: 31px 0 0 31px;
+}
+.new-arrivals .splide__arrow--prev {
+  top: 50%;
+  left: 0;
+  border-radius: 0 31px 31px 0;
+}
+
+.new-arrivals .splide__arrow {
+  background-color: rgb(208, 63, 60);
+  opacity: 1;
+  height: 44px;
+  width: 44px;
+  overflow: hidden;
+}
+
+.new-arrivals .splide__arrow--next span,
+.new-arrivals .splide__arrow--prev span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.new-arrivals .splide__arrow--prev span::before,
+.new-arrivals .splide__arrow--next span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  transition: all 0.25s ease-in-out;
+  z-index: -1;
+}
+
+.new-arrivals .splide__arrow--prev span:hover::before,
+.new-arrivals .splide__arrow--next span:hover::before {
+  width: 100%;
+}
+
+.new-arrivals .splide__arrow:disabled {
+  opacity: 0;
+}
+
+.new-arrivals .splide__arrow svg {
+  height: 14px;
+  width: 14px;
+}
+
+.new-arrivals .media--portrait {
+  padding-bottom: 95%;
 }
