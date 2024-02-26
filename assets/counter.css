@@ -71,14 +71,13 @@
     color: rgb(0, 0, 0);
   }
   .time {
-    width: 60px;
-    height: 60px;
-    padding: 5px;
+    min-width: 60px;
+    padding: 7px 0;
     box-sizing: border-box;
     gap: 0;
   }
   .counter-section__countdown-timer {
-    gap: 1px;
+    gap: 15px;
     width: 100%;
     justify-content: flex-start;
   }

@@ -84,3 +84,9 @@
 .collection-banner__button span {
   z-index: 10;
 }
+
+@media screen and (max-width: 767px) {
+  .collection-banner__wrapper {
+    flex-direction: column;
+  }
+}
