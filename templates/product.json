@@ -52,11 +52,6 @@
             "show_gift_card_recipient": true
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {
-          }
-        },
         "icon_with_text_9ih3xL": {
           "type": "icon-with-text",
           "settings": {
@@ -72,7 +67,12 @@
             "heading_3": "secure payment",
             "icon_4": "truck",
             "image_4": "shopify:\/\/shop_images\/chat.svg",
-            "heading_4": "Heading"
+            "heading_4": "Help center 24\/7"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
           }
         }
       },
@@ -85,8 +85,8 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description",
-        "icon_with_text_9ih3xL"
+        "icon_with_text_9ih3xL",
+        "description"
       ],
       "settings": {
         "enable_sticky_info": true,
