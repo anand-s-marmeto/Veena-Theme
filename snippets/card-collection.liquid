@@ -31,6 +31,20 @@
   endif
 -%}
 
+{%  style %}
+  {
+   .card__heading{
+     font-size:16px;
+     font-weight:500;
+     color:rgb(0,0,0);
+     transition:all 0.25s ease-in-out;
+   }
+  .card-heading:hover{
+    color:rgb(208,63,60);
+  }
+  }
+{%  endstyle %}
+
 <div class="card-wrapper animate-arrow {% if wrapper_class and wrapper_class != 'none' %}{{ wrapper_class }}{% else %}collection-card-wrapper{% endif %}">
   <div
     class="
