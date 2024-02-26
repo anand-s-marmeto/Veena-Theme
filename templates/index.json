@@ -628,7 +628,7 @@
           "type": "product-content",
           "settings": {
             "detail_heading": "What payment methods do you accept?",
-            "detail_summary": ""
+            "detail_summary": "<p>We accept a variety of payment methods, including major credit cards (Visa, MasterCard, American Express), PayPal, and other secure payment options. During the checkout process, you can choose the payment method that suits you best.<\/p>"
           }
         }
       },
