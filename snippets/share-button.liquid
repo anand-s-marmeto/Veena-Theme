@@ -66,7 +66,10 @@
   }
   
 {%  endstyle %}
-<script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'share.js' | asset_url }}" defer="defer">
+  console.log(share_url)
+</script>
+
 
 <share-button id="Share-{{ section.id }}" class="share-button quick-add-hidden" {{ block.shopify_attributes }}>
   <button class="share-button__button hidden">
