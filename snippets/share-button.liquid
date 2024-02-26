@@ -66,13 +66,12 @@
   }
   
 {%  endstyle %}
-<script src="{{ 'share.js' | asset_url }}" defer="defer">
-  console.log(share_url)
-</script>
+<script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
 
 
 <share-button id="Share-{{ section.id }}" class="share-button quick-add-hidden" {{ block.shopify_attributes }}>
   <button class="share-button__button hidden">
+    {{  share_url }}
     <!-- {% render 'icon-share' %} -->
     <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/share_icon_1.png?v=1689752691" alt = "share-img" class=" share-image" style=" width : 20px;" width="100%" height="auto"/>
     
