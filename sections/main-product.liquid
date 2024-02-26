@@ -419,47 +419,7 @@
             {%- when 'buy_buttons' -%}
               {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true, cart_qty: cart_qty -%}
            
-              <style>
-                .payments{
-                  display: flex;
-                  align-items: center;
-                  justify-content: space-between;
-                  border: 1px solid rgb(0,0,0,0.1);
-                  border-radius: 5px;
-                  padding: 8px 20px;
-                }
-                .payment-options{
-                  display:flex;
-                  list-style:none;
-                  margin:0px;
-                }
-                .payment-text{
-                  font-weight: 700;
-                  line-height: 28.8px;
-                }
-                .icon {
-                  width: 3.125em;
-                }
-              </style>
-
               
-  
-              {%- unless shop.enabled_payment_types == empty -%}
-                <div class="payments">
-                  <span class=" payment-text">Secure checkout with</span>
-                
-                  <ul class="payment-options">
-                    {%- for type in shop.enabled_payment_types -%}
-                      <li>
-                        {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                </div>
-                
-              {%- endunless -%}
-                
-            
             {%- when 'rating' -%}
               {%- if product.metafields.reviews.rating.value != blank -%}
                 {% liquid
@@ -589,6 +549,48 @@
         </a>
       </product-info>
     </div>
+
+                          <style>
+                .payments{
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  border: 1px solid rgb(0,0,0,0.1);
+                  border-radius: 5px;
+                  padding: 8px 20px;
+                }
+                .payment-options{
+                  display:flex;
+                  list-style:none;
+                  margin:0px;
+                }
+                .payment-text{
+                  font-weight: 700;
+                  line-height: 28.8px;
+                }
+                .icon {
+                  width: 3.125em;
+                }
+              </style>
+
+              
+  
+              {%- unless shop.enabled_payment_types == empty -%}
+                <div class="payments">
+                  <span class=" payment-text">Secure checkout with</span>
+                
+                  <ul class="payment-options">
+                    {%- for type in shop.enabled_payment_types -%}
+                      <li>
+                        {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+                
+              {%- endunless -%}
+                
+            
     {%- if section.settings.media_position == 'right' -%}
       {% comment %} Duplicate gallery to display after product content on tablet/desktop breakpoint {% endcomment %}
       <div class="grid__item product__media-wrapper small-hide">
