@@ -1,0 +1,104 @@
+{%  style  %} 
+  .padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+
+  @media (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .faq-section{
+    background-color: {{ section.settings.background_color }}
+  }
+{% endstyle %} 
+
+<link rel="stylesheet" href="{{ 'faq.css' |  asset_url }}">
+
+<div class="faq-section padding-{{ section.id }}">
+    <div class="page-width faq-section__wrapper">
+        <div class="faq-section__text-content">
+            <h2 class="faq-section__heading h0">{{ section.settings.heading }}</h2>
+            <div class="faq-section__subheading">{{ section.settings.subheading }}</div>
+
+        </div>
+        <div class="faq-section__blocks">
+            {% for block in section.blocks %}
+                <div class="faq-section__block">
+                    <details>
+                        {% if block.settings.detail_heading!=blank %}
+                        <summary>
+                            <div class="faq-section__toggle-group">
+                                <h3 class="summary-title h4">{{ forloop.index }}. {{ block.settings.detail_heading}}</h3>
+                            </div>
+                            {% comment %} <div class="summary-chevron-up">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </div> {% endcomment %}
+                            <span class="summary-open-close">+</span>
+                        </summary>
+                        {% endif %}
+                        {% if block.settings.detail_summary != blank %}
+                        <div class="summary-content">{{ block.settings.detail_summary }}</div>
+                        {% endif %}
+                    </details>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>  
+</div>
+
+
+
+{%  schema  %} 
+    {
+        "name":"FAQ section",
+        "tag": "section",
+        "settings": [
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Section Heading",
+                "default": "Discover More in Our FAQ Corner"
+            },
+            {
+              "type": "color",
+              "id": "background_color",
+              "label": "Background color"
+            },
+            {
+                "type": "richtext",
+                "id": "subheading",
+                "label": "Section Subheading",
+                "default": "<p> From common queries to niche details, we've addressed them all.</p>"
+            }
+        ],
+        "blocks": [
+            {
+                "name":"FAQ blocks",
+                "type": "product-content",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "detail_heading",
+                        "label": "Block Heading"
+                    },
+                    {
+                        "type": "richtext",
+                        "id":"detail_summary",
+                        "label": "Block Summary"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "FAQ section"
+            }
+        ]
+    }
+
+{% endschema %}

@@ -106,6 +106,17 @@ h2.h0 {
   font-size: calc(var(--font-heading-scale) * 34px);
   font-weight: 600;
 }
+@media only screen and (min-width: 768px) {
+  .h0 {
+    font-size: calc(var(--font-heading-scale) * 5.2rem);
+  }
+}
+@media only screen and (min-width: 768px) {
+  h2,
+  .h2 {
+    font-size: calc(var(--font-heading-scale) * 2.4rem);
+  }
+}
 
 .custom--button {
   padding: 8px 20px;
