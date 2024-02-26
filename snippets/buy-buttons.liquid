@@ -76,6 +76,7 @@
               assign quantity_rule_soldout = true
             endif
           -%}
+         <div class="quantity-and-cart-button"> 
           <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
             <button class="quantity__button no-js-hidden" name="minus" type="button">
               <span class="visually-hidden">
@@ -126,6 +127,7 @@
             </span>
             {%- render 'loading-spinner' -%}
           </button>
+          </div>
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
           {%- endif -%}
