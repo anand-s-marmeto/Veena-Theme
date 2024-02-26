@@ -1491,6 +1491,25 @@ button.shopify-payment-button__button--unbranded {
     0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
 }
 
+
+.cart__dynamic-checkout-buttons [role="button"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width:0;
+  height:100%;
+  z-index: -1;
+  background-color: rgb(208,63,60)
+  transition: all 0.35s ease-in-out
+}
+
+.cart_dynamic-checkout-buttons [role="button"]:hover::before{
+  width:100%
+}
+
 .button:focus:not(:focus-visible):not(.focused),
 .shopify-payment-button__button--unbranded:focus:not(:focus-visible):not(
     .focused
