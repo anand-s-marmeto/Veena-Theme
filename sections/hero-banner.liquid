@@ -12,11 +12,19 @@
   }
 {% endstyle %} 
 
+{% capture slider %}
+    {
+        "perPage":1,
+        "arrows":true,
+        "pagination":true
+    }
+{% endcapture %}
+
 <link rel="stylesheet" href="{{ 'hero-banner.css' | asset_url }}">
 
 <div class="hero-banner padding-{{ section.id }}">
     <div class="page-width">
-        <my-splide>
+        <my-splide data-slider-options='{{ slider }}'>
             <div class="splide">
                 <div class="splide__track">
                     <div class="splide__list">
@@ -48,13 +56,7 @@
                     </div>
                 </div>
             </div>
-            <script>
-                {
-                    "perPage":1,
-                    "arrows":true,
-                    "pagination":true
-                }
-            </script>
+            
         </my-splide>
     </div>
 </div>

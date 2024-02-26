@@ -17,13 +17,28 @@
   }
 {% endstyle %} 
 
+{%  capture slider %} 
+ {
+    "arrows": true,
+    "pagination": false,
+    "perPage": 3,
+    "gap":"20px",
+    "perMove":1,
+    "breakpoints":{
+      "768":{
+        "perPage":1
+      }
+    }
+  }
+{% endcapture %}
+
 <div class="feedback-section padding-{{ section.id }}">
   <div class="page-width">
     <div class="feedback-section__wrapper">
       <div class="feedback-section__heading">
         <h2 class="h0">{{ section.settings.heading}}</h2>
       </div>
-      <my-splide>
+      <my-splide data-slider-options='{{ slider }}'>
         <div class="splide feedback-splide">
           <div class="splide__arrows splide__arrows--ltr">
             <button class="splide__arrow splide__arrow--prev" type="button" disabled="" aria-label="Previous slide" aria-controls="splide03-track">
@@ -67,20 +82,6 @@
               </div>
             </div>
           </div>
-        <script>
-          {
-            "arrows": true,
-            "pagination": false,
-            "perPage": 3,
-            "gap":"20px",
-            "perMove":1,
-            "breakpoints":{
-              "768":{
-                "perPage":1
-              }
-            }
-          }
-        </script>
       </my-splide>
       </div>
     </div>

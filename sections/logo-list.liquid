@@ -18,11 +18,29 @@
   }
 {% endstyle %} 
 
+{%  capture slider %} 
+  {
+    "perPage" : 8,
+    "arrows" : false,
+    "pagination" : false,
+    "gap":"20px",
+    "wheel":true,
+    "waitForTransition":true,
+    "breakpoints":{
+      "990":{
+        "perPage":4
+      },
+      "575":{
+        "perPage":3
+      }
+    }
+  }
+{% endcapture %}
 
 <div class="logo-list padding-{{ section.id }}">
   <div class="page-width">
     <div class="logo-list__wrapper">
-     <my-splide>
+     <my-splide data-slider-options='{{ slider }}'>
       <div class="splide">
         <div class="splide__track">
           <div class="splide__list">
@@ -38,25 +56,6 @@
           </div>
         </div>
       </div>
-      {% comment %} ⭐Fix the drag {% endcomment %}
-      <script>
-        {
-          "perPage" : 8,
-          "arrows" : false,
-          "pagination" : false,
-          "gap":"20px",
-          "wheel":true,
-          "waitForTransition":true,
-          "breakpoints":{
-            "990":{
-              "perPage":4
-            },
-            "575":{
-              "perPage":3
-            }
-          }
-        }
-      </script>
     </my-splide> 
     </div>
   </div>

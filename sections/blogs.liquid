@@ -13,6 +13,19 @@
     }
   }
 {% endstyle %} 
+{%  capture slider %} 
+  {
+    "arrows":true,
+    "pagination":false,
+    "perPage":2,
+    "gap": "20px",
+    "breakpoints":{
+      "992":{
+        "perPage":1
+      }
+    }
+  }
+{% endcapture %} 
 
 <div class="blogs padding-{{ section.id }}">
   <div class="page-width">
@@ -28,7 +41,7 @@
         {% endif %}
       </div>
       <div class="blogs__slider-section">
-        <my-splide>
+        <my-splide data-slider-options='{{ slider }}'>
           <div class="splide">
             <div class="splide__arrows splide__arrows--ltr">
               <button class="splide__arrow splide__arrow--prev" type="button" disabled="" aria-label="Previous slide" aria-controls="splide03-track">
@@ -87,19 +100,6 @@
               </div>
             </div>
           </div>
-          <script>
-            {
-              "arrows":true,
-              "pagination":false,
-              "perPage":2,
-              "gap": "20px",
-              "breakpoints":{
-                "992":{
-                  "perPage":1
-                }
-              }
-            }
-          </script>
         </my-splide>
       </div>
     </div>

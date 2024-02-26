@@ -15,20 +15,20 @@
   }
 {% endstyle %} 
 
-{% comment %} <script>
-  
-  document.addEventListener("DOMContentLoaded", function () {
-  // const slide= document.querySelector('.splide')
-  console.log("loaded")
-  var splide = new Splide(".splide", {
-    arrow: true,
-    pagination: false,
-    perPage: 3,
-    perMove: 1
-  }).mount();
-});
-
-</script> {% endcomment %}
+{% capture slider %}
+  {
+      "arrows": true,
+      "pagination": false,
+      "perPage": 3,
+      "perMove":1,
+      "breakpoints":{
+        "640": {
+          "perPage": 2
+        }
+      },
+      "gap":"20px"
+  }
+{% endcapture %}
 
 <div class="new-arrivals padding-{{ section.id }}">
   <div class="page-width">
@@ -45,7 +45,7 @@
       <div class="new-arrivals__featured-product">
         <div class="product-image">
           {% if section.settings.desktop_image != blank %}
-            {%  render 'responsive-picture' , class="prod-image" , desktopImage: section.settings.desktop_image , mobileImage : section.settings.mobile_image %} 
+            {%  render 'responsive-picture' , class:"prod-image" , desktopImage: section.settings.desktop_image , mobileImage : section.settings.mobile_image %} 
           {% endif %}
         </div>
         <div class="featured-product-info">
@@ -63,23 +63,25 @@
         </div>
       </div>
       <div class="new-arrivals__product-slider">
-        <div class="splide">
-          <div class="splide__track">
-            <div class="splide__list">
-              {% for product in product_list %}
-                <div class="splide__slide">
-                  {%  render 'product-card' , product:product , section_id : section.id %}
-                </div> 
-              {% else %}
-                {% for i in (1..5) %}
+        <my-splide data-slider-options='{{ slider }}'>
+          <div class="splide">
+            <div class="splide__track">
+              <div class="splide__list">
+                {% for product in product_list %}
                   <div class="splide__slide">
-                  {{ 'product-' |  append: i |  placeholder_svg_tag }}
+                    {% render 'product-card' , product: product , section_id: section.id %}
                   </div>
+                {%  else  %}
+                  {% for i in (1..5) %}
+                    <div class="splide__slide">
+                      {{ 'product-' |  append: i |  placeholder_svg_tag }}
+                    </div>
+                  {% endfor %}
                 {% endfor %}
-              {% endfor %}
+              </div>
             </div>
           </div>
-        </div>
+        </my-splide>
       </div>
     </div>
   </div>

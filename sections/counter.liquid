@@ -12,7 +12,7 @@
   }
 {% endstyle %}
 
-<link rel="stylesheet" href="{{ 'counter.css' |  asset_url }}">
+<link rel="stylesheet" href="{{ 'section-counter.css' |  asset_url }}">
 
 {% comment %} <script src="{{ 'counter.js' |  asset_url }}" defer></script> {% endcomment %}
 
@@ -31,7 +31,9 @@
         {% endif %}
       </div>
       {% if section.settings.button_link != blank and section.settings.button_text != blank %}
-      <a class="counter-section__button" href="{{ section.settings.button_link }}"><span>{{ section.settings.button_text }}</span></a>
+      <a href="{{ section.settings.button_link }}" style="text-decoration:none">
+        <span class="custom--button custom--button--fourth">{{ section.settings.button_text }}</span>
+        </a>
       {% endif %}
     </div>
     <div class="counter-section__countdown-timer" id="counter" data-date="{{ section.settings.end_date}}">
@@ -39,14 +41,17 @@
         <span class="days"></span>
         <span class="timer-title">Days</span>
       </div>
+      <span class="col">:</span>
       <div class="time-hours time">
         <span class="hours"></span>
         <span class="timer-title">Hours</span>
       </div>
+       <span class="col">:</span>
       <div class="time-mins time">
         <span class="mins"></span>
         <span class="timer-title">Mins</span>
       </div>
+       <span class="col">:</span>
       <div class="time-secs time">
         <span class="secs"></span>
         <span class="timer-title">Secs</span>

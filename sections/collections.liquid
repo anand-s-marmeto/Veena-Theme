@@ -14,6 +14,23 @@
   }
 {% endstyle %} 
 
+{% capture slider %}
+    {
+        "arrows":true,
+        "pagination":false,
+        "perPage":5,
+        "gap":"20px",
+        "breakpoints":{
+            "991":{
+                "perPage":3
+            },
+            "768":{
+                "perPage":2
+            }
+        }
+    }
+{% endcapture %}
+
 
 <div class="collections padding-{{ section.id }}">
     <div class="page-width">
@@ -32,7 +49,7 @@
             {% comment %} Slider {% endcomment %}
 
             <div class="collections__slider">
-                <my-splide>
+                <my-splide data-slider-options=' {{ slider }}'>
                     <div class="splide collections__splide">
                         <div class="splide__arrows splide__arrows--ltr">
                             <button class="splide__arrow splide__arrow--prev" type="button" disabled="" aria-label="Previous slide" aria-controls="splide03-track">
@@ -75,22 +92,7 @@
                             </div>
                         </div>
                     </div>
-                    <script>
-                        {
-                            "arrows":true,
-                            "pagination":false,
-                            "perPage":5,
-                            "gap":"20px",
-                            "breakpoints":{
-                                "991":{
-                                    "perPage":3
-                                },
-                                "768":{
-                                    "perPage":2
-                                }
-                            }
-                        }
-                    </script>
+                    
                 </my-splide>
             </div>
         </div>
