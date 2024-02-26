@@ -1,9 +1,11 @@
 .custom-marquee {
-  position: relative;
-  display: flex;
+  grid: auto / auto-flow max-content;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100px;
+  display: grid;
+  overflow: hidden;
+  padding: 40px 0px;
+  position: relative;
   overflow: hidden;
   background: linear-gradient(
     90deg,
@@ -15,17 +17,12 @@
 }
 
 .custom-marquee .marquee {
-  display: flex;
-  flex-wrap: nowrap;
-  text-align: center;
-  gap: 40px;
-  position: absolute;
-  width: 300%;
-  overflow: hidden;
   animation: marquee 40s linear infinite;
+  display: flex;
+  place-items: center;
 }
 
-.custom-marquee div:hover {
+.custom-marquee:hover > * {
   animation-play-state: paused;
 }
 
@@ -51,14 +48,15 @@
 
 .marquee-item {
   display: flex;
-  flex-wrap: nowrap;
-  white-space: nowrap;
-  text-align: center;
   align-items: center;
+  position: relative;
+  margin: 0 40px;
+  gap: calc(40px * 1 / 2);
   gap: 20px;
   line-height: normal;
   font-size: 35px;
   color: #000;
+  text-wrap: nowrap;
 }
 
 .marquee-item .button {
@@ -67,16 +65,16 @@
   line-height: calc(1 + 0.2 / var(--font-body-scale));
 }
 
-.button {
+.marquee-item .button {
   overflow: hidden;
   transition: color 0.7s ease;
 }
 
-.button:hover {
+.marquee-item .button:hover {
   color: #fff;
 }
 
-.button::after {
+.marquee-item .button::after {
   content: "";
   position: absolute;
   top: 0;
@@ -91,7 +89,7 @@
   scale: 1.2;
 }
 
-.button:hover::after {
+.marquee-item .button:hover::after {
   transform: translateX(0%);
 }
 

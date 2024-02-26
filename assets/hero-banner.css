@@ -147,3 +147,23 @@ img {
 .text-align-right {
   align-items: flex-end;
 }
+
+@media screen and (max-width: 840px) {
+  .hero-banner__title {
+    font-size: 26px;
+  }
+  .top-left,
+  .top-right,
+  .bottom-center,
+  .bottom-left,
+  .bottom-right,
+  .center-left,
+  .center-right {
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-banner__text-content {
+    margin-bottom: 0;
+    text-align: center;
+  }
+}

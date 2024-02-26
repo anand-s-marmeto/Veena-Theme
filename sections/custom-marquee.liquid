@@ -13,27 +13,30 @@
   }
 {% endstyle %}
 
-<div class="custom-marquee padding--{{section.id}}">
-  <div class="marquee">
-    {% for i in (1..9) %}
-      {% for block in section.blocks %}
-        <div class="marquee-item">
-          <div class="marquee-svg">
-            {{ block.settings.svg }}
+<div class="padding--{{section.id}}">
+  <div class="custom-marquee">
+    {% for i in (1..28) %}
+      <div class="marquee">
+        {% for block in section.blocks %}
+          <div class="marquee-item">
+            <div class="marquee-svg">
+              {{ block.settings.svg }}
+            </div>
+            <div class="marquee-text">
+              {{ block.settings.slider_text }}
+            </div>
+            <div class="marquee--button">
+              <a href="{{block.settings.button_url}}" class="button {{block.settings.button_type}}">
+                <span>{{ block.settings.button_label }}</span>
+              </a>
+            </div>
           </div>
-          <div class="marquee-text uppercase">
-            {{ block.settings.slider_text }}
-          </div>
-          <div class="marquee--button">
-            <a href="{{block.settings.button_url}}" class="button {{block.settings.button_type}}">
-              <span class="uppercase">{{ block.settings.button_label }}</span>
-            </a>
-          </div>
-        </div>
-      {% endfor %}
+        {% endfor %}
+      </div>
     {% endfor %}
   </div>
 </div>
+
 
 {% schema %}
   {
@@ -136,7 +139,7 @@
     ],
     "presets": [
       {
-        "name": "Custom marquee"
+        "name": "Custom text slider"
       }
     ]
   }
