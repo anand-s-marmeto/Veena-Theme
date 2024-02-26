@@ -115,7 +115,7 @@
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit button add-cart-button button--full-width button--primary"
+            class="product-form__submit button add-cart-button button--full-width cart-btn button--primary"
             {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
               disabled
             {% endif %}
