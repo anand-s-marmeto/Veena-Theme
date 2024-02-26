@@ -47,3 +47,40 @@
     transform: scale(1.05);
   }
 }
+
+.collection-banner__button {
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+  display: flex;
+  padding: 5px 15px;
+  align-items: center;
+  justify-content: center;
+  min-width: 122px;
+  min-height: 44px;
+  position: relative;
+  overflow: hidden;
+}
+
+.collection-banner__button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #f5f5f5;
+  border-radius: 30px;
+  transition: all 0.25s ease-in-out;
+}
+
+.collection-banner__button:hover::before {
+  width: 100%;
+}
+
+.collection-banner__button:hover {
+  color: rgb(208, 60, 63);
+}
+
+.collection-banner__button span {
+  z-index: 10;
+}

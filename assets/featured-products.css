@@ -186,12 +186,15 @@
   display: flex;
   padding: 0;
   margin: 0;
+  gap: 5px;
 }
 
-.product-card__option {
+.product-card__options {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  list-style: none;
 }
 
 .product-card .media:hover {
@@ -205,10 +208,9 @@
 
 .product-card__swatch {
   display: block;
-  min-width: 30px;
-  min-height: 25px;
+  min-width: 16px;
+  min-height: 16px;
   border-radius: 50%;
-  border: 1px solid black;
 }
 .product-card__label {
   position: relative;
@@ -217,4 +219,8 @@
 .product-card__label input {
   position: absolute;
   display: none;
+}
+
+.product-card__form {
+  min-height: 45px;
 }

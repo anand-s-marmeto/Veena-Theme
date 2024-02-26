@@ -50,6 +50,41 @@
 
 .text-image__button {
   margin-top: 10px;
+  border: 1px solid white;
+  border-radius: 31px;
+  padding: 5px 15px;
+  color: rgb(255, 255, 255);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 122px;
+  min-height: 44px;
+}
+
+.text-image__button span {
+  z-index: 10;
+}
+
+.text-image__button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: white;
+  border-radius: 31px;
+  transition: all 0.25s ease-in-out;
+}
+
+.text-image__button:hover::before {
+  width: 100%;
+}
+
+.text-image__button:hover {
+  color: rgb(208, 60, 63);
 }
 
 @media screen and (max-width: 991px) {

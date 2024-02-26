@@ -81,11 +81,7 @@ details[open] {
 }
 
 @media screen and (max-width: 1200px) {
-  .faq-section__wrapper {
-    flex-direction: column;
-    gap: 3rem;
-  }
-  s .faq-section__text-content {
+  .faq-section__text-content {
     width: 100%;
   }
   .faq-section__subheading > p {

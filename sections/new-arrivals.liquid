@@ -37,7 +37,7 @@
       <h2 class="heading h0">{{ section.settings.heading }}</h2>
       {% endif %}
       {% if section.settings.button_url != blank and section.settings.button_text != blank %}
-      <a href="{{ section.settings.button_url }}" class="header-button">{{ section.settings.button_text }}</a>
+      <a href="{{ section.settings.button_url }}" class="header-button"><span>{{ section.settings.button_text }}</span></a>
       {% endif %}
     </div>
 
