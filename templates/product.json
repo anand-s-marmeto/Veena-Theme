@@ -3,19 +3,15 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        },
         "judge_me_reviews_preview_badge_ABMtq7": {
           "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
           "settings": {
           }
         },
         "vendor": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "{{ product.vendor }}",
             "text_style": "uppercase"
@@ -24,6 +20,12 @@
         "title": {
           "type": "title",
           "settings": {
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
           }
         },
         "price": {
@@ -50,6 +52,24 @@
             "show_gift_card_recipient": true
           }
         },
+        "icon_with_text_9ih3xL": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "heart",
+            "image_1": "shopify:\/\/shop_images\/discount.svg",
+            "heading_1": "Daily deals",
+            "icon_2": "return",
+            "image_2": "shopify:\/\/shop_images\/recycle.svg",
+            "heading_2": "Return Policy",
+            "icon_3": "truck",
+            "image_3": "shopify:\/\/shop_images\/received.svg",
+            "heading_3": "secure payment",
+            "icon_4": "truck",
+            "image_4": "shopify:\/\/shop_images\/chat.svg",
+            "heading_4": "Help center 24\/7"
+          }
+        },
         "description": {
           "type": "description",
           "settings": {
@@ -57,14 +77,15 @@
         }
       },
       "block_order": [
-        "share",
         "judge_me_reviews_preview_badge_ABMtq7",
         "vendor",
         "title",
+        "share",
         "price",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
+        "icon_with_text_9ih3xL",
         "description"
       ],
       "settings": {

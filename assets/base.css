@@ -1491,6 +1491,8 @@ button.shopify-payment-button__button--unbranded {
     0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
 }
 
+
+
 .button:focus:not(:focus-visible):not(.focused),
 .shopify-payment-button__button--unbranded:focus:not(:focus-visible):not(
     .focused

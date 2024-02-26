@@ -15,7 +15,8 @@
   share-button{
     display: flex !important;
     align-items: end;
-    justify-content: end;
+    justify-content: right;
+    margin-top:-65px;
   }
   .share-button__button{
     position: relative;
@@ -78,9 +79,10 @@
 
     <div class="share-options">
       <ul class="social_media_platforms">
-        {{  share_url }}
         <li class= "option">
-          <a class="product-meta__share-button-item product-meta__share-button-item--facebook link tap-area" href="https://www.facebook.com/sharer.php?u={{ share_url }}" target= "_blank" rel="noopener" aria-label="Share on Facebook"><svg focusable="false" width="8" height="14" class="icon icon--facebook" viewBox="0 0 9 17">
+          
+        <!-- {{  share_link }} -->
+          <a class="product-meta__share-button-item product-meta__share-button-item--facebook link tap-area" href="https://www.facebook.com/sharer.php?u={{ share_link }}" target= "_blank" rel="noopener" aria-label="Share on Facebook"><svg focusable="false" width="8" height="14" class="icon icon--facebook" viewBox="0 0 9 17">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M2.486 16.2084L2.486 8.81845H0L0 5.93845L2.486 5.93845L2.486 3.81845C2.38483 2.79982 2.73793 1.78841 3.45107 1.05407C4.16421 0.319722 5.16485 -0.0628415 6.186 0.00844868C6.9284 0.00408689 7.67039 0.0441585 8.408 0.128449V2.69845L6.883 2.69845C6.4898 2.61523 6.08104 2.73438 5.79414 3.01585C5.50724 3.29732 5.3803 3.70373 5.456 4.09845L5.456 5.93845H8.308L7.936 8.81845H5.46L5.46 16.2084H2.486Z" fill="currentColor"></path>
           </svg><span>Facebook</span>
           </a>
@@ -92,14 +94,14 @@
           </a>
         </li>
         <li class="option">
-        <a class="product-meta__share-button-item product-meta__share-button-item--twitter link tap-area" href="https://twitter.com/share?text={{ share_url }}" target="_blank" rel="noopener" aria-label="Tweet on Twitter">
+        <a class="product-meta__share-button-item product-meta__share-button-item--twitter link tap-area" href="https://twitter.com/share?text={{ share_link }}" target="_blank" rel="noopener" aria-label="Tweet on Twitter">
     
     
             <!--?xml version="1.0" encoding="UTF-8"?--><svg id="Layer_2" height="16" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95.4 86.45"><defs><style>.cls-1{stroke-width:0px;}</style></defs><g id="Layer_1-2"><path class="cls-1" d="m58.14,36.92c12.4,16.38,24.52,32.38,37.26,49.21-9.99,0-19.06.11-28.12-.13-1.27-.03-2.73-1.65-3.68-2.86-6.76-8.64-13.42-17.37-20.45-26.53-6.8,7.73-13.72,14.92-19.81,22.75-4.08,5.24-8.5,8-15.16,6.83-1.44-.25-2.96-.04-5.68-.04,11.61-13.26,22.58-25.81,33.74-38.55C24.29,32,12.49,16.57,0,.26c10.24,0,19.61-.11,28.97.13,1.24.03,2.67,1.71,3.62,2.93,6.2,8.01,12.3,16.1,18.73,24.56,6.67-7.61,13.25-14.67,19.28-22.17,3.32-4.14,6.85-6.39,12.23-5.54,2.05.32,4.19.05,7.44.05-11.1,12.67-21.46,24.51-32.13,36.69ZM17.62,9.03c1.33,1.8,2.37,3.26,3.46,4.69,15.27,19.94,30.68,39.78,45.73,59.89,3.05,4.07,6.18,5.29,11.21,3.97-.71-1.03-1.21-1.83-1.79-2.58-15.47-20.42-31.07-40.73-46.3-61.33-3.2-4.33-6.52-6.17-12.31-4.63Z"></path></g></svg><span>Twitter</span>
         </a>
         </li>
         <li class="option">
-          <a class="product-meta__share-button-item product-meta__share-button-item--mail link tap-area" href="mailto:?&amp;subject=boAt Airdopes 141 | Wireless Earbuds with 8mm drivers, Upto 42 Hours Playback, ENx™ Technology, IPX4 Water Resistance&amp;body=https://www.boat-lifestyle.com/products/airdopes-141?utm_source=Website&amp;utm_medium=PDP&amp;utm_campaign=Sharebutton" aria-label="Share by e-mail">
+          <a class="product-meta__share-button-item product-meta__share-button-item--mail link tap-area" href="mailto:?&amp;subject={{ block.settings.title }};body={{ share_link }}" aria-label="Share by e-mail">
             
             <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/gmail_icon_9d04fc22-9b08-430d-8946-298d4a3d0a84.png?v=1689660207" style="width: 16px;" width="100%" height="auto">
             <span>Email</span>
