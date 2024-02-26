@@ -54,6 +54,18 @@
           "type": "description",
           "settings": {
           }
+        },
+        "icon_with_text_9ih3xL": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "heart",
+            "heading_1": "Heading",
+            "icon_2": "return",
+            "heading_2": "Heading",
+            "icon_3": "truck",
+            "heading_3": "Heading"
+          }
         }
       },
       "block_order": [
@@ -65,7 +77,8 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description"
+        "description",
+        "icon_with_text_9ih3xL"
       ],
       "settings": {
         "enable_sticky_info": true,
