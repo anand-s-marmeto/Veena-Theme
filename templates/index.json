@@ -198,7 +198,17 @@
         "featured_button_link": "shopify:\/\/collections",
         "featured_button_text": "Explore",
         "product_list": [
-
+          "full-sleeve-high-neck-t-shirt",
+          "full-sleeve-high-neck-t-shirt-1",
+          "knit-sweater",
+          "men-winter-jacket",
+          "mens-half-sleeve-t-shirt",
+          "mens-winter-hooded-jacket",
+          "women-shirt-beige-dress",
+          "women-solid-casual-jacket",
+          "womens-casual-jacket",
+          "womens-casual-sweaters",
+          "womens-oversized-hoodie"
         ],
         "padding_top": 36,
         "padding_bottom": 36
