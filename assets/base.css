@@ -1461,7 +1461,7 @@ button.shopify-payment-button__button--unbranded {
 .button:after,
 .shopify-challenge__button:after,
 .customer button:after,
-.shopify-payment-button__button--unbranded:after {
+ {
   content: "";
   position: absolute;
   top: var(--buttons-border-width);
@@ -1480,7 +1480,7 @@ button.shopify-payment-button__button--unbranded {
 .button:not([disabled]):hover::after,
 .shopify-challenge__button:hover::after,
 .customer button:hover::after,
-.shopify-payment-button__button--unbranded:hover::after {
+ {
   --border-offset: 1.3px;
   box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))
       rgba(var(--color-button-text), var(--border-opacity)),
@@ -1495,9 +1495,8 @@ button.shopify-payment-button__button--unbranded {
 .button:focus-visible,
 .button:focus,
 .button.focused,
-.shopify-payment-button__button--unbranded:focus-visible,
-.shopify-payment-button [role="button"]:focus-visible,
-.shopify-payment-button__button--unbranded:focus,
+/* .shopify-payment-button__button--unbranded:focus-visible,
+.shopify-payment-button [role="button"]:focus-visible, */
 .shopify-payment-button [role="button"]:focus {
   outline: 0;
   box-shadow: 0 0 0 0.3rem rgb(var(--color-background)),
