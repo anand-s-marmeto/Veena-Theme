@@ -1115,6 +1115,19 @@ input.mobile-facets__checkbox {
     background-color:#f5f5f5;
   }
 
+  .facets-filter-info-sort-by{
+    display:flex;
+  }
+
+  .facets-filters__sort{
+    padding: 8px 37.5px 8px 8px;
+    border-radius: 30px;
+    background-color: rgb(255,255,255);
+  }
+  .facet-filters__sort+.icon-caret{
+    right:10px;
+  }
+
   .product-count-vertical {
     margin-left: 3.5rem;
     position: relative;
