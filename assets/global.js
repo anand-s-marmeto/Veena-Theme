@@ -1229,7 +1229,7 @@ class VariantSelects extends HTMLElement {
 
     if (disable) {
       addButton.setAttribute('disabled', 'disabled');
-      if (text) addButtonText.textContent = text;
+      if (text) addButtonText.textContent = 'ATC';
     } else {
       addButton.removeAttribute('disabled');
       // addButtonText.textContent = window.variantStrings.addToCart + currentPrice;
