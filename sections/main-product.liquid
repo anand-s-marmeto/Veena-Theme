@@ -417,7 +417,7 @@
               </a>
             
             {%- when 'variant_picker' -%}
-              {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+              {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id, data-section-id={{ section.id }} %}
             
             {%- when 'buy_buttons' -%}
                 
@@ -427,16 +427,15 @@
               </button>
                           
               <script>
-                console.log("something")
                 document.querySelector('.custom-atc').addEventListener('click',()=>{
-                  console.log("somethiung-2")
                   let formData = {
                    'items': [{
                     'id': Number(document.querySelector('.custom-atc').dataset.variant),
                     'quantity': 2,
                      properties:{
                        "name":"Anand"
-                     }
+                     },
+                     "section-id": {{ sectionId}} 
                     }]
                   };
               fetch(window.Shopify.routes.root + 'cart/add.js', {
