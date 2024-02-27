@@ -5,6 +5,25 @@
   padding-top: 1rem;
 }
 
+.facets-vertical-form {
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+  margin-bottom:30px;
+  padding:10px;
+  border-radius:16px;
+  background-color:#f5f5f5;
+}
+
+.facets-filter-info-sort-by{
+  display:flex;
+}
+
+.select select{
+  padding: 8px 37.5px 8px 8px;
+  border-radius: 30px !important;
+  background-color: rgb(255,255,255);
+}
 .active-facets-mobile {
   margin-bottom: 0.5rem;
 }
@@ -1105,25 +1124,7 @@ input.mobile-facets__checkbox {
     width: 100%;
   }
 
-  .facets-vertical-form {
-    display: flex;
-    align-items:center;
-    justify-content: space-between;
-    margin-bottom:30px;
-    padding:10px;
-    border-radius:16px;
-    background-color:#f5f5f5;
-  }
 
-  .facets-filter-info-sort-by{
-    display:flex;
-  }
-
-  .select select{
-    padding: 8px 37.5px 8px 8px;
-    border-radius: 30px !important;
-    background-color: rgb(255,255,255);
-  }
   .facet-filters__sort+.icon-caret{
     right:10px;
   }
