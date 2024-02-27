@@ -69,11 +69,10 @@
         </div>
 
         <div class="main-container__mobile-banner color-{{ section.settings.banner_color_scheme }}">
-          {% if section.settings.banner_desktop_image != blank %}
+          {% if section.settings.desktop_image != blank %}
             <div class="main-container__mobile-banner-image">
-            {% render 'responsive-picture', desktopImage:section.settings.banner_desktop_image, 
-            mobileImage:section.settings.banner_mobile_image, 
-            class:" " %}
+            {% render 'responsive-picture', desktopImage:section.settings.desktop_image, 
+            mobileImage:section.settings.mobile_image  %}
             </div>
           {% endif %}
           <div class="main-container__mobile-banner-content">

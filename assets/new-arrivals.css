@@ -161,11 +161,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  padding: 0 1.5rem;
-}
-
-.main-container__mobile-banner-content a {
-  text-decoration: none;
+  padding: 1.5rem;
 }
 
 .main-container__mobile-banner .content-list {
@@ -174,6 +170,10 @@
 
 .main-container__mobile-banner-content .button {
   padding: 1rem;
+}
+
+.main-container__mobile-banner-content h2 {
+  color: rgb(255, 255, 255);
 }
 
 .banner-button {
@@ -187,6 +187,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.25s ease-in-out;
+  max-width: 122px;
 }
 
 .banner-button::before {
