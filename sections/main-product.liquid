@@ -435,7 +435,7 @@
                   //   console.log(e.target.value)
                   //   dateOfBirth= e.target.value
                   // })
-                  console.log(document.querySelector('#birthday').value)
+                  // console.log(document.querySelector('#birthday').value)
                   // console.log(document.querySelector('.custom-atc').dataset.variant)
                   let formData = {
                    'items': [{
@@ -443,7 +443,7 @@
                     'quantity': Number(document.querySelector('.custom-atc').dataset.quantity),
                      properties:{
                        "name":"Anand",
-                        "_dob": dateOfBirth
+                        "_dob": document.querySelector('#birthday').value
                      }
                     }],
                     'sections': document.querySelector('.custom-atc').dataset.sectionId
