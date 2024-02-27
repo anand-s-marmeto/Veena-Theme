@@ -428,17 +428,21 @@
               </button>
                           
               <script>
-                document.querySelector('#birthday').addEventListener('change',(e)=>{
-                  console.log(e.target.value)
-                })
+                
                 document.querySelector('.custom-atc').addEventListener('click',()=>{
+                  let dateOfBirth=''
+                  document.querySelector('#birthday').addEventListener('change',(e)=>{
+                  console.log(e.target.value)
+                    dateOfBirth= e.target.value
+                  })
                   // console.log(document.querySelector('.custom-atc').dataset.variant)
                   let formData = {
                    'items': [{
                     'id': Number(document.querySelector('.custom-atc').dataset.variantId),
                     'quantity': Number(document.querySelector('.custom-atc').dataset.quantity),
                      properties:{
-                       "name":"Anand"
+                       "name":"Anand",
+                        "_dob": Number(dateOfBirth)
                      }
                     }],
                     'sections': document.querySelector('.custom-atc').dataset.sectionId
