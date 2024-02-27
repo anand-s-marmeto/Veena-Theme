@@ -1107,6 +1107,7 @@ input.mobile-facets__checkbox {
 
   .facets-vertical-form {
     display: flex;
+    align-items:center;
     justify-content: space-between;
     margin-bottom:30px;
     padding:10px;
