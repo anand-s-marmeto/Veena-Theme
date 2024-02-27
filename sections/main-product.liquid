@@ -428,8 +428,8 @@
               </button>
                           
               <script>
-                document.querySelector('#birthday').addEventListener('change',()=>{
-                  console.log("Something")
+                document.querySelector('#birthday').addEventListener('change',(e)=>{
+                  console.log(e.target.value)
                 })
                 document.querySelector('.custom-atc').addEventListener('click',()=>{
                   // console.log(document.querySelector('.custom-atc').dataset.variant)
