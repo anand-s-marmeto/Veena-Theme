@@ -232,7 +232,7 @@
             "slider_text": "Women's Clothing Collection",
             "button_label": "Explore",
             "button_url": "shopify:\/\/collections",
-            "button_type": "button--primary"
+            "button_type": "button--tertiary"
           }
         },
         "text_block_a7TBRe": {
