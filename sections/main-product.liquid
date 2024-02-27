@@ -421,7 +421,8 @@
             
             {%- when 'buy_buttons' -%}
                 
-
+              <label for="birthday">Birthday:</label>
+              <input type="date" id="birthday" name="birthday">
               <button class="button custom-atc" data-variant-id={{ product.selected_or_first_available_variant.id }}  data-section-id={{ section.id }} data-quantity=2 >
                 <span> ATC </span>
               </button>
