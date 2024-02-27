@@ -120,6 +120,14 @@
               disabled
             {% endif %}
           > -->
+
+           <button class='button' id="ProductSubmitButton-{{ section_id }}"
+            type="submit"
+            name="add" {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
+              disabled
+            {% endif %}>
+               <span>ATC</span>
+           </button>
            
             <span>
               {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
