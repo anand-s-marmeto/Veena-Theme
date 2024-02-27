@@ -1110,6 +1110,8 @@ input.mobile-facets__checkbox {
     justify-content: space-between;
     margin-bottom:30px;
     padding:10px;
+    border-radius:16px;
+    background-color:#f5f5f5;
   }
 
   .product-count-vertical {
