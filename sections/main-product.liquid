@@ -421,31 +421,31 @@
             
             {%- when 'buy_buttons' -%}
                 <script>
-          function addProduct(selectedVariant){
-            let formData = {
-           'items': [{
-            'id': selectedVariant.id,
-            'quantity': 2,
-             properties:{
-               "name":"Anand"
-             }
-            }]
-          };
-          fetch(window.Shopify.routes.root + 'cart/add.js', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-          })
-          .then(response => {
-            return response.json();
-          })
-          .catch((error) => {
-            console.error('Error:', error);
-          });
-          }
-    
+              function addProduct(selectedVariant){
+                let formData = {
+               'items': [{
+                'id': selectedVariant.id,
+                'quantity': 2,
+                 properties:{
+                   "name":"Anand"
+                 }
+                }]
+              };
+              fetch(window.Shopify.routes.root + 'cart/add.js', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+              })
+              .then(response => {
+                return response.json();
+              })
+              .catch((error) => {
+                console.error('Error:', error);
+              });
+              }
+        
             </script>
 
               <button class="button custom-atc" onClick=addProduct(product.selected_or_first_available_variant.id)>
