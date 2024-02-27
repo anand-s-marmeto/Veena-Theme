@@ -428,14 +428,14 @@
               <script>
                 document.querySelctor('.custom-atc').addEventListener('click',()=>{
                   let formData = {
-               'items': [{
-                'id': document.querySelctor('.custom-atc').dataset.variant,
-                'quantity': 2,
-                 properties:{
-                   "name":"Anand"
-                 }
-                }]
-              };
+                   'items': [{
+                    'id': document.querySelctor('.custom-atc').dataset.variant,
+                    'quantity': 2,
+                     properties:{
+                       "name":"Anand"
+                     }
+                    }]
+                  };
               fetch(window.Shopify.routes.root + 'cart/add.js', {
                 method: 'POST',
                 headers: {
