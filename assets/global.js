@@ -995,7 +995,7 @@ class VariantSelects extends HTMLElement {
   }
 
   updateId(){
-    let currentVariant = this.currentVariant;
+    let currentVariant = product.selected_or_first_available_variant.id;
     document.querySelector('.custom-atc').dataset.variantId= currentVariant;
   }
 
