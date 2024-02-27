@@ -420,9 +420,14 @@
               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
             
             {%- when 'buy_buttons' -%}
-                <script>
-              function addProduct(selectedVariant){
-                let formData = {
+                
+
+              <button class="button custom-atc" onClick=addProduct(product.selected_or_first_available_variant.id)>
+                <span> ATC </span>
+              </button>
+                          <script>
+                document.querySelctor('.custom-atc').addEventListener('click',()=>{
+                  let formData = {
                'items': [{
                 'id': selectedVariant.id,
                 'quantity': 2,
@@ -444,13 +449,9 @@
               .catch((error) => {
                 console.error('Error:', error);
               });
-              }
-        
+                })
+                
             </script>
-
-              <button class="button custom-atc" onClick=addProduct(product.selected_or_first_available_variant.id)>
-                <span> ATC </span>
-              </button>
               
               <!-- {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true, cart_qty: cart_qty -%} -->
            
