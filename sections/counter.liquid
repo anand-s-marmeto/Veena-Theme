@@ -31,8 +31,8 @@
         {% endif %}
       </div>
       {% if section.settings.button_link != blank and section.settings.button_text != blank %}
-      <a href="{{ section.settings.button_link }}" style="text-decoration:none">
-        <span class="custom--button custom--button--fourth">{{ section.settings.button_text }}</span>
+      <a href="{{ section.settings.button_link }}" class="counter-section__button">
+        <span>{{ section.settings.button_text }}</span>
         </a>
       {% endif %}
     </div>

@@ -1,181 +1,295 @@
-<link rel="stylesheet" href="{{ 'new-arrivals.css' | asset_url }}">
+{{ 'new-arrivals.css' | asset_url | stylesheet_tag }}
 
-{% comment %} <script src="{{ 'new-arrivals.js' |  asset_url }}" defer></script> {% endcomment %}
-{%  style  %} 
-.padding-{{ section.id }} {
+{% style %}
+  .padding-{{ section.id }} {
     padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
     padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
   }
 
-  @media (min-width: 750px) {
-    .padding-{{ section.id }} {
+  @media screen and (min-width: 750px) {
+      .padding-{{ section.id }} {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
+      }
   }
-{% endstyle %} 
+{% endstyle %}
 
-{% capture slider %}
+{% capture BannerSlider %}
   {
-      "arrows": true,
-      "pagination": false,
-      "perPage": 3,
-      "perMove":1,
+      "autoplay": {{ section.settings.autoplay }},
+      "arrows": {{ section.settings.arrows }},
+      "pagination": {{ section.settings.pagination }},
+      "perPage": {{ section.settings.perPage }},
       "breakpoints":{
-        "767": {
-          "perPage": 2
-        }
+        "640": {
+			"perPage": 2
+      }
       },
-      "gap":"20px"
+      "speed": {{ section.settings.speed |  append: '000'}},
+      "type": "{{ section.settings.slider_type }}",
+      "interval":{{ section.settings.interval | append :'000' }},
+      "rewind":{{ section.settings.rewind }},
+      "gap":"{{ section.settings.gap |  append: 'rem'}}"
   }
 {% endcapture %}
 
-<div class="new-arrivals padding-{{ section.id }}">
+<div class="collection-wrapper padding-{{ section.id }}  color-{{ section.settings.color_scheme }}">
   <div class="page-width">
-    <div class="new-arrivals__header-section">
-      {% if section.settings.heading != blank %}
-      <h2 class="heading h0">{{ section.settings.heading }}</h2>
-      {% endif %}
-      {% if section.settings.button_url != blank and section.settings.button_text != blank %}
-      <a href="{{ section.settings.button_url }}" class="header-button"><span>{{ section.settings.button_text }}</span></a>
-      {% endif %}
-    </div>
+    <div class="main-conatiner">
 
-    <div class="new-arrivals__products-section">
-      <div class="new-arrivals__featured-product">
-        <div class="product-image">
-          {% if section.settings.desktop_image != blank %}
-            {%  render 'responsive-picture' , class:"prod-image" , desktopImage: section.settings.desktop_image , mobileImage : section.settings.mobile_image %} 
-          {% endif %}
-        </div>
-        <div class="featured-product-info">
-          {% if section.settings.featured_tag != blank %}
-            <ul class="tag featured-product-tag">
-              <li>{{ section.settings.featured_tag }}</li>
-            </ul>
-          {% endif %}
-          {% if section.settings.featured_title!=blank %}
-            <h3 class="content_heading h2">{{ section.settings.featured_title }}</h3>
-          {% endif %}
-          {% if section.settings.featured_button_link != blank and section.settings.featured_button_text != blank %}
-          <a href="{{ section.settings.featured_button_link }}" class="featured_button_link">{{ section.settings.featured_button_text }}</a>
-          {% endif %}
+      <div class="main-container__heading">
+        <h2 class="h3"> {{ section.settings.main_heading }} </h2>
+        <div class="button hover-button">
+          <a href="{{ section.settings.button_link }}">
+            {{ section.settings.button_label }}
+          </a>
         </div>
       </div>
-      <div class="new-arrivals__product-slider">
-        <my-splide data-slider-options='{{ slider }}'>
-          <div class="splide">
-            <div class="splide__arrows splide__arrows--ltr">
-              <button class="splide__arrow splide__arrow--prev" type="button" disabled="" aria-label="Previous slide" aria-controls="splide03-track">
-                <span>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" focusable="false"><path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path>
-                </svg>
-                </span>
-              </button>
-              <button class="splide__arrow splide__arrow--next" type="button" aria-label="Next slide" aria-controls="splide03-track">
-                <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" focusable="false">
-                  <path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path>
-                  </svg>
-                </span>
-              </button>
+      
+      <div class="main-container__grid">
+
+        <div class="main-container__banner color-{{ section.settings.banner_color_scheme }}">
+          {% if section.settings.desktop_image != blank %}
+            <div class="main-container__banner-image">
+            {% render 'responsive-picture', desktopImage:section.settings.desktop_image, 
+            mobileImage:section.settings.mobile_image, 
+            class:" media media--portrait
+            media--transparent" %}
             </div>
-            <div class="splide__track">
-              <div class="splide__list">
-                {% for product in section.settings.product_list %}
-                  <div class="splide__slide">
-                    {% render 'product-card', product: product , section_id: section.id %}
-                  </div>
-                {%  else  %}
-                  {% for i in (1..5) %}
-                    <div class="splide__slide">
-                      {{ 'product-' |  append: i |  placeholder_svg_tag }}
-                    </div>
-                  {% endfor %}
-                {% endfor %}
+          {% endif %}
+          <div class="main-container__banner-content">
+            <ul class="tag"><li>{{ section.settings.tag }}</li></ul>
+            <h2 class="h3">
+              {{ section.settings.banner_heading }}
+            </h2>
+             <a href="{{ section.settings.banner_button_link }}" class="banner-button">
+              <span>{{ section.settings.banner_button_label }}</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="main-container__mobile-banner color-{{ section.settings.banner_color_scheme }}">
+          {% if section.settings.banner_desktop_image != blank %}
+            <div class="main-container__mobile-banner-image">
+            {% render 'responsive-picture', desktopImage:section.settings.banner_desktop_image, 
+            mobileImage:section.settings.banner_mobile_image, 
+            class:" " %}
+            </div>
+          {% endif %}
+          <div class="main-container__mobile-banner-content">
+            <div class="tag">{{ section.settings.tag }}</div>
+            <h2 class="h3">
+              {{ section.settings.banner_heading }}
+            </h2>
+            <a href="{{ section.settings.banner_button_link }}" class="banner-button">
+              <span>{{ section.settings.banner_button_label }}</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="main-container__slider">
+          <my-splide data-slider-options='{{ BannerSlider }}'>
+            <div class="splide">
+              <div class="splide__track">
+                <ul class="splide__list">
+                  {% for product in section.settings.product_list %}
+                    <li class="splide__slide">
+                      <div class="main-container__slider-image">
+                        {% render 'product-card', product: product, section_id: section.id  %} 
+                      </div>  
+                    </li>
+                  {% endfor %}                     
+                </ul>
               </div>
             </div>
-          </div>
-        </my-splide>
+          </my-splide>
+        </div>
       </div>
+
     </div>
   </div>
 </div>
 
-{%  schema  %} 
-   {
-    "name":"New arrivals",
-    "tag": "section",
+{% schema %}
+  {
+    "name": "Banner with slider",
+    "tag":"section",
+    "class": "section",
     "settings": [
       {
+        "type": "header",
+        "content":"Banner and Slider"
+      },
+      {
         "type": "text",
-        "id": "heading",
-        "label": "Heading"
+        "id": "main_heading",
+        "label": "Main Heading",
+        "default": "New Arrivals"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label",
+        "default": "See All Product"
       },
       {
         "type": "url",
-        "id": "button_url",
-        "label": "Button url"
-      },
-      {
-        "type": "text",
-        "id": "button_text",
-        "label": "Button text"
+        "id":"button_link",
+        "label": "Button Link"
       },
       {
         "type": "header",
-        "content":"Settings for featured image"
+        "content":"Banner"
       },
       {
         "type": "image_picker",
         "id": "desktop_image",
-        "label": "Desktop Image"
+        "label": "Desktop image",
+        "info": "1440 x 600"
       },
       {
         "type": "image_picker",
         "id": "mobile_image",
-        "label": "Mobile Image"
+        "label": "Mobile image",
+        "info": "400 x 600"
       },
       {
         "type": "text",
-        "id": "featured_tag",
-        "label": "Tag",
-        "info": "Featured image tag"
+        "id": "tag",
+        "label": "tag",
+        "default": "Women's Apparel"
       },
       {
         "type": "text",
-        "id": "featured_title",
-        "label": "Title",
-        "info":"Featured image title"
+        "id": "banner_heading",
+        "label": "Heading",
+        "default": "exclusive Best & New Arrivals collection"
+      },
+      {
+        "type":"text",
+        "id": "banner_button_label",
+        "label": "Button label",
+        "default": "Explore"
       },
       {
         "type": "url",
-        "id": "featured_button_link",
-        "label": "button_link",
-        "info":"Featured image button url"
+        "id": "banner_button_link",
+        "label": "button_link"
       },
       {
-        "type": "text",
-        "id": "featured_button_text",
-        "label": "Button text",
-        "info": "Featured image button text"
+        "type": "color_scheme",
+        "id": "banner_color_scheme",
+        "label": "colors label",
+        "info": "applies color schema to whooe section",
+        "default": "scheme-1"
+      },
+      {
+      "type": "header",
+      "content":"Slider Settings"
+      },
+      {
+        "type": "select",
+        "id": "slider_type",
+        "label": "Slider Type",
+        "options": [
+            {
+            "value": "loop",
+            "label": "Loop"
+            },
+            {
+            "value": "slide",
+            "label": "Slide"
+            },
+            {
+            "value": "fade",
+            "label": "Fade"
+            }
+        ],
+          "default": "loop"
+      },
+      {
+        "type": "range",
+        "id": "perPage",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "label": "Per Page",
+        "default": 3
+      },
+      {
+        "type": "range",
+        "id": "speed",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "label": "Transition Speed of Slide",
+        "default": 1
+      },
+      {
+        "type": "range",
+        "id": "interval",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "label": "Slider Autoplay Interval in seconds",
+        "default": 1
+      },
+      {
+        "type": "range",
+        "id": "gap",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "label": "Gap between slides in rem",
+        "default": 2
+      },
+      {
+        "type": "checkbox",
+        "id": "autoplay",
+        "label": "Enable Autoplay",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "arrows",
+        "label": "Enable Arrows",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "pagination",
+        "label": "Show Dots",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "rewind",
+        "label": "Rewind Slider",
+        "default": true
       },
       {
         "type": "product_list",
         "id": "product_list",
-        "label":"Products",
-        "info": "Enter the products for the grid/slider."
+        "label": "Products",
+        "limit": 8
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "colors label",
+        "info": "applies color schema to whooe section",
+        "default": "scheme-1"
       },
       {
         "type": "header",
-        "content":"Section padding"
+        "content": "Section padding"
       },
       {
         "type": "range",
         "id": "padding_top",
         "min": 0,
         "max": 100,
-        "step": 1,
+        "step": 2,
         "unit": "px",
         "label": "Padding top",
         "default": 36
@@ -185,19 +299,16 @@
         "id": "padding_bottom",
         "min": 0,
         "max": 100,
-        "step": 1,
+        "step": 2,
         "unit": "px",
         "label": "Padding bottom",
         "default": 36
       }
-
-    ],
+      ],
     "presets": [
       {
-        "name": "New arrivals"
+        "name": "Banner with slider"
       }
     ]
   }
-
-
-{% endschema %} 
+{% endschema %}

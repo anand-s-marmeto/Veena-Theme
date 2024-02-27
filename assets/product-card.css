@@ -175,15 +175,15 @@
   align-items: center;
   justify-content: center;
 }
-.quick-look-svg {
+.product-card-svg {
   display: none;
 }
 
 @media screen and (max-width: 766px) {
-  .quick-look-svg {
+  .product-card-svg {
     display: block;
   }
-  .quick-look-btn {
+  .quick-card-button {
     display: none;
   }
   .product-price {

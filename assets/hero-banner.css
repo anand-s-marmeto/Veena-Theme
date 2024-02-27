@@ -74,10 +74,10 @@
 }
 
 .hero-banner .splide__arrow--next {
-  right: 40%;
+  right: 44%;
 }
 .hero-banner .splide__arrow--prev {
-  left: 40%;
+  left: 44%;
 }
 .hero-banner .splide__pagination__page.is-active {
   background: #fff;
@@ -152,6 +152,30 @@
 
 .text-align-right {
   align-items: flex-end;
+}
+.hero-banner__title p a {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease-in-out;
+}
+
+.hero-banner__title p a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  border-bottom: 3px solid rgb(208, 63, 60);
+  transition: all 0.25s ease-in-out;
+}
+
+.hero-banner__title p a:hover {
+  color: rgb(208, 63, 60);
+}
+
+.hero-banner__title p a:hover::before {
+  width: 100%;
 }
 
 @media screen and (max-width: 840px) {
