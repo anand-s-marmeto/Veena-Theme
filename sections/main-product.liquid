@@ -422,14 +422,14 @@
             {%- when 'buy_buttons' -%}
                 
 
-              <button class="button custom-atc" onClick=addProduct(product.selected_or_first_available_variant.id)>
+              <button class="button custom-atc" data-variant={{ product.selectes_or_first_available_variant.id }}>
                 <span> ATC </span>
               </button>
-                          <script>
+              <script>
                 document.querySelctor('.custom-atc').addEventListener('click',()=>{
                   let formData = {
                'items': [{
-                'id': selectedVariant.id,
+                'id': document.querySelctor('.custom-atc').dataset.variant,
                 'quantity': 2,
                  properties:{
                    "name":"Anand"
