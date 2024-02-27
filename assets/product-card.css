@@ -193,3 +193,8 @@
     font-size: 16px;
   }
 }
+
+.product-card .media {
+  border-radius: 16px;
+  overflow: hidden;
+}
