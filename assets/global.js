@@ -980,6 +980,7 @@ class VariantSelects extends HTMLElement {
     this.updatePickupAvailability();
     this.removeErrorMessage();
     this.updateVariantStatuses();
+    this.updateId()
 
     if (!this.currentVariant) {
       this.toggleAddButton(true, '', true);
@@ -993,6 +994,10 @@ class VariantSelects extends HTMLElement {
     }
   }
 
+  updateId(){
+    let currentVariant = this.currentVariant;
+    document.querySelector('.custom-atc').dataset.variantId= currentVariant;
+  }
 
   updateOptions() {
     this.options = Array.from(this.querySelectorAll('select, fieldset'), (element) => {
