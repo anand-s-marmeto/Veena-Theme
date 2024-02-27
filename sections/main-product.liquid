@@ -417,12 +417,12 @@
               </a>
             
             {%- when 'variant_picker' -%}
-              {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id, data-section-id={{ section.id }} %}
+              {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id%}
             
             {%- when 'buy_buttons' -%}
                 
 
-              <button class="button custom-atc" data-variant='{{ product.selected_or_first_available_variant.id }}'>
+              <button class="button custom-atc" data-variant='{{ product.selected_or_first_available_variant.id }} , data-section-id={{ section.id }} '>
                 <span> ATC </span>
               </button>
                           
