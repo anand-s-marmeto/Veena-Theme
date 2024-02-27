@@ -431,10 +431,11 @@
                 
                 document.querySelector('.custom-atc').addEventListener('click',()=>{
                   let dateOfBirth=''
-                  document.querySelector('#birthday').addEventListener('change',(e)=>{
-                  console.log(e.target.value)
-                    dateOfBirth= e.target.value
-                  })
+                  // document.querySelector('#birthday').addEventListener('change',(e)=>{
+                  //   console.log(e.target.value)
+                  //   dateOfBirth= e.target.value
+                  // })
+                  console.log(document.querySelector('#birthday').value)
                   // console.log(document.querySelector('.custom-atc').dataset.variant)
                   let formData = {
                    'items': [{
