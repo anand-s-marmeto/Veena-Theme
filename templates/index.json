@@ -242,7 +242,7 @@
             "slider_text": "men's Clothing Collection",
             "button_label": "Explore",
             "button_url": "shopify:\/\/collections",
-            "button_type": "button--primary"
+            "button_type": "button--secondary"
           }
         },
         "text_block_6Jz4iR": {
@@ -252,7 +252,7 @@
             "slider_text": "New Collection",
             "button_label": "Explore",
             "button_url": "shopify:\/\/collections",
-            "button_type": "button--primary"
+            "button_type": "button--secondary"
           }
         }
       },
