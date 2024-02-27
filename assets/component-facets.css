@@ -17,6 +17,7 @@
 
 .facets-filter-info-sort-by{
   display:flex;
+  align-items:center;
 }
 
 .select select{
