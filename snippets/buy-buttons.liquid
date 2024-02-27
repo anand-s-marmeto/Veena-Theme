@@ -111,7 +111,7 @@
               {% render 'icon-plus' %}
             </button>
           </quantity-input>
-          <button
+          <!-- <button
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
@@ -119,7 +119,8 @@
             {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
               disabled
             {% endif %}
-          >
+          > -->
+           
             <span>
               {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
                 {{ 'products.product.sold_out' | t }}
@@ -129,7 +130,7 @@
               {%- endif -%}
             </span>
             {%- render 'loading-spinner' -%}
-          </button>
+          <!-- </button> -->
           </div>
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
