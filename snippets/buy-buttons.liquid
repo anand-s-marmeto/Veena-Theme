@@ -11,6 +11,33 @@
   {% render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true %}
 {% endcomment %}
 
+<script>
+  function addProduct(selectedVariant){
+    let formData = {
+   'items': [{
+    'id': selectedVariant.id,
+    'quantity': 2,
+     properties:{
+       "name":"Anand"
+     }
+    }]
+  };
+  fetch(window.Shopify.routes.root + 'cart/add.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(response => {
+    return response.json();
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+  }
+    
+</script>
 
 <link rel="stylesheet" href={{ 'buy-button.css' | asset_url }}>
 
@@ -125,7 +152,8 @@
             type="submit"
             name="add" {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
               disabled
-            {% endif %}>
+            {% endif %}
+             onClick= addProduct(product.selected_or_first_available_variant)>
                <span>ATC</span>
            </button>
            
