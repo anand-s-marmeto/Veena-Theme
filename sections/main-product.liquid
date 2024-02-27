@@ -422,7 +422,7 @@
             {%- when 'buy_buttons' -%}
                 
 
-              <button class="button custom-atc" data-variant-id={{ product.selected_or_first_available_variant.id }}  data-section-id={{ section.id }} >
+              <button class="button custom-atc" data-variant-id={{ product.selected_or_first_available_variant.id }}  data-section-id={{ section.id }} data-quantity=2 >
                 <span> ATC </span>
               </button>
                           
@@ -431,8 +431,8 @@
                   // console.log(document.querySelector('.custom-atc').dataset.variant)
                   let formData = {
                    'items': [{
-                    'id': Number(document.querySelector('.custom-atc').dataset.variant),
-                    'quantity': 2,
+                    'id': Number(document.querySelector('.custom-atc').dataset.variantId),
+                    'quantity': Number(document.querySelector('.custom-atc').dataset.quantity),
                      properties:{
                        "name":"Anand"
                      }
