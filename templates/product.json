@@ -40,13 +40,6 @@
             "swatch_shape": "circle"
           }
         },
-        "coupon_codes_fRbUqd": {
-          "type": "coupon_codes",
-          "settings": {
-            "show_coupon": true,
-            "background_color": "linear-gradient(#7757fb,#9450eb)"
-          }
-        },
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {
@@ -90,7 +83,6 @@
         "share",
         "price",
         "variant_picker",
-        "coupon_codes_fRbUqd",
         "quantity_selector",
         "buy_buttons",
         "icon_with_text_9ih3xL",
