@@ -74,6 +74,13 @@
           "type": "description",
           "settings": {
           }
+        },
+        "coupon_codes_fRbUqd": {
+          "type": "coupon_codes",
+          "settings": {
+            "show_coupon": true,
+            "background_color": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)"
+          }
         }
       },
       "block_order": [
@@ -86,7 +93,8 @@
         "quantity_selector",
         "buy_buttons",
         "icon_with_text_9ih3xL",
-        "description"
+        "description",
+        "coupon_codes_fRbUqd"
       ],
       "settings": {
         "enable_sticky_info": true,
