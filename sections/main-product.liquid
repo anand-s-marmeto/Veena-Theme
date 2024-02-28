@@ -424,7 +424,7 @@
                 .coupon-codes{
                   background-image: {{ block.settings.background_color }};
                   width: 100%;
-                  min-height: 100px;
+                  min-height: 130px;
                   padding: 25px;
                   display: flex;
                   align-items: center;
@@ -452,7 +452,7 @@
                   border: none;
                   background: rgb(255,255,255);
                 }
-                .coupon-codes__wrapper h3{
+                .coupon-codes__wrapper h2{
                   color:rgb(255,255,255)
                 }
                 .coupon-codes__button input{
@@ -460,7 +460,7 @@
                   width: 22%;
                   border: 2px dashed white;
                   border-right: none;
-                  color:rgb(255,255);
+                  color:rgb(255,255,255);
                 }
                 .coupon-codes__button{
                   display: flex;
@@ -484,7 +484,7 @@
                     <div class="coupon-codes" id="coupon_code">
                     <button class="background-button-left"></button>
                       <div class="coupon-codes__wrapper">
-                        <h3>Variant specific discount</h3>
+                        <h2>Variant specific discount</h2>
                         <div class="coupon-codes__button">
                           <input type="text" value="{{ product_discount }}" id="myInput">
                           <button onclick="myFunction()" class="copy-button">Copy Code</button>
