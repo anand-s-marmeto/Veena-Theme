@@ -44,7 +44,7 @@
           "type": "coupon_codes",
           "settings": {
             "show_coupon": true,
-            "background_color": "linear-gradient(136deg, rgba(10, 234, 237, 1) 11%, rgba(250, 13, 253, 1) 84%)"
+            "background_color": "linear-gradient(#7757fb,#9450eb)"
           }
         },
         "quantity_selector": {
