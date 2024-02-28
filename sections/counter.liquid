@@ -65,9 +65,9 @@
   const data = document.querySelector('.counter-section__countdown-timer')
   // console.log(data.dataset.date)
   const requiredDate= data.dataset.date
-  console.log(requiredDate)
+  // console.log(requiredDate)
   var countDownDate = new Date(requiredDate).getTime();
-  console.log(countDownDate)
+  // console.log(countDownDate)
 
 // Update the countdown every 1 second
   var x = setInterval(function() {
@@ -77,25 +77,21 @@
 
   // Calculate the remaining time
   var distance = countDownDate - now;
-  console.log(distance)
+  // console.log(distance)
 
   // Calculate days, hours, minutes, and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the countdown
-  // document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+  
   document.querySelector('.days').textContent= days
   document.querySelector('.hours').textContent = hours
   document.querySelector('.mins').textContent= minutes
   document.querySelector('.secs').textContent = seconds
 
-  // If the countdown is over, display a message
   if (distance < 0) {
       clearInterval(x);
-      // document.getElementById("countdown").innerHTML = "EXPIRED";
   }
 }, 1000);
 

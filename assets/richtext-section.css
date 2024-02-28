@@ -68,8 +68,7 @@
   left: 0;
   width: 0%;
   height: 100%;
-  color: rgb(208, 60, 63);
-  text-decoration: underline;
+  border-bottom: 3px solid rgb(208, 60, 63);
   text-underline-offset: 15px;
   transition: all 0.25s ease-in-out;
 }

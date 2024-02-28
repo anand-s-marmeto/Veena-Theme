@@ -26,7 +26,7 @@
             {% endif %}
 
             {% if section.settings.title != blank %}
-                <div class="richtext-section__section-title "> {{ section.settings.title }}</div>
+                <div class="richtext-section__section-title"> {{ section.settings.title }}</div>
             {% endif %}
 
             {% if section.settings.button_text !=blank and section.settings.button_link != blank %}
@@ -40,7 +40,7 @@
 </div>
 
 <script>
-    var words = document.querySelectorAll(".richtext-section__section-title p a");
+    var words = document.querySelectorAll('.richtext-section__section-title p a');
     var wordArray = [];
     var currentWord = 0;
     words[currentWord].style.opacity = 1;
@@ -51,32 +51,32 @@
         for (var j = 0; j < words.length; j++) {
             var cw = wordArray[j];
             for (var i = 0; i < cw.length; i++) {
-                animateLetterOut(cw, i);
+            animateLetterOut(cw, i);
             }
             for (var i = 0; i < cw.length; i++) {
-                cw[i].className = "letter behind";
-                cw[0].parentElement.style.opacity = 1;
-                animateLetterIn(cw, i);
+            cw[i].className = 'letter behind';
+            cw[0].parentElement.style.opacity = 1;
+            animateLetterIn(cw, i);
             }
         }
     }
     function animateLetterOut(cw, i) {
-        setTimeout(function () {
-            cw[i].className = "letter out";
-        }, i * 80);
+        setTimeout(function() {
+            cw[i].className = 'letter out';
+        }, i*80);
     }
     function animateLetterIn(nw, i) {
-        setTimeout(function () {
-            nw[i].className = "letter in";
-        }, 340 + i * 80);
+        setTimeout(function() {
+            nw[i].className = 'letter in';
+        }, 340+(i*80));
     }
     function splitLetters(word) {
         var content = word.innerHTML;
-        word.innerHTML = "";
+        word.innerHTML = '';
         var letters = [];
         for (var i = 0; i < content.length; i++) {
-            var letter = document.createElement("span");
-            letter.className = "letter";
+            var letter = document.createElement('span');
+            letter.className = 'letter';
             letter.innerHTML = content.charAt(i);
             word.appendChild(letter);
             letters.push(letter);
@@ -85,6 +85,7 @@
     }
     changeWord();
     setInterval(changeWord, 2000);
+
 
 </script>
 
