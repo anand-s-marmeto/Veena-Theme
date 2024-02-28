@@ -439,7 +439,8 @@
                         "_dob": document.querySelector('#birthday').value
                      }
                     }],
-                    'sections': document.querySelector('.custom-atc').dataset.sectionId
+                    'sections': document.querySelector('.custom-atc').dataset.sectionId,
+                    'section_url':'/cart.js'
                   };
               fetch(window.Shopify.routes.root + 'cart/add.js', {
                 method: 'POST',
