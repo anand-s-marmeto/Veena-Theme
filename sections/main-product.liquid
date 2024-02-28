@@ -417,8 +417,50 @@
               </a>
             
             {%- when 'variant_picker' -%}
-              {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+              {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id%}
+            
             {%- when 'buy_buttons' -%}
+                
+              <label for="birthday">Birthday:</label>
+              <input type="date" id="birthday" name="birthday">
+              <button class="button custom-atc" data-variant-id={{ product.selected_or_first_available_variant.id }}  data-section-id={{ section.id }} data-quantity=2 >
+                <span> ATC </span>
+              </button>
+                          
+              <script>
+                
+                document.querySelector('.custom-atc').addEventListener('click',()=>{
+                  let formData = {
+                   'items': [{
+                    'id': Number(document.querySelector('.custom-atc').dataset.variantId),
+                    'quantity': Number(document.querySelector('.custom-atc').dataset.quantity),
+                     properties:{
+                       "name":"Anand",
+                        "_dob": document.querySelector('#birthday').value
+                     }
+                    }],
+                    'sections': document.querySelector('.custom-atc').dataset.sectionId,
+                    'section_url':'/cart.js'
+                  };
+              fetch(window.Shopify.routes.root + 'cart/add.js', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+              })
+              .then(response => {
+                return response.json();
+              })
+              .catch((error) => {
+                console.error('Error:', error);
+              });
+       
+            })
+
+                
+            </script>
+              
               {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true, cart_qty: cart_qty -%}
            
               

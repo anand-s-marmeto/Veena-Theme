@@ -9,7 +9,7 @@
             "image_desktop": "shopify:\/\/shop_images\/banner-image1.webp",
             "image_mobile": "shopify:\/\/shop_images\/banner-image1.webp",
             "banner_tag": "Women's Apparel",
-            "banner_title": "Elevate your wardrobe with our limited-time fashion offer!",
+            "banner_title": "<p>Elevate your wardrobe with our <a href=\"\/collections\" title=\"All collections\">limited-time<\/a> fashion offer!<\/p>",
             "button_link": "shopify:\/\/collections",
             "button_text": "Explore More",
             "content_alignment": "center",
@@ -22,7 +22,7 @@
             "image_desktop": "shopify:\/\/shop_images\/banner-image2.webp",
             "image_mobile": "shopify:\/\/shop_images\/banner-image2.webp",
             "banner_tag": "Trendy Classics",
-            "banner_title": "Discover Signature Look: Fashion Forward and Fabulous!",
+            "banner_title": "<p>Discover Signature Look: Fashion Forward and Fabulous!<\/p>",
             "button_link": "shopify:\/\/collections",
             "button_text": "Shop Now",
             "content_alignment": "bottom-left",
@@ -35,7 +35,7 @@
             "image_desktop": "shopify:\/\/shop_images\/banner-image3.webp",
             "image_mobile": "shopify:\/\/shop_images\/banner-image3.webp",
             "banner_tag": "Modern Elegance",
-            "banner_title": "Step into the World of Style with the Latest Fashion Trends Unveiled!",
+            "banner_title": "<p>Step into the World of Style with the Latest Fashion Trends Unveiled!<\/p>",
             "button_link": "shopify:\/\/collections",
             "button_text": "Explore Now",
             "content_alignment": "bottom-left",
@@ -188,28 +188,36 @@
     "new_arrivals_PqJKXz": {
       "type": "new-arrivals",
       "settings": {
-        "heading": "New Arrivals",
-        "button_url": "shopify:\/\/collections",
-        "button_text": "See All Products",
+        "main_heading": "New Arrivals",
+        "button_label": "See All Product",
+        "button_link": "shopify:\/\/collections\/all",
         "desktop_image": "shopify:\/\/shop_images\/new-arrivals_featured_prod.webp",
         "mobile_image": "shopify:\/\/shop_images\/new-arrivals_featured_prod.webp",
-        "featured_tag": "Women's Apparel",
-        "featured_title": "exclusive Best & New Arrivals collection",
-        "featured_button_link": "shopify:\/\/collections",
-        "featured_button_text": "Explore",
+        "tag": "Women's Apparel",
+        "banner_heading": "exclusive Best & New Arrivals collection",
+        "banner_button_label": "Explore",
+        "banner_button_link": "shopify:\/\/collections\/all",
+        "banner_color_scheme": "",
+        "slider_type": "loop",
+        "perPage": 3,
+        "speed": 1,
+        "interval": 1,
+        "gap": 2,
+        "autoplay": false,
+        "arrows": true,
+        "pagination": false,
+        "rewind": false,
         "product_list": [
           "full-sleeve-high-neck-t-shirt",
           "full-sleeve-high-neck-t-shirt-1",
-          "knit-sweater",
-          "men-winter-jacket",
           "mens-half-sleeve-t-shirt",
           "mens-winter-hooded-jacket",
-          "women-shirt-beige-dress",
           "women-solid-casual-jacket",
           "womens-casual-jacket",
           "womens-casual-sweaters",
           "womens-oversized-hoodie"
         ],
+        "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -224,7 +232,7 @@
             "slider_text": "Women's Clothing Collection",
             "button_label": "Explore",
             "button_url": "shopify:\/\/collections",
-            "button_type": "button--primary"
+            "button_type": "button--tertiary"
           }
         },
         "text_block_a7TBRe": {
@@ -234,7 +242,7 @@
             "slider_text": "men's Clothing Collection",
             "button_label": "Explore",
             "button_url": "shopify:\/\/collections",
-            "button_type": "button--primary"
+            "button_type": "button--secondary"
           }
         },
         "text_block_6Jz4iR": {
@@ -244,7 +252,7 @@
             "slider_text": "New Collection",
             "button_label": "Explore",
             "button_url": "shopify:\/\/collections",
-            "button_type": "button--primary"
+            "button_type": "button--secondary"
           }
         }
       },

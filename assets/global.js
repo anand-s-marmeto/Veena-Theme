@@ -178,7 +178,7 @@ class QuantityInput extends HTMLElement {
 
   onInputChange(event) {
     this.validateQtyRules();
-    
+    this.updateQuantity()
   }
 
   onButtonClick(event) {
@@ -189,6 +189,11 @@ class QuantityInput extends HTMLElement {
     if (previousValue !== this.input.value) this.input.dispatchEvent(this.changeEvent);
   }
 
+  updateQuantity(){
+    const value= parseInt(this.input.value)
+    document.querySelector('.custom-atc').dataset.quantity= value
+    
+  }
   validateQtyRules() {
     const value = parseInt(this.input.value);
     // console.log(typeof value)
@@ -980,6 +985,7 @@ class VariantSelects extends HTMLElement {
     this.updatePickupAvailability();
     this.removeErrorMessage();
     this.updateVariantStatuses();
+    this.updateId()
 
     if (!this.currentVariant) {
       this.toggleAddButton(true, '', true);
@@ -993,6 +999,11 @@ class VariantSelects extends HTMLElement {
     }
   }
 
+  updateId(){
+    let currentVariant = this.currentVariant.id;
+    document.querySelector('.custom-atc').dataset.variantId= currentVariant;
+
+  }
 
   updateOptions() {
     this.options = Array.from(this.querySelectorAll('select, fieldset'), (element) => {
