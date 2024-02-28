@@ -419,17 +419,178 @@
             {%- when 'variant_picker' -%}
               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id%}
             
+            {% when 'coupon_codes' %}
+              {%  style  %} 
+                .coupon-codes{
+                  background-image: {{ block.settings.background_color }};
+                  width: 100%;
+                  min-height: 100px;
+                  padding: 25px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border-radius:15px;
+                  position:relative;
+                }    
+                .background-button-left{
+                  position: absolute;
+                  left: -12px;
+                  top: 40%;
+                  border-radius: 50%;
+                  width: 27px;
+                  height: 27px;
+                  border: none;
+                  background: rgb(255,255,255);
+                }
+                .background-button-right{
+                  position: absolute;
+                  right: -12px;
+                  top: 40%;
+                  border-radius: 50%;
+                  width: 27px;
+                  height: 27px;
+                  border: none;
+                  background: rgb(255,255,255);
+                }
+                .coupon-codes__wrapper h3{
+                  color:rgb(255,255,255)
+                }
+                .coupon-codes__button input{
+                  background: none;
+                  width: 22%;
+                  border: 2px dashed white;
+                  border-right: none;
+                  color:rgb(255,255);
+                }
+                .coupon-codes__button{
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  padding: 0;
+                  margin: 0;
+              }
+              .copy-button{
+                padding: 2px;
+                min-width: 70px;  
+              
+              }
+
+              
+              {% endstyle %}
+              <div class="coupon-wrapper" id="coupon-wrapper">
+                {% if block.settings.show_coupon and product.selected_or_first_available_variant.metafields.custom.discount_coupon %}
+                  {% assign product_discount = product.selected_or_first_available_variant.metafields.custom.discount_coupon %}
+                  {% if product_discount != blank %} 
+                    <div class="coupon-codes" id="coupon_code">
+                    <button class="background-button-left"></button>
+                      <div class="coupon-codes__wrapper">
+                        <h3>Variant specific discount</h3>
+                        <div class="coupon-codes__button">
+                          <input type="text" value="{{ product_discount }}" id="myInput">
+                          <button onclick="myFunction()" class="copy-button">Copy Code</button>
+                        </div>
+                      </div>
+                      
+                    <button class="background-button-right"></button>
+                    </div>
+                  {% endif %}
+                {% endif %}
+              </div>
+
+              <script>
+                function myFunction() {
+                  // Get the text field
+                  var copyText = document.getElementById("myInput");
+
+                  // Select the text field
+                  copyText.select();
+                  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+                  // Copy the text inside the text field
+                  navigator.clipboard.writeText(copyText.value);
+
+                  // Alert the copied text
+                  // alert("Copied the text: " + copyText.value); 
+                  document.querySelector('.copy-button').textContent= "Copied"   
+                }
+              </script>
+
+
             {%- when 'buy_buttons' -%}
                 
+              {% style  %} 
+                .custom-drawer{
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    background: rgb(255,255,255);
+                    z-index: 500;
+                    width: 50%;
+                    height: 100%;
+                    margin: 0;
+                    display:none;
+                }
+                .cart-header, .products-section{
+                  display:flex;
+                  flex-direction:column;
+                  padding:15px;
+                }
+                .your-cart , .product-total{
+                  position: relative;
+                  padding: 1.5rem 0;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                }
+                .item-wrapper{
+                  display: flex;
+                  align-items: start;
+                  justify-content: space-evenly;
+                  margin-bottom: 30px;
+                  gap:1.5rem;
+                }
+
+
+
+                .item-image{
+                  width:30%;
+                }
+
+                .your-cart svg{
+                  height: 2.4rem;
+                  width: 2.4rem;
+                }
+                
+                  
+              {% endstyle %}
+
               <label for="birthday">Birthday:</label>
               <input type="date" id="birthday" name="birthday">
               <button class="button custom-atc" data-variant-id={{ product.selected_or_first_available_variant.id }}  data-section-id={{ section.id }} data-quantity=2 >
                 <span> ATC </span>
               </button>
+              <aside class="custom-drawer">
+                <div class="cart-header">
+                  <div class="your-cart">
+                    <h2>Your Cart</h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-close" fill="none" viewBox="0 0 18 17">
+                      <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor">
+                      </path>
+                    </svg>
+                  </div>
+                  <div class="product-total">
+                    <h5 class="product-header">PRODUCT</h5>
+                    <h5 class="total-header">TOTAL</h5>
+                  </div>
+                </div>
+                  <div class="products-section">
+                  </div> 
+
+              </aside>
                           
               <script>
                 
-                document.querySelector('.custom-atc').addEventListener('click',()=>{
+                document.querySelector('.custom-atc').addEventListener('click', ()=>{
                   let formData = {
                    'items': [{
                     'id': Number(document.querySelector('.custom-atc').dataset.variantId),
@@ -440,17 +601,46 @@
                      }
                     }],
                     'sections': document.querySelector('.custom-atc').dataset.sectionId,
-                    'section_url':'/cart.js'
+                    'sections_url':'/cart.js'
                   };
-              fetch(window.Shopify.routes.root + 'cart/add.js', {
+                 fetch(window.Shopify.routes.root + 'cart/add.js', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(formData)
               })
-              .then(response => {
-                return response.json();
+              .then(response => response.json())
+              .then(res=> {
+                const result= res.sections
+                // console.log(result)
+                let structure=''
+                const productsSection= document.querySelector('.products-section')
+                result.items.forEach((item)=>{
+                  structure+=`<div class="item-wrapper">
+                    <div class="item-image">
+                      <img src=${item.featured_image.url}/>
+                    </div>  
+                    <div class="item-info">
+                      <div class="item-name capitalize">
+                        ${item.handle}
+                      </div>
+                      <div class="item-price">
+                        <s>${item.price}</s><span>${item.final_price}</span>
+                      </div>
+                      <div class="item-size">
+                        <span>Size:</span> <span>${item.variant_title}</span>
+                      </div>
+                    </div>
+                    <div class="final-price">
+                      <s>${item.price}</s>
+                      <h3>${item.final_price}</h3>
+                    </div>
+                  
+                  </div> `
+                })
+
+                productsSection.innerHTML= structure;
               })
               .catch((error) => {
                 console.error('Error:', error);
@@ -930,6 +1120,24 @@
           "default": "circle"
         }
       ]
+    },
+    {
+      "type":"coupon_codes",
+      "name":"Coupon code",
+      "settings": [
+        {
+          "type": "checkbox",
+          "label": "Show coupon",
+          "id": "show_coupon"
+        },
+        {
+          "type": "color_background",
+          "id": "background_color",
+          "label": "Backgound color",
+          "default": "linear-gradient(#ffffff,#000000)"
+        }
+      ]
+      
     },
     {
       "type": "buy_buttons",
