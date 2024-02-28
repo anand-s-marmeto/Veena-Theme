@@ -40,6 +40,13 @@
             "swatch_shape": "circle"
           }
         },
+        "coupon_codes_fRbUqd": {
+          "type": "coupon_codes",
+          "settings": {
+            "show_coupon": true,
+            "background_color": "linear-gradient(136deg, rgba(10, 234, 237, 1) 11%, rgba(250, 13, 253, 1) 84%)"
+          }
+        },
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {
@@ -74,13 +81,6 @@
           "type": "description",
           "settings": {
           }
-        },
-        "coupon_codes_fRbUqd": {
-          "type": "coupon_codes",
-          "settings": {
-            "show_coupon": true,
-            "background_color": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)"
-          }
         }
       },
       "block_order": [
@@ -90,11 +90,11 @@
         "share",
         "price",
         "variant_picker",
+        "coupon_codes_fRbUqd",
         "quantity_selector",
         "buy_buttons",
         "icon_with_text_9ih3xL",
-        "description",
-        "coupon_codes_fRbUqd"
+        "description"
       ],
       "settings": {
         "enable_sticky_info": true,
