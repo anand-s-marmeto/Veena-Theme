@@ -1353,8 +1353,14 @@ class VariantSelects extends HTMLElement {
         const destination = document.getElementById(
           `price-${this.dataset.section}`
         );
+
+        // Coupon Codes:
         document.querySelector("#coupon-wrapper").innerHTML =
           html.querySelector("#coupon-wrapper").innerHTML;
+
+        // Description:
+        document.querySelector("#prod-description").innerHTML =
+          html.querySelector("#prod-description").innerHTML;
 
         const source = html.getElementById(
           `price-${

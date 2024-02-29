@@ -2,6 +2,11 @@
   .template-404 .title + * {
     margin-top: 1rem;
   }
+  .template-404{
+    background-image: url('../images/50ofthemostcreative404pagesontheweb.7d295302.avif');
+
+  }
+
 
   @media screen and (min-width: 750px) {
     .template-404 .title + * {
@@ -15,8 +20,9 @@
     {{ 'templates.404.subtext' | t }}
   </p>
   <h1 class="title">
-    {{ 'templates.404.title' | t }}
+    Nothing here, you moved out of the league. Please revert back to the store.
   </h1>
+  {% comment %} <a href="https://b02-anand-s.myshopify.com/products"><button>Go Back</button></a> {% endcomment %}
   <a href="{{ routes.all_products_collection_url }}" class="button">
     {{ 'general.continue_shopping' | t }}
   </a>
