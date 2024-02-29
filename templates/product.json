@@ -40,7 +40,7 @@
             "swatch_shape": "circle"
           }
         },
-        "coupon_codes_fRbUqd": {
+        "coupon_codes_LCpAxc": {
           "type": "coupon_codes",
           "settings": {
             "show_coupon": true,
@@ -90,7 +90,7 @@
         "share",
         "price",
         "variant_picker",
-        "coupon_codes_fRbUqd",
+        "coupon_codes_LCpAxc",
         "quantity_selector",
         "buy_buttons",
         "icon_with_text_9ih3xL",
