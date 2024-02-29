@@ -299,13 +299,7 @@
                 {% # theme-check-disable %}
                 {%- assign cart_qty = cart | item_count_for_variant: product.selected_or_first_available_variant.id -%}
                 {% # theme-check-enable %}
-                <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
-                  {{ 'products.product.quantity.label' | t }}
-                  <span class="quantity__rules-cart no-js-hidden{% if cart_qty == 0 %} hidden{% endif %}">
-                    {%- render 'loading-spinner' -%}
-                    <span>({{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}})</span>
-                  </span>
-                </label>
+                
                 <div class="price-per-item__container">
                   <!-- <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
                     <button class="quantity__button no-js-hidden" name="minus" type="button">
@@ -487,152 +481,47 @@
             {%- when 'variant_picker' -%}
               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id%}
             
-            {% when 'coupon_codes' %}
-              {%  style  %} 
-                .coupon-codes{
-                  background-image: {{ block.settings.background_color }};
-                  width: 100%;
-                  min-height: 130px;
-                  padding: 25px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  border-radius:15px;
-                  position:relative;
-                }    
-                .background-button-left{
-                  position: absolute;
-                  left: -12px;
-                  top: 40%;
-                  border-radius: 50%;
-                  width: 27px;
-                  height: 27px;
-                  border: none;
-                  background: rgb(255,255,255);
-                }
-                .background-button-right{
-                  position: absolute;
-                  right: -12px;
-                  top: 40%;
-                  border-radius: 50%;
-                  width: 27px;
-                  height: 27px;
-                  border: none;
-                  background: rgb(255,255,255);
-                }
-                .coupon-codes__wrapper h2{
-                  color:rgb(255,255,255)
-                }
-                .coupon-codes__button input{
-                  background: none;
-                  width: 22%;
-                  border: 2px dashed white;
-                  border-right: none;
-                  color:rgb(255,255,255);
-                }
-                .coupon-codes__button{
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  padding: 0;
-                  margin: 0;
-              }
-              .copy-button{
-                padding: 2px;
-                min-width: 70px;  
-              
-              }
-              {% endstyle %}
-              <div class="coupon-wrapper" id="coupon-wrapper">
-                {% if block.settings.show_coupon and product.selected_or_first_available_variant.metafields.custom.discount_coupon %}
-                  {% assign product_discount = product.selected_or_first_available_variant.metafields.custom.discount_coupon %}
-                  {% if product_discount != blank %} 
-                    <div class="coupon-codes" id="coupon_code">
-                    <button class="background-button-left"></button>
-                      <div class="coupon-codes__wrapper">
-                        <h2>Variant specific discount</h2>
-                        <div class="coupon-codes__button">
-                          <input type="text" value="{{ product_discount }}" id="myInput">
-                          <button onclick="myFunction()" class="copy-button">Copy Code</button>
-                        </div>
-                      </div>
-                      
-                    <button class="background-button-right"></button>
-                    </div>
-                  {% endif %}
-                {% endif %}
-              </div>
-
-              <script>
-                function myFunction() {
-                  // Get the text field
-                  var copyText = document.getElementById("myInput");
-
-                  // Select the text field
-                  copyText.select();
-                  copyText.setSelectionRange(0, 99999); // For mobile devices
-
-                  // Copy the text inside the text field
-                  navigator.clipboard.writeText(copyText.value);
-
-                  document.querySelector('.copy-button').textContent= "Copied"   
-                }
-              </script>
-
-
             {%- when 'buy_buttons' -%}
                 
-              {% style  %} 
-                .custom-drawer{
-                    position: fixed;
-                    top: 0;
-                    right: 0;
-                    background: rgb(255,255,255);
-                    z-index: 500;
-                    width: 50%;
-                    height: 100%;
-                    margin: 0;
-                    display:none;
-                }
-                .cart-header, .products-section{
-                  display:flex;
-                  flex-direction:column;
-                  padding:15px;
-                }
-                .your-cart , .product-total{
-                  position: relative;
-                  padding: 1.5rem 0;
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
-                }
-                .item-wrapper{
-                  display: flex;
-                  align-items: start;
-                  justify-content: space-evenly;
-                  margin-bottom: 30px;
-                  gap:1.5rem;
-                }
-
-
-
-                .item-image{
-                  width:30%;
-                }
-
-                .your-cart svg{
-                  height: 2.4rem;
-                  width: 2.4rem;
-                }
-                
-                  
-              {% endstyle %}
-
               <label for="birthday">Birthday:</label>
               <input type="date" id="birthday" name="birthday">
               <button class="button custom-atc" data-variant-id={{ product.selected_or_first_available_variant.id }}  data-section-id={{ section.id }} data-quantity=2 >
                 <span> ATC </span>
               </button>
+                          
+              <script>
+                
+                document.querySelector('.custom-atc').addEventListener('click',()=>{
+                  let formData = {
+                   'items': [{
+                    'id': Number(document.querySelector('.custom-atc').dataset.variantId),
+                    'quantity': Number(document.querySelector('.custom-atc').dataset.quantity),
+                     properties:{
+                       "name":"Anand",
+                        "_dob": document.querySelector('#birthday').value
+                     }
+                    }],
+                    'sections': document.querySelector('.custom-atc').dataset.sectionId,
+                    'section_url':'/cart.js'
+                  };
+              fetch(window.Shopify.routes.root + 'cart/add.js', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+              })
+              .then(response => {
+                return response.json();
+              })
+              .catch((error) => {
+                console.error('Error:', error);
+              });
+       
+            })
+
+                
+            </script>
               
               {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true, cart_qty: cart_qty -%}
            
@@ -779,14 +668,6 @@
                 }
                 .icon {
                   width: 3.125em;
-                }
-                @media screen and (max-width:991px){
-                  .payments{
-                    flex-direction: column;
-                  }
-                  .payment-options{
-                    padding: 0;
-                  }
                 }
               </style>
   
@@ -1111,24 +992,6 @@
           "default": "circle"
         }
       ]
-    },
-    {
-      "type":"coupon_codes",
-      "name":"Coupon code",
-      "settings": [
-        {
-          "type": "checkbox",
-          "label": "Show coupon",
-          "id": "show_coupon"
-        },
-        {
-          "type": "color_background",
-          "id": "background_color",
-          "label": "Backgound color",
-          "default": "linear-gradient(#ffffff,#000000)"
-        }
-      ]
-      
     },
     {
       "type": "buy_buttons",
