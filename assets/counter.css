@@ -77,7 +77,7 @@
     gap: 0;
   }
   .counter-section__countdown-timer {
-    gap: 15px;
+    gap: 5px;
     /* width: 100%; */
     justify-content: flex-start;
   }

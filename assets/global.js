@@ -1592,3 +1592,40 @@ class ProductRecommendations extends HTMLElement {
 }
 
 customElements.define("product-recommendations", ProductRecommendations);
+
+document.querySelector(".custom-atc").addEventListener("click", () => {
+  const cart =
+    document.querySelector("cart-notification") ||
+    document.querySelector("cart-drawer");
+  console.log(cart);
+  let formData = {
+    items: [
+      {
+        id: Number(document.querySelector(".custom-atc").dataset.variantId),
+        quantity: Number(
+          document.querySelector(".custom-atc").dataset.quantity
+        ),
+        properties: {
+          name: "Anand",
+          _dob: document.querySelector("#birthday").value,
+        },
+      },
+    ],
+    sections: cart.getSectionsToRender().map((section) => section.id),
+  };
+  fetch(window.Shopify.routes.root + "cart/add.js", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  })
+    .then((response) => response.json())
+    .then((res) => {
+      console.log(res);
+      cart.renderContents(res);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+});

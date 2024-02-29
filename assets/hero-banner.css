@@ -204,6 +204,9 @@
     text-align: center;
     width: 100%;
     align-items: center;
+    padding: 0;
+    width: 100%;
+    min-width: 100%;
   }
 }
 
