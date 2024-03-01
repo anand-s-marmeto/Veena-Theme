@@ -4,9 +4,10 @@
       "type": "main-product",
       "blocks": {
         "judge_me_reviews_preview_badge_ABMtq7": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "disabled": true,
-          "settings": {}
+          "settings": {
+          }
         },
         "vendor": {
           "type": "text",
@@ -18,7 +19,8 @@
         },
         "title": {
           "type": "title",
-          "settings": {}
+          "settings": {
+          }
         },
         "share": {
           "type": "share",
@@ -28,7 +30,8 @@
         },
         "price": {
           "type": "price",
-          "settings": {}
+          "settings": {
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -37,16 +40,10 @@
             "swatch_shape": "circle"
           }
         },
-        "coupon_codes_LCpAxc": {
-          "type": "coupon_codes",
-          "settings": {
-            "show_coupon": true,
-            "background_color": "linear-gradient(#7757fb,#9450eb)"
-          }
-        },
         "quantity_selector": {
           "type": "quantity_selector",
-          "settings": {}
+          "settings": {
+          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -60,22 +57,24 @@
           "settings": {
             "layout": "horizontal",
             "icon_1": "heart",
-            "image_1": "shopify://shop_images/discount.svg",
+            "image_1": "shopify:\/\/shop_images\/discount.svg",
             "heading_1": "Daily deals",
             "icon_2": "return",
-            "image_2": "shopify://shop_images/recycle.svg",
+            "image_2": "shopify:\/\/shop_images\/recycle.svg",
             "heading_2": "Return Policy",
             "icon_3": "truck",
-            "image_3": "shopify://shop_images/received.svg",
+            "image_3": "shopify:\/\/shop_images\/received.svg",
             "heading_3": "secure payment",
             "icon_4": "truck",
-            "image_4": "shopify://shop_images/chat.svg",
-            "heading_4": "Help center 24/7"
+            "image_4": "shopify:\/\/shop_images\/chat.svg",
+            "heading_4": "Help center 24\/7"
           }
         },
         "description": {
           "type": "description",
-          "settings": {}
+          "settings": {
+            "description_title": ""
+          }
         }
       },
       "block_order": [
@@ -85,7 +84,6 @@
         "share",
         "price",
         "variant_picker",
-        "coupon_codes_LCpAxc",
         "quantity_selector",
         "buy_buttons",
         "icon_with_text_9ih3xL",
@@ -105,12 +103,6 @@
         "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 12
-      }
-    },
-    "recently-viewed-products": {
-      "type": "wizaah-recently-viewed-products",
-      "settings": {
-        "title": "Recently viewed"
       }
     },
     "related-products": {
@@ -135,11 +127,14 @@
       "type": "apps",
       "blocks": {
         "judge_me_reviews_review_widget_RHVtYe": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+          }
         }
       },
-      "block_order": ["judge_me_reviews_review_widget_RHVtYe"],
+      "block_order": [
+        "judge_me_reviews_review_widget_RHVtYe"
+      ],
       "settings": {
         "include_margins": true
       }
@@ -171,6 +166,12 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "wizaah_recently_viewed_products_DHTgXG": {
+      "type": "wizaah-recently-viewed-products",
+      "settings": {
+        "title": "Recently viewed"
+      }
     }
   },
   "order": [
@@ -178,6 +179,6 @@
     "related-products",
     "17084303543f0b247b",
     "featured_collection_LBzjta",
-    "recently-viewed-products"
+    "wizaah_recently_viewed_products_DHTgXG"
   ]
 }
