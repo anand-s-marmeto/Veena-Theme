@@ -2,6 +2,22 @@ cart-items .title-wrapper-with-link {
   margin-top: 0;
 }
 
+.cart__warnings {
+  background-color: rgb(245, 245, 245);
+  border-radius: 16px;
+}
+.cart__empty-text {
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+}
+
+.cart-button {
+  padding: 5px 15px;
+  font-size: 16px;
+  line-height: 28.8px;
+  min-height: 44px;
+}
+
 .cart-items td,
 .cart-items th {
   padding: 0;
