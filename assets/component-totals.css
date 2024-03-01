@@ -1,12 +1,13 @@
 .totals {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-end;
 }
 
 .totals > * {
   font-size: 1.6rem;
   margin: 0;
+  font-weight: 600;
 }
 
 .totals > h2 {
@@ -21,12 +22,9 @@
   margin-left: 2rem;
 }
 
-.totals__total {
-  margin-top: .5rem;
-}
-
 .totals__total-value {
   font-size: 1.8rem;
+  color: rgb(0, 0, 0);
 }
 
 .cart__ctas + .totals {

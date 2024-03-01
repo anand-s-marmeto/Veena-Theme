@@ -1,0 +1,36 @@
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(245, 245, 245);
+  padding: 8px 30px 10px 30px;
+  border-radius: 16px;
+  margin: 15px 0;
+  color: rgb(0, 0, 0);
+  max-width: max-content;
+}
+
+.timer .time {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  text-align: center;
+}
+
+.timer .days,
+.timer .hours,
+.timer .mins,
+.timer .secs {
+  font-weight: 700;
+  line-height: normal;
+}
+
+.timer .timer-title {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.col {
+  font-weight: 700;
+}

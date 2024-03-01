@@ -73,7 +73,7 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
   position: relative;
   background: rgb(208, 60, 63);
   padding: 1.5rem 2rem;
-  display: flex;
+  display: block;
   justify-content: space-between;
   align-items: center;
 }
@@ -94,7 +94,7 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
   position: absolute;
   top: 10px;
   right: 5px;
-  color: rgb(var(--color-foreground));
+  color: rgb(255, 255, 255);
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -117,7 +117,7 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 
 .drawer__footer {
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.2);
-  padding: 1.5rem 0;
+  padding: 20px;
 }
 
 cart-drawer-items.is-empty + .drawer__footer {
@@ -141,7 +141,7 @@ cart-drawer-items.is-empty + .drawer__footer {
 }
 
 .drawer__footer > details + .cart-drawer__footer {
-  padding-top: 1.5rem;
+  padding: 1.5rem 0;
 }
 
 cart-drawer {
@@ -168,6 +168,7 @@ cart-drawer {
   flex-grow: 1;
   display: flex;
   flex-wrap: wrap;
+  padding: 20px;
 }
 
 .cart-drawer__collection {
@@ -176,6 +177,9 @@ cart-drawer {
 
 .cart-drawer .drawer__cart-items-wrapper {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .cart-drawer .cart-items,
@@ -208,8 +212,7 @@ cart-drawer-items {
 }
 
 .cart-drawer .cart-item {
-  display: grid;
-  grid-template: repeat(2, auto) / repeat(4, 1fr);
+  display: flex;
   gap: 1.5rem;
   margin-bottom: 0;
 }
@@ -224,6 +227,8 @@ cart-drawer-items {
 
 .cart-drawer .cart-item__image {
   max-width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .cart-drawer .cart-items thead {

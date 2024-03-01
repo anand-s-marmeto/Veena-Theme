@@ -18,13 +18,24 @@
 
 {%- paginate blog.articles by 6 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
-    <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    <div class="main-blog__header">
+      <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {{ blog.title | escape }}
-    </h1>
+      </h1>
+      <ul class="main-blog__categories">
+      <li class="category {% if current_tags == blank %} is-active{% endif %}"><a href="/blogs/{{- blog.handle -}}" >All blogs</a></li>
+        {% for tag in blog.all_tags %}
+          {%  assign myTag = tag |  handleize %}
+        <li class="category {% if current_tags == tag %} is-active {% endif %}" >
+            <a href="/blogs/{{- blog.handle -}}/tagged/{{- myTag -}}">{{ tag }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
 
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
-      {%- for article in blog.articles -%}
-        <div
+      
+        {% comment %} <div
           class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
           {% if settings.animations_reveal_on_scroll %}
             data-cascade
@@ -40,8 +51,34 @@
             show_author: section.settings.show_author,
             show_excerpt: true
           -%}
-        </div>
-      {%- endfor -%}
+        </div> {% endcomment %}
+          <div class="blogs grid grid--3-col-desktop grid--2-col-tablet grid--1-col">
+            {%- for article in blog.articles -%}
+              <div class="grid__item">
+                <div class="article-image">
+                  {%  render 'responsive-picture',class:'image', desktopImage : article.image , mobileImage: article.image%} 
+                  <div class="article-tag">
+                    <span>{{ article.tags[0] }}</span>
+                  </div>
+                </div>
+                <div class="article-text-content">
+                <div class="article-title">
+                  {{ article.title }}
+                </div>
+                <div class="article-description">
+                  {{ article.excerpt |  slice: 0, 175 |  append: '...' }}
+                </div>
+                <div class="article-publish-date">
+                  <svg role="presentation" fill="none" focusable="false" stroke-width="1.5" width="16" height="16" class="icon icon-blog-date" viewBox="0 0 16 16">
+                    <path d="M5.372 1v2.877M10.455 1v2.877" stroke="currentColor" stroke-linecap="round"></path>
+                    <path d="M14.338 7.632H1.497l.179-4.57 6.164-.448 6.497.448v4.57Z" fill="currentColor" fill-opacity=".12"></path>
+                    <path d="M1.224 12.073c.183 1.631 1.508 2.925 3.147 3.004a73.18 73.18 0 0 0 3.546.083c1.256 0 2.413-.028 3.546-.083 1.639-.079 2.964-1.374 3.146-3.004.124-1.099.225-2.224.225-3.37 0-1.147-.102-2.273-.225-3.371-.182-1.631-1.507-2.925-3.146-3.004a73.22 73.22 0 0 0-3.546-.083 73.22 73.22 0 0 0-3.546.083c-1.639.079-2.964 1.374-3.147 3.004C1.101 6.43 1 7.556 1 8.703c0 1.146.102 2.272.224 3.37ZM1.331 7.202h13.24" stroke="currentColor"></path>
+                  </svg>
+                  <div class="span">{{ article.published_at |  split: ' ' |  first }}</div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
     </div>
 
     {%- if paginate.pages > 1 -%}
@@ -49,6 +86,14 @@
     {%- endif -%}
   </div>
 {%- endpaginate -%}
+
+<script>
+  document.querySelectorAll('.blog-title').forEach((item)=>item.addEventListener('click',renderBlog))
+
+  async function renderBlog(e){
+    const blogs= await fetch('/')
+  }
+</script>
 
 {% schema %}
 {

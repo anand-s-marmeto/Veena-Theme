@@ -24,7 +24,7 @@
   font-size: 18px;
 }
 
-.time {
+.counter-section__countdown-timer .time {
   position: relative;
   background: rgba(0, 0, 0, 0.05);
   border-radius: 16px;
@@ -35,10 +35,10 @@
   padding: 10px 0;
 }
 
-.days,
-.hours,
-.mins,
-.secs {
+.counter-section__countdown-timer .days,
+.counter-section__countdown-timer .hours,
+.counter-section__countdown-timer .mins,
+.counter-section__countdown-timer .secs {
   font-size: 46px;
   color: rgb(0, 0, 0);
 }
@@ -63,14 +63,14 @@
     justify-content: center;
     gap: 20px;
   }
-  .days,
-  .hours,
-  .mins,
-  .secs {
+  .counter-section__countdown-timer .days,
+  .counter-section__countdown-timer .hours,
+  .counter-section__countdown-timer .mins,
+  .counter-section__countdown-timer .secs {
     font-size: 22px;
     color: rgb(0, 0, 0);
   }
-  .time {
+  .counter-section__countdown-timer .time {
     /* min-width: 60px; */
     padding: 7px 0;
     box-sizing: border-box;
@@ -130,14 +130,14 @@
 }
 
 @media screen and (max-width: 576px) {
-  .time {
+  .counter-section__countdown-timer .time {
     min-width: 60px;
     padding: 7px 0;
   }
-  .days,
-  .hours,
-  .mins,
-  .secs {
+  .counter-section__countdown-timer .days,
+  .counter-section__countdown-timer .hours,
+  .counter-section__countdown-timer .mins,
+  .counter-section__countdown-timer .secs {
     font-size: 20px;
   }
 }
