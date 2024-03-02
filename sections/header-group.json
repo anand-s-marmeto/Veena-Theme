@@ -8,8 +8,8 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
-            "link": ""
+            "text": "Qualify for complimentary shipping on orders totaling $50 or more.",
+            "link": "shopify:\/\/collections"
           }
         },
         "announcement_zX8i66": {
