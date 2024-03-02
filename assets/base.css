@@ -134,7 +134,7 @@ h2.h0 {
 }
 
 .custom--button {
-  padding: 8px 10px;
+  padding: 5px 15px;
   border-radius: 31px;
   cursor: pointer;
   outline: none;
@@ -143,8 +143,8 @@ h2.h0 {
   min-height: 44px;
   letter-spacing: 2px;
   position: relative;
-  width: fit-content;
-  text-decoration: none;
+  /* width: fit-content; */
+  /* text-decoration: none; */
   overflow: hidden;
   border: none;
   display: flex;
@@ -167,7 +167,6 @@ h2.h0 {
   border-radius: 31px;
   transition: all 0.35s ease-in-out;
   z-index: -1;
-  overflow: hidden;
 }
 
 .custom--button--first {

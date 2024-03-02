@@ -191,9 +191,6 @@
                 .product-description-wrapper{
                   color:rgb(0,0,0);
                 }
-                .product__description{
-                  border-bottom: 2px solid rgba(0,0,0,0.1);
-                }
                 .product-description-wrapper h2{
                   font-size: 20px;
                   font-weight: 600;
@@ -219,7 +216,7 @@
                   right:0;
                 }
 
-                .product-summary svg{
+                .product-summary .icon-caret{
                   transform:rotate(0);
                   transition: all 0.25s ease-in-out;
                 }
@@ -228,13 +225,18 @@
                   width:30px;
                 }
                 details[open]{
-                  .product-summary svg{
+                  .product-summary .icon-caret{
                     transform: rotate(180deg)
                   }
                 }
                 .product-details{
-                  border-bottom: 2px solid rgba(0,0,0,0.1);
                   outline: none;
+                }
+                .separator-line{
+                  width: 100%;
+                  display: block;
+                  height: 1px;
+                  background-color: rgb(0, 0, 0, 0.1);
                 }
               {% endstyle %}
                <!--  adding the description received from metafield  -->
@@ -244,6 +246,7 @@
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                     {{ product.description }}
                   </div>
+                  <span class="separator-line"></span>
                   {% if product.metafields.custom.product_details_section %}
                   <details class="product-details">
                     <summary class="product-summary">
@@ -255,8 +258,24 @@
                       <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
                     </svg>
                     </summary>
-                    <p>{{ product.metafields.custom.product_details_section }}</p>
+                    <p>{{ product.metafields.custom.product_details_section |  metafield_tag }}</p>
                   </details>
+                  {% endif %}
+                  <span class="separator-line"></span>
+                  {% if product.metafields.custom.shipping %}
+                    <details class="shipping">
+                      <summary class="product-summary">
+                        <svg class="icon icon-accordion" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                        <path d="M18.5 1.5H1.5L1.5 18.5H18.5V1.5ZM1.5 0.5C0.947715 0.5 0.5 0.947715 0.5 1.5V18.5C0.5 19.0523 0.947715 19.5 1.5 19.5H18.5C19.0523 19.5 19.5 19.0523 19.5 18.5V1.5C19.5 0.947715 19.0523 0.5 18.5 0.5H1.5Z" fill-rule="evenodd"></path>
+                        <path d="M14.9975 6.09084C15.201 6.27746 15.2147 6.59375 15.0281 6.79728L8.91631 13.4627C8.82231 13.5652 8.68987 13.6239 8.55079 13.6247C8.41172 13.6256 8.27857 13.5684 8.18335 13.4671L4.99513 10.0731C4.80606 9.87179 4.81596 9.55536 5.01723 9.3663C5.21849 9.17723 5.53492 9.18713 5.72399 9.3884L8.54335 12.3897L14.291 6.12145C14.4776 5.91791 14.7939 5.90421 14.9975 6.09084Z"></path>
+                        </svg>
+                        <div class="summary-title shipping-title">Shipping and Return</div>
+                        <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
+                        </svg>
+                      </summary>
+                      <p>{{ product.metafields.custom.shipping |  metafield_tag }}</p>
+                    </details>
                   {% endif %}
                 </div>
               {%- endif -%}
@@ -504,7 +523,7 @@
                 }
               {% endstyle %}
               <li class="stock-progress__message" style="color: {% if product.selected_or_first_available_variant.inventory_quantity > 10 %} green {% else %} red {% endif %};">
-                In stock (<span>{{ product.selected_or_first_available_variant.inventory_quantity }}</span>units), ready to be shipped.
+                In stock (<span>{{ product.selected_or_first_available_variant.inventory_quantity }}</span> units), ready to be shipped.
               </li>
               <div class="stock-progress__bar">
                 <div class="stock-progress__indicator" style="background-color: {% if product.selected_or_first_available_variant.inventory_quantity > 10 %} green {% else %} red {% endif %};">
@@ -572,7 +591,7 @@
                           <svg class="icon icon-accordion" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                           <path d="M22.194,9.023L13.177,.006,4.9,.903l.215,1.988,7.325-.793,8.34,8.339c.296,.296,.296,.777-.012,1.084l-.962,.994L11.099,3.808,1.962,5.057,.953,14.18l9.013,9.012c.521,.521,1.213,.808,1.95,.808s1.43-.287,1.962-.819l6.244-6.449c.665-.665,.916-1.588,.759-2.451l1.314-1.357c1.075-1.076,1.075-2.826,0-3.901Zm-16.194,.977c-.552,0-1-.448-1-1,0-.552,.448-1,1-1,.552,0,1,.448,1,1s-.448,1-1,1Z"></path>                  
                         </svg>
-                          <div class="offer-text">{{ offer }}</div>
+                          <div class="offer-text">{{ offer |  metafield_tag}}</div>
                         </div>
                       {% endfor %}
                     </div>
@@ -663,6 +682,7 @@
               {% render 'icon-with-text',
                 block: block
               %}
+              
 
             <style>
                 .payments{
