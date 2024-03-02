@@ -9,14 +9,14 @@
           "type": "announcement",
           "settings": {
             "text": "Qualify for complimentary shipping on orders totaling $50 or more.",
-            "link": "shopify:\/\/collections"
+            "link": "shopify:\/\/collections\/all"
           }
         },
         "announcement_zX8i66": {
           "type": "announcement",
           "settings": {
             "text": "Flash Sale Alert: Save Big for the Next 24 Hours!",
-            "link": "shopify:\/\/collections"
+            "link": "shopify:\/\/collections\/all"
           }
         }
       },
