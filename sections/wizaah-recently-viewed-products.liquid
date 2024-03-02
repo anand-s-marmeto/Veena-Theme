@@ -6,6 +6,11 @@
 
 <script src="{{ 'wizaah-recently-viewed-products.js' | asset_url }}" defer="defer"></script>
 
+{%  style  %} 
+.recently-viewed__heading{
+  margin-bottom:30px;
+}
+{% endstyle %}
 <div 
   data-section-id="{{ section.id }}" 
   data-section-type="wizaah-recently-viewed-products" 
@@ -13,9 +18,8 @@
 >
   <div class="page-width">
     {%- if section.settings.title != blank -%}
-      <h2>{{ section.settings.title | escape }}</h2>      
+      <h2 class="h0 recently-viewed__heading">{{ section.settings.title | escape }}</h2>      
     {%- endif -%}
-  
     <div class="recentlyviewed__container">
       {%- if template.name == 'search' -%}
         <div class="grid grid--1-col grid--4-col-desktop">

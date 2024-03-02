@@ -493,9 +493,6 @@
                   position:relative;
                   margin-top:10px;
                 }
-                .stock-progress__message{
-                  color:green;
-                }
                 .stock-progress__indicator{
                   position:absolute;
                   top:0;
@@ -506,7 +503,7 @@
                   transition:all 0.25s ease-in-out;
                 }
               {% endstyle %}
-              <li class="stock-progress__message">
+              <li class="stock-progress__message" style="color: {% if product.selected_or_first_available_variant.inventory_quantity > 10 %} green {% else %} red {% endif %};">
                 In stock (<span>{{ product.selected_or_first_available_variant.inventory_quantity }}</span>units), ready to be shipped.
               </li>
               <div class="stock-progress__bar">
