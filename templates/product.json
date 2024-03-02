@@ -73,7 +73,7 @@
         "description": {
           "type": "description",
           "settings": {
-            "description_title": ""
+            "description_title": "About the Product"
           }
         }
       },
