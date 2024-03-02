@@ -134,7 +134,7 @@ h2.h0 {
 }
 
 .custom--button {
-  padding: 8px 20px;
+  padding: 8px 10px;
   border-radius: 31px;
   cursor: pointer;
   outline: none;
@@ -147,29 +147,31 @@ h2.h0 {
   text-decoration: none;
   overflow: hidden;
   border: none;
-  text-align: center;
   display: flex;
   align-items: center;
-  font-size: 18px;
+  justify-content: center;
+  font-size: 16px;
 }
+
 .custom--button--full-width {
   width: 100%;
 }
+
 .custom--button::before {
   content: "";
   position: absolute;
-  border-bottom: 0px solid black;
-  /* border: 1px solid red; */
-  top: 0px;
+  top: 0;
   left: 0;
   width: 0%;
   height: 100%;
-  transition: width 0.5s ease-in-out;
+  border-radius: 31px;
+  transition: all 0.35s ease-in-out;
   z-index: -1;
+  overflow: hidden;
 }
 
 .custom--button--first {
-  background-color: red;
+  background-color: rgb(208, 60, 63);
   color: white;
 }
 
@@ -188,7 +190,7 @@ h2.h0 {
 }
 
 .custom--button--second:hover {
-  color: #d03c3e;
+  color: rgb(208, 60, 63);
 }
 
 .custom--button--second:hover::before {
@@ -202,7 +204,7 @@ h2.h0 {
 }
 
 .custom--button--third:hover {
-  color: #d03c3e;
+  color: rgb(208, 60, 63);
 }
 
 .custom--button--third:hover::before {
@@ -217,7 +219,7 @@ h2.h0 {
 
 .custom--button--fourth:hover::before {
   width: 100%;
-  background: red;
+  background: rgb(208, 60, 63);
 }
 
 .custom--button--fifth {
@@ -231,7 +233,7 @@ h2.h0 {
 
 .custom--button--fifth:hover::before {
   width: 100%;
-  background: red;
+  background: rgb(208, 60, 63);
 }
 .no-js:not(html) {
   display: none !important;
@@ -1405,7 +1407,7 @@ button.shopify-payment-button__button--unbranded,
   --border-offset: var(
     --buttons-border-offset
   ); /* reduce radius edge artifacts */
-  --border-opacity: calc(1 - var(--buttons-border-opacity));
+  /* --border-opacity: calc(1 - var(--buttons-border-opacity)); */
   border-radius: var(--buttons-radius-outset);
   position: relative;
 }
@@ -1595,7 +1597,7 @@ button.shopify-payment-button__button--unbranded {
 
 /* Button - social share */
 
-.share-button {
+.custom--button .share-button {
   display: block;
   position: relative;
 }
@@ -2750,8 +2752,10 @@ product-info .loading__spinner:not(.hidden) ~ *,
 /* Header icons */
 .header__icons {
   display: flex;
+  align-items: center;
   grid-area: icons;
   justify-self: end;
+  gap: 20px;
   padding-right: 0.8rem;
 }
 
@@ -2786,8 +2790,8 @@ product-info .loading__spinner:not(.hidden) ~ *,
 }
 
 .header__icon .icon {
-  height: 2rem;
-  width: 2rem;
+  height: 2.6rem;
+  width: 2.6rem;
   fill: none;
   vertical-align: middle;
 }
@@ -3038,15 +3042,6 @@ details[open] > .header__submenu {
   color: rgb(var(--color-foreground));
 }
 
-.header__menu-item span {
-  transition: text-decoration var(--duration-short) ease;
-}
-
-.header__menu-item:hover span {
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
-}
-
 details[open] > .header__menu-item {
   text-decoration: underline;
 }
@@ -3060,10 +3055,9 @@ details[open] > .header__menu-item .icon-caret {
 }
 
 .header__active-menu-item {
-  transition: text-decoration-thickness var(--duration-short) ease;
   color: rgb(var(--color-foreground));
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .header__menu-item:hover .header__active-menu-item {

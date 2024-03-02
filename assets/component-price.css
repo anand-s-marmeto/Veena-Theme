@@ -18,6 +18,10 @@
   text-align: right;
 }
 
+.price__badge-sale {
+  background-color: rgb(18, 111, 211);
+}
+
 .price .price-item {
   display: inline-block;
   margin: 0 1rem 0 0;

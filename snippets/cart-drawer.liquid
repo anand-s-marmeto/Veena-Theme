@@ -63,8 +63,6 @@
       {%- endif -%}
       <div class="drawer__header">
         
-      {% comment %} {%  assign cart_value = cart.total_price |  money_without_trailing_zeros  %}  {% endcomment %}
-      {% comment %} {{  cart_value |  times: 100 | divided_by: 500 }} {% endcomment %}
         <h2 class="drawer__heading">{{ 'sections.cart.title' | t }} <span>({{ cart.item_count }})</span></h2>
         {% render 'shipping-bar' %}
         <button

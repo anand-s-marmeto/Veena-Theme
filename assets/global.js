@@ -213,14 +213,15 @@ class QuantityInput extends HTMLElement {
 
   updateQuantity() {
     const value = parseInt(this.input.value);
-    document.querySelector(".custom-atc").dataset.quantity = value;
+    // document.querySelector(".custom-atc").dataset.quantity = value;
   }
   validateQtyRules() {
     const value = parseInt(this.input.value);
     // console.log(typeof value)
 
-    const price = document.getElementById(`price-${this.dataset.section}`);
-    const priceWithCurrency = price
+    // const price = document.querySelector('.price-item')
+
+    const priceWithCurrency = document
       .querySelector(".price-item")
       .textContent.split(" ");
     // console.log(price.querySelector('.price-item').textContent.split(' '))
@@ -1141,7 +1142,6 @@ class VariantSelects extends HTMLElement {
     this.updatePickupAvailability();
     this.removeErrorMessage();
     this.updateVariantStatuses();
-    this.updateId();
 
     if (!this.currentVariant) {
       this.toggleAddButton(true, "", true);
@@ -1153,11 +1153,6 @@ class VariantSelects extends HTMLElement {
       this.renderProductInfo();
       this.updateShareUrl();
     }
-  }
-
-  updateId() {
-    let currentVariant = this.currentVariant.id;
-    document.querySelector(".custom-atc").dataset.variantId = currentVariant;
   }
 
   updateOptions() {
@@ -1354,13 +1349,23 @@ class VariantSelects extends HTMLElement {
           `price-${this.dataset.section}`
         );
 
-        // Coupon Codes:
-        document.querySelector("#coupon-wrapper").innerHTML =
-          html.querySelector("#coupon-wrapper").innerHTML;
+        // // Coupon Codes:
+        // document.querySelector("#coupon-wrapper").innerHTML =
+        //   html.querySelector("#coupon-wrapper").innerHTML;
+
+        // Shipping-bar:
+        const shipSource = html.querySelector("#stock_progress");
+        const shipDestination = document.querySelector("#stock_progress");
+        if (shipSource && shipDestination) {
+          shipDestination.innerHTML = shipSource.innerHTML;
+        }
 
         // Description:
-        document.querySelector("#prod-description").innerHTML =
-          html.querySelector("#prod-description").innerHTML;
+        const descSource = document.querySelector("#prod-description");
+        const descDestination = html.querySelector("#prod-description");
+        if (descSource && descDestination) {
+          descDestination.innerHTML = descSource.innerHTML;
+        }
 
         const source = html.getElementById(
           `price-${
@@ -1369,6 +1374,7 @@ class VariantSelects extends HTMLElement {
               : this.dataset.section
           }`
         );
+
         const skuSource = html.getElementById(
           `Sku-${
             this.dataset.originalSection
@@ -1449,6 +1455,11 @@ class VariantSelects extends HTMLElement {
 
         const price = document.getElementById(`price-${this.dataset.section}`);
 
+        // const destinationAddToCart = document.getElementById("#current_price");
+        // if (price && destinationAddToCart) {
+        //   destinationAddToCart.textContent = price;
+        // }
+
         if (price) price.classList.remove("hidden");
 
         if (inventoryDestination)
@@ -1482,9 +1493,7 @@ class VariantSelects extends HTMLElement {
     if (!productForm) return;
     const addButton = productForm.querySelector('[name="add"]');
     const addButtonText = productForm.querySelector('[name="add"] > span');
-    const price = document.getElementById(`price-${this.dataset.section}`);
-    const currentPrice = price.querySelector(".price-item").textContent;
-    const description = document.querySelector(".product__description");
+    const currentPrice = document.querySelector(".price-item").textContent;
 
     // const quantity= document.querySelector('.quantity__input').value || 1
     // console.log(quantity)
@@ -1499,7 +1508,7 @@ class VariantSelects extends HTMLElement {
 
     if (disable) {
       addButton.setAttribute("disabled", "disabled");
-      if (text) addButtonText.textContent = text;
+      if (text) addButtonText.textContent = window.variantStrings.addToCart;
     } else {
       addButton.removeAttribute("disabled");
       addButtonText.textContent =
@@ -1599,39 +1608,39 @@ class ProductRecommendations extends HTMLElement {
 
 customElements.define("product-recommendations", ProductRecommendations);
 
-document.querySelector(".custom-atc").addEventListener("click", () => {
-  const cart =
-    document.querySelector("cart-notification") ||
-    document.querySelector("cart-drawer");
-  console.log(cart);
-  let formData = {
-    items: [
-      {
-        id: Number(document.querySelector(".custom-atc").dataset.variantId),
-        quantity: Number(
-          document.querySelector(".custom-atc").dataset.quantity
-        ),
-        properties: {
-          name: "Anand",
-          _dob: document.querySelector("#birthday").value,
-        },
-      },
-    ],
-    sections: cart.getSectionsToRender().map((section) => section.id),
-  };
-  fetch(window.Shopify.routes.root + "cart/add.js", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(formData),
-  })
-    .then((response) => response.json())
-    .then((res) => {
-      console.log(res);
-      cart.renderContents(res);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-});
+// document.querySelector(".custom-atc").addEventListener("click", () => {
+//   const cart =
+//     document.querySelector("cart-notification") ||
+//     document.querySelector("cart-drawer");
+//   console.log(cart);
+//   let formData = {
+//     items: [
+//       {
+//         id: Number(document.querySelector(".custom-atc").dataset.variantId),
+//         quantity: Number(
+//           document.querySelector(".custom-atc").dataset.quantity
+//         ),
+//         properties: {
+//           name: "Anand",
+//           _dob: document.querySelector("#birthday").value,
+//         },
+//       },
+//     ],
+//     sections: cart.getSectionsToRender().map((section) => section.id),
+//   };
+//   fetch(window.Shopify.routes.root + "cart/add.js", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(formData),
+//   })
+//     .then((response) => response.json())
+//     .then((res) => {
+//       console.log(res);
+//       cart.renderContents(res);
+//     })
+//     .catch((error) => {
+//       console.error("Error:", error);
+//     });
+// });

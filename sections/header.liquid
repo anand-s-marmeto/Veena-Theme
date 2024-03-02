@@ -31,6 +31,17 @@
     margin-left: -1.2rem;
   }
 
+  .header-link span{
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(0,0,0);
+  }
+  .link-separator{
+    height: 20px;
+    width: 1px;
+    background: rgb(0, 0, 0, 0.2);
+  }
+
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
     .scrolled-past-header .header__heading-logo-wrapper {
       width: 75%;
@@ -58,6 +69,8 @@
   .list-menu--inline {
     display: inline-flex;
     flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
   }
 
   summary.list-menu__item {
@@ -239,6 +252,21 @@
     {%- endif -%}
 
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
+      <nav class="header__faq-contact">
+        <ul class="list-menu list-menu--inline">
+          <li>
+            <a href="/pages/faqs" class="underline-remove highlighted_link header-link">
+              <span>FAQ</span>
+            </a>
+          </li>
+          <span class="link-separator"></span>
+          <li>
+            <a href="/pages/contact" class="underline-remove header-link">
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
       <div class="desktop-localization-wrapper">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
           <noscript class="small-hide medium-hide">

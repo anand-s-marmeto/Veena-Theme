@@ -52,8 +52,8 @@
       >
     <div class="card-button">
       <div class="product-tags">
-        {% if product.tags %}
-        <div class="arrival-tag">{{ product.tags[0] }}</div>
+        {% if product.tags.size > 0 %}
+          <div class="arrival-tag">{{ product.tags[0] }}</div>
         {% endif %}
         {% if current_variant.compare_at_price > current_variant.price %}
           <div class="discount-tag">{{ current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price }}% Off</div>

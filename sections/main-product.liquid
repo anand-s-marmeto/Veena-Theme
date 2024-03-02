@@ -101,12 +101,12 @@
                   </h2>
                 </a>
               </div>
-              {%- when 'share' -%}
+              {% comment %} {%- when 'share' -%}
               {% assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin %}
               {% render 'share-button',
                 block: block,
                 share_link: share_url
-               %}
+               %} {% endcomment %}
             </div>
             {%- when 'price' -%}
               <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
@@ -244,7 +244,7 @@
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                     {{ product.description }}
                   </div>
-                  {% if product.metafields.custom.product_details %}
+                  {% if product.metafields.custom.product_details_section %}
                   <details class="product-details">
                     <summary class="product-summary">
                       <svg class="icon icon-accordion" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
@@ -255,11 +255,13 @@
                       <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></path>
                     </svg>
                     </summary>
-                    <p>{{ product.metafields.custom.product_details }}</p>
+                    <p>{{ product.metafields.custom.product_details_section }}</p>
                   </details>
                   {% endif %}
                 </div>
               {%- endif -%}
+
+
             {%- when 'sku' -%}
               <p
                 class="product__sku no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -481,47 +483,47 @@
             {%- when 'variant_picker' -%}
               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id%}
             
+              
+            <div class="stock-progress" id="stock_progress">
+              {%  style  %} 
+                .stock-progress__bar{
+                  height: 5px;
+                  border-radius: 30px;
+                  background-color: rgb(245, 245, 245);
+                  position:relative;
+                  margin-top:10px;
+                }
+                .stock-progress__message{
+                  color:green;
+                }
+                .stock-progress__indicator{
+                  background: green;
+                  position:absolute;
+                  top:0;
+                  left:0;
+                  height:100%;
+                  border-radius:30px;
+                  width:{{ product.selected_or_first_available_variant.inventory_quantity |  divided_by: 2 }}%;
+                  transition:all 0.25s ease-in-out;
+                }
+              {% endstyle %}
+              <li class="stock-progress__message">
+                In stock (<span>{{ product.selected_or_first_available_variant.inventory_quantity }}</span>units), ready to be shipped.
+              </li>
+              <div class="stock-progress__bar">
+                <div class="stock-progress__indicator">
+                </div>
+              </div>
+            </div>  
+
             {%- when 'buy_buttons' -%}
                 
-              <label for="birthday">Birthday:</label>
+              {% comment %} <label for="birthday">Birthday:</label>
               <input type="date" id="birthday" name="birthday">
               <button class="button custom-atc" data-variant-id={{ product.selected_or_first_available_variant.id }}  data-section-id={{ section.id }} data-quantity=2 >
                 <span> ATC </span>
-              </button>
-                          
-              <script>
+              </button> {% endcomment %}
                 
-                document.querySelector('.custom-atc').addEventListener('click',()=>{
-                  let formData = {
-                   'items': [{
-                    'id': Number(document.querySelector('.custom-atc').dataset.variantId),
-                    'quantity': Number(document.querySelector('.custom-atc').dataset.quantity),
-                     properties:{
-                       "name":"Anand",
-                        "_dob": document.querySelector('#birthday').value
-                     }
-                    }],
-                    'sections': document.querySelector('.custom-atc').dataset.sectionId,
-                    'section_url':'/cart.js'
-                  };
-              fetch(window.Shopify.routes.root + 'cart/add.js', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-              })
-              .then(response => {
-                return response.json();
-              })
-              .catch((error) => {
-                console.error('Error:', error);
-              });
-       
-            })
-
-                
-            </script>
               
               {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true, cart_qty: cart_qty -%}
            
