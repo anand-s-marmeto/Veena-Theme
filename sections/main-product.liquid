@@ -712,8 +712,8 @@
   
               {%- unless shop.enabled_payment_types == empty -%}
                 <div class="payments">
-                  {% if block.settings.payment_text != blank %}
-                    <span class=" payment-text">{{ block.settings.payment_text }}</span>
+                  {% if block.settings.payments_text != blank %}
+                    <span class=" payment-text">{{ block.settings.payments_text }}</span>
                   {% endif %}
                   <ul class="payment-options">
                     {%- for type in shop.enabled_payment_types -%}
