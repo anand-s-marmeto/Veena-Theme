@@ -67,6 +67,7 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
+    {%  render 'breadcrums' %} 
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
     <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
       {% render 'product-media-gallery', variant_images: variant_images %}
@@ -683,7 +684,9 @@
                 block: block
               %}
               
-
+            
+            
+            {%- when 'payments' -%}
             <style>
                 .payments{
                   display: flex;
@@ -709,8 +712,9 @@
   
               {%- unless shop.enabled_payment_types == empty -%}
                 <div class="payments">
-                  <span class=" payment-text">Secure checkout with</span>
-                
+                  {% if block.settings.payment_text != blank %}
+                    <span class=" payment-text">Secure checkout with</span>
+                  {% endif %}
                   <ul class="payment-options">
                     {%- for type in shop.enabled_payment_types -%}
                       <li>
@@ -1092,6 +1096,17 @@
         {
           "type": "paragraph",
           "content": "t:sections.main-product.blocks.share.settings.title_info.content"
+        }
+      ]
+    },
+    {
+      "type": "payments",
+      "name":"payments",
+      "settings": [
+        {
+          "type": "text",
+          "id": "payments_text",
+          "label": "Payment text"
         }
       ]
     },

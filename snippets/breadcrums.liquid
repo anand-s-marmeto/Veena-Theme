@@ -9,6 +9,7 @@
 
   .breadcrumbs__listitem {
     display: flex;
+    font-size:16px;
   }
 
   .breadcrumbs__listitem:not(:first-child)::before {
@@ -19,11 +20,10 @@
   .breadcrumbs__link {
     color: inherit;
     text-decoration: none;
+    font-size:16px;
   }
 
-  .breadcrumbs__link:not([aria-current='page']) {
-    font-weight: bold;
-  }
+  
 {% endstyle %}
 
 {%- unless template == 'index'  or template == '404' -%}
