@@ -20,7 +20,7 @@
       {% for block in section.blocks %}
         {% if block.settings.desktop_image %}
           <div class="image-grid image-grid-{{ forloop.index }}">
-            <div class="image-grid__image">
+            <div class="image-grid__image-{{ forloop.index }}">
               {% render 'responsive-picture', class:"picture" , desktopImage: block.settings.desktop_image , mobileImage: block.settings.mobile_image %}
             </div>
             <div class="image-grid__text-content-{{ forloop.index }}">

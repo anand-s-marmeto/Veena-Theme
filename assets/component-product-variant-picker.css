@@ -61,7 +61,6 @@ variant-selects {
 
 /* Custom styles for Pill display type */
 .product-form__input--pill input[type="radio"] + label {
-  color: rgba(var(--color-foreground));
   border-radius: var(--variant-pills-radius);
   color: rgb(var(--color-foreground));
   display: inline-block;
@@ -100,6 +99,22 @@ variant-selects {
   /* color: rgb(var(--color-background)); */
   color: rgb(0, 0, 0);
   border-color: rgb(208, 60, 63);
+}
+
+.product-form__input--pill input[name="Size"] + label {
+  border-radius: var(--variant-pills-radius);
+  color: rgb(var(--color-foreground));
+  border: 0.5px solid rgb(245, 245, 245);
+  display: inline-block;
+  margin: 0.7rem 0.5rem 0.2rem 0;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+  line-height: 1;
+  text-align: center;
+  transition: border var(--duration-short) ease;
+  cursor: pointer;
+  position: relative;
 }
 
 @media screen and (forced-colors: active) {

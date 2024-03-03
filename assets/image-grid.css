@@ -4,15 +4,46 @@
   grid-auto-flow: dense;
   gap: 20px;
 }
-.image-grid {
+.image-grid-1,
+.image-grid-2,
+.image-grid-3,
+.image-grid-4 {
   position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+.image-grid-1:hover {
+  .image-grid__image-1 {
+    transform: scale(1.05);
+  }
+}
+.image-grid-2:hover {
+  .image-grid__image-2 {
+    transform: scale(1.05);
+  }
+}
+.image-grid-3:hover {
+  .image-grid__image-3 {
+    transform: scale(1.05);
+  }
 }
 
-.image-grid__image {
+.image-grid-4:hover {
+  .image-grid__image-4 {
+    transform: scale(1.05);
+  }
+}
+
+.image-grid__image-1,
+.image-grid__image-2,
+.image-grid__image-3,
+.image-grid__image-4 {
   border-radius: 16px;
   overflow: hidden;
   width: 100%;
   height: 100%;
+  transform: scale(1);
+  transition: all 0.25s ease-in-out;
 }
 .image-grid__sub-heading {
   font-size: 16px;
