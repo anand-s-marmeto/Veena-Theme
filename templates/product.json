@@ -52,6 +52,12 @@
             "show_gift_card_recipient": true
           }
         },
+        "available_offers_4qLDei": {
+          "type": "available-offers",
+          "settings": {
+            "offer_title": "Available Offers"
+          }
+        },
         "icon_with_text_9ih3xL": {
           "type": "icon-with-text",
           "settings": {
@@ -70,10 +76,10 @@
             "heading_4": "Help center 24\/7"
           }
         },
-        "available_offers_4qLDei": {
-          "type": "available-offers",
+        "payments_hRwANW": {
+          "type": "payments",
           "settings": {
-            "offer_title": "Available Offers"
+            "payments_text": "Secure checkout with"
           }
         },
         "description": {
@@ -92,8 +98,9 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "icon_with_text_9ih3xL",
         "available_offers_4qLDei",
+        "icon_with_text_9ih3xL",
+        "payments_hRwANW",
         "description"
       ],
       "settings": {
