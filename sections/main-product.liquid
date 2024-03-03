@@ -713,7 +713,7 @@
               {%- unless shop.enabled_payment_types == empty -%}
                 <div class="payments">
                   {% if block.settings.payment_text != blank %}
-                    <span class=" payment-text">Secure checkout with</span>
+                    <span class=" payment-text">{{ block.settings.payment_text }}</span>
                   {% endif %}
                   <ul class="payment-options">
                     {%- for type in shop.enabled_payment_types -%}
