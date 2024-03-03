@@ -24,6 +24,7 @@
         "announcement-bar-0",
         "announcement_zX8i66"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-3",
         "show_line_separator": true,
@@ -41,7 +42,7 @@
         "menu": "collections-menu",
         "menu_type_desktop": "dropdown",
         "sticky_header_type": "on-scroll-up",
-        "show_line_separator": false,
+        "show_line_separator": true,
         "color_scheme": "scheme-1",
         "menu_color_scheme": "scheme-1",
         "enable_country_selector": true,
