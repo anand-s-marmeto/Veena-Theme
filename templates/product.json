@@ -179,6 +179,38 @@
       "settings": {
         "title": "Recently viewed"
       }
+    },
+    "text_grid_3qLdtM": {
+      "type": "text-grid",
+      "blocks": {
+        "text_content_6etzxj": {
+          "type": "text-content",
+          "settings": {
+            "title": "Elegance Redefined",
+            "description": "<p>Discover timeless fashion that seamlessly blends sophistication and modern flair. Our curated collection reflects a commitment to style, quality, and individuality, ensuring you make a statement with every ensemble.<\/p>",
+            "button_text": "Explore Now",
+            "button_link": "shopify:\/\/collections\/all"
+          }
+        },
+        "text_content_WX3yTP": {
+          "type": "text-content",
+          "settings": {
+            "title": "",
+            "description": "",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_content_6etzxj",
+        "text_content_WX3yTP"
+      ],
+      "settings": {
+        "background_color": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -186,6 +218,7 @@
     "related-products",
     "17084303543f0b247b",
     "featured_collection_LBzjta",
-    "wizaah_recently_viewed_products_DHTgXG"
+    "wizaah_recently_viewed_products_DHTgXG",
+    "text_grid_3qLdtM"
   ]
 }
