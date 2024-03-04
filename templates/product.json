@@ -230,11 +230,13 @@
         "image_grid_Ba99Fw": {
           "type": "image-grid",
           "settings": {
-            "sub_heading": "",
-            "heading": "",
-            "description": "",
-            "button_link": "",
-            "button_text": ""
+            "desktop_image": "shopify:\/\/shop_images\/image-grid-2.webp",
+            "mobile_image": "shopify:\/\/shop_images\/image-grid-2.webp",
+            "sub_heading": "Free-Spirited Fashion Finds",
+            "heading": "Boho Chic Vibes",
+            "description": "<p>Immerse yourself in the world of bohemian charm. From flowy silhouettes to vibrant patterns.<\/p>",
+            "button_link": "shopify:\/\/collections\/all",
+            "button_text": "Explore More"
           }
         },
         "image_grid_qY8Xwg": {
