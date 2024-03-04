@@ -8,13 +8,21 @@
         "announcement_LDacYx": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
-            "link": ""
+            "text": "Qualify for complimentary shipping on orders totaling $50 or more.",
+            "link": "shopify:\/\/collections\/all"
+          }
+        },
+        "announcement_4hKnmb": {
+          "type": "announcement",
+          "settings": {
+            "text": "Flash Sale Alert: Save Big for the Next 24 Hours!",
+            "link": "shopify:\/\/collections\/all"
           }
         }
       },
       "block_order": [
-        "announcement_LDacYx"
+        "announcement_LDacYx",
+        "announcement_4hKnmb"
       ],
       "settings": {
         "color_scheme": "",
