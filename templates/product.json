@@ -211,6 +211,63 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "image_grid_JGpWYL": {
+      "type": "image-grid",
+      "blocks": {
+        "image_grid_7mERxV": {
+          "type": "image-grid",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/image-grid-1.webp",
+            "mobile_image": "shopify:\/\/shop_images\/image-grid-1.webp",
+            "sub_heading": "Unveil Your Inner Grace",
+            "heading": "Timeless Elegance",
+            "description": "<p>Explore a collection that transcends trends, embracing timeless pieces that exude sophistication. Elevate your style with our curated selection designed to stand the test of time.<\/p>",
+            "button_link": "shopify:\/\/collections\/all",
+            "button_text": "Shop Now"
+          }
+        },
+        "image_grid_Ba99Fw": {
+          "type": "image-grid",
+          "settings": {
+            "sub_heading": "",
+            "heading": "",
+            "description": "",
+            "button_link": "",
+            "button_text": ""
+          }
+        },
+        "image_grid_qY8Xwg": {
+          "type": "image-grid",
+          "settings": {
+            "sub_heading": "",
+            "heading": "",
+            "description": "",
+            "button_link": "",
+            "button_text": ""
+          }
+        },
+        "image_grid_EqJbzw": {
+          "type": "image-grid",
+          "settings": {
+            "sub_heading": "",
+            "heading": "",
+            "description": "",
+            "button_link": "",
+            "button_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_grid_7mERxV",
+        "image_grid_Ba99Fw",
+        "image_grid_qY8Xwg",
+        "image_grid_EqJbzw"
+      ],
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -219,6 +276,7 @@
     "17084303543f0b247b",
     "featured_collection_LBzjta",
     "wizaah_recently_viewed_products_DHTgXG",
-    "text_grid_3qLdtM"
+    "text_grid_3qLdtM",
+    "image_grid_JGpWYL"
   ]
 }
