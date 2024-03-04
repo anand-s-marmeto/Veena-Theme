@@ -12,8 +12,23 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  .login-container{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .login-wrapper{
+    width:50%;
+  }
+
+  @media screen and (max-width:767px){
+    .login-wrapper{
+      width:100%;
+    }
+  }
+  
 {%- endstyle -%}
-<div class="login page-width">
+<div class="login page-width login-container">
   <div class="login-wrapper">
   <div class="customer login section-{{ section.id }}-padding">
     <h1 id="recover" tabindex="-1">
