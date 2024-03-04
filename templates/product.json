@@ -195,10 +195,10 @@
         "text_content_WX3yTP": {
           "type": "text-content",
           "settings": {
-            "title": "",
-            "description": "",
-            "button_text": "",
-            "button_link": ""
+            "title": "Effortless Casual Couture",
+            "description": "<p>Experience the perfect blend of comfort and style with our casual couture collection. From laid-back essentials to effortlessly chic pieces, redefine casual wear with fashion that allows you to express yourself without compromising on comfort.<\/p>",
+            "button_text": "Check It Now",
+            "button_link": "shopify:\/\/collections\/all"
           }
         }
       },
