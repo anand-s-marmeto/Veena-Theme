@@ -254,11 +254,13 @@
         "image_grid_EqJbzw": {
           "type": "image-grid",
           "settings": {
-            "sub_heading": "",
-            "heading": "",
+            "desktop_image": "shopify:\/\/shop_images\/image-grid-4.webp",
+            "mobile_image": "shopify:\/\/shop_images\/image-grid-4.webp",
+            "sub_heading": "Elegance Redefined",
+            "heading": "Modern Minimalist Trends",
             "description": "",
-            "button_link": "",
-            "button_text": ""
+            "button_link": "shopify:\/\/collections\/all",
+            "button_text": "Sho Now"
           }
         }
       },
