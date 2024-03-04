@@ -121,65 +121,6 @@
         "padding_bottom": 12
       }
     },
-    "related-products": {
-      "type": "related-products",
-      "settings": {
-        "heading": "You may also like",
-        "heading_size": "h2",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 28
-      }
-    },
-    "17084303543f0b247b": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_RHVtYe": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_RHVtYe"
-      ],
-      "disabled": true,
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "featured_collection_LBzjta": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "title": "Featured collection",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "carefree-classics",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "wizaah_recently_viewed_products_DHTgXG": {
-      "type": "wizaah-recently-viewed-products",
-      "settings": {
-        "title": "Recently viewed"
-      }
-    },
     "text_grid_3qLdtM": {
       "type": "text-grid",
       "blocks": {
@@ -274,15 +215,74 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "17084303543f0b247b": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_RHVtYe": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_RHVtYe"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "featured_collection_LBzjta": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "Featured collection",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "carefree-classics",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "wizaah_recently_viewed_products_DHTgXG": {
+      "type": "wizaah-recently-viewed-products",
+      "settings": {
+        "title": "Recently viewed"
+      }
     }
   },
   "order": [
     "main",
+    "text_grid_3qLdtM",
+    "image_grid_JGpWYL",
     "related-products",
     "17084303543f0b247b",
     "featured_collection_LBzjta",
-    "wizaah_recently_viewed_products_DHTgXG",
-    "text_grid_3qLdtM",
-    "image_grid_JGpWYL"
+    "wizaah_recently_viewed_products_DHTgXG"
   ]
 }
