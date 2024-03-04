@@ -12,17 +12,85 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  /* .accounts-page__header svg{
+    height: 32.5px;
+    width: 32.5px;
+  } */
+  .accounts-page{
+    background-color: {{ section.settings.background_color }}
+  }
+  .accounts-page__header{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom: 25px;
+  }
+  .accounts-page__header .header-heading{
+    margin: 0;
+    font-weight: 700;
+    font-size: 32px;
+  }
+
+  .accounts-page__name{
+    font-size: 20px;
+    font-weight:600;
+    padding:10px;
+    margin-bottom: 10px;
+  }
+  .accounts-page__email-phone ,.accounts-page__address {
+    border: 2px solid rgb(216,198,198);
+    border-radius: 16px;
+    padding: 10px;
+    margin-bottom:25px;
+    color: rgb(0,0,0);
+  }
+
+  .accounts-page__email-phone .email{
+    margin-bottom:10px;
+  }
+
+
+
 {%- endstyle -%}
 
 <div class="customer account section-{{ section.id }}-padding">
   <div>
-    <h1 class="customer__title">{{ 'customer.account.title' | t }}</h1>
+    {% comment %} <h1 class="customer__title">{{ 'customer.account.title' | t }}</h1>
     <a href="{{ routes.account_logout_url }}">
       <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" fill="none" viewBox="0 0 18 19">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M6 4.5a3 3 0 116 0 3 3 0 01-6 0zm3-4a4 4 0 100 8 4 4 0 000-8zm5.58 12.15c1.12.82 1.83 2.24 1.91 4.85H1.51c.08-2.6.79-4.03 1.9-4.85C4.66 11.75 6.5 11.5 9 11.5s4.35.26 5.58 1.15zM9 10.5c-2.5 0-4.65.24-6.17 1.35C1.27 12.98.5 14.93.5 18v.5h17V18c0-3.07-.77-5.02-2.33-6.15-1.52-1.1-3.67-1.35-6.17-1.35z" fill="currentColor">
       </svg>
       {{ 'customer.log_out' | t }}
-    </a>
+    </a> {% endcomment %}
+
+    {% comment %} When 'account' {% endcomment %}
+    <aside class="sidebar-tags">
+      {% comment %} Sidebar {% endcomment %}
+    </aside>
+    <div class="accounts-page">
+      <div class="accounts-page_wrapper">
+        <div class="accounts-page__header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" id="account"><path d="M24 8c-4.42 0-8 3.58-8 8 0 4.41 3.58 8 8 8s8-3.59 8-8c0-4.42-3.58-8-8-8zm0 20c-5.33 0-16 2.67-16 8v4h32v-4c0-5.33-10.67-8-16-8z"></path><path fill="none" d="M0 0h48v48H0z"></path></svg>
+          <h2 class="header-heading">
+            My Account
+          </h2>
+        </div>
+        <h2 class="accounts-page__name uppercase">
+          {{ customer.name }}
+        </h2>
+        <div class="accounts-page__email-phone">
+          <div class="email">{{ customer.email }}</div>
+          <div class="phone">{{ customer.phone }}</div>
+        </div>
+        <div class="accounts-page__address">
+          <p>{{ customer.email }}</p>
+          <div class="customer-address">
+            {{ customer.addresses[0] }}
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div>
@@ -154,6 +222,13 @@
 {
   "name": "t:sections.main-account.name",
   "settings": [
+    {
+      "type": "color",
+      "id": "backgroud_color",
+      "label": "Background color",
+      "info": "Background color for contents page",
+      "default":" rgb(245,245,245)"
+    },
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
