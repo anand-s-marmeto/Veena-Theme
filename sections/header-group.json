@@ -2,17 +2,17 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
-    "announcement-bar": {
+    "announcement_bar_QL8yX3": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement-bar-0": {
+        "announcement_LDacYx": {
           "type": "announcement",
           "settings": {
             "text": "Qualify for complimentary shipping on orders totaling $50 or more.",
             "link": "shopify:\/\/collections\/all"
           }
         },
-        "announcement_zX8i66": {
+        "announcement_4hKnmb": {
           "type": "announcement",
           "settings": {
             "text": "Flash Sale Alert: Save Big for the Next 24 Hours!",
@@ -21,15 +21,14 @@
         }
       },
       "block_order": [
-        "announcement-bar-0",
-        "announcement_zX8i66"
+        "announcement_LDacYx",
+        "announcement_4hKnmb"
       ],
-      "disabled": true,
       "settings": {
-        "color_scheme": "scheme-3",
+        "color_scheme": "",
         "show_line_separator": true,
         "show_social": false,
-        "auto_rotate": true,
+        "auto_rotate": false,
         "change_slides_speed": 5,
         "enable_country_selector": false,
         "enable_language_selector": false
@@ -55,7 +54,7 @@
     }
   },
   "order": [
-    "announcement-bar",
+    "announcement_bar_QL8yX3",
     "header"
   ]
 }

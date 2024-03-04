@@ -117,7 +117,7 @@
     "cart_type": "drawer",
     "show_vendor": false,
     "show_cart_note": true,
-    "cart_drawer_collection": "",
+    "cart_drawer_collection": "winter-collection",
     "cart_color_scheme": "scheme-1",
     "sections": {
       "main-password-header": {
@@ -185,7 +185,7 @@
       },
       "scheme-4": {
         "settings": {
-          "background": "#121212",
+          "background": "#dd1d1d",
           "background_gradient": "",
           "text": "#ffffff",
           "button": "#ffffff",
