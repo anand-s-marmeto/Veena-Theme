@@ -242,11 +242,13 @@
         "image_grid_qY8Xwg": {
           "type": "image-grid",
           "settings": {
-            "sub_heading": "",
-            "heading": "",
+            "desktop_image": "shopify:\/\/shop_images\/image-grid-3.webp",
+            "mobile_image": "shopify:\/\/shop_images\/image-grid-3.webp",
+            "sub_heading": "Modern Minimalism",
+            "heading": "Simplicity Redefined",
             "description": "",
-            "button_link": "",
-            "button_text": ""
+            "button_link": "shopify:\/\/collections\/all",
+            "button_text": "Shop Now"
           }
         },
         "image_grid_EqJbzw": {
