@@ -87,6 +87,7 @@
           {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
         <facet-filters-form class="facets facets-vertical-sort small-hide no-js-hidden">
           <form class="facets-vertical-form" id="FacetSortForm">
+
         
           {% comment %} <!-- Adding items to header --> {% endcomment %}
         
@@ -252,14 +253,22 @@ const filterButtons = document.querySelectorAll('.facet-filter__button')
     btn.addEventListener('click',()=>{
       console.log(columns)
       const productGrid = document.querySelector('#product-grid');
+      const gridItem = document.querySelector('.grid__item')
   
       // Iterate over the classList and replace the class ending with "desktop"
         productGrid.classList.forEach(function(className) {
           if (className.endsWith('desktop')) {
             // Replace the class name
             productGrid.classList.replace(className, `grid--${columns}-col-desktop`);
+
           }
       });
+
+      // if(columns ==1){
+      //   gridItem.classList.forEach(function (){
+      //     gridItem.style.display='flex'
+      //   })
+      // }
   })
   })
 </script>

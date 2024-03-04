@@ -150,20 +150,14 @@
   border-radius: 50%;
   box-shadow: 0 0 0 3px rgb(var(--color-background)) inset;
   cursor: pointer;
+  position: relative;
 }
 
-/* .product-card__swatch:active {
-  border: 2px solid red;
-} */
 .product-card__label {
   position: relative;
   display: block;
 }
 
-.product-card__label:focus {
-  border: 1px solid red;
-  border-radius: 50%;
-}
 .product-card__label input {
   position: absolute;
   display: none;

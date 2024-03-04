@@ -45,6 +45,17 @@
   .card__heading:hover{
     color:red;
   }
+
+  .card-media {
+    transform: scale(1);
+    transition: all 0.35s ease-in-out;
+
+  }
+  .card__inner:hover{
+    .card-media{
+      transform: scale(1.05);
+    }
+  }
   
 {%  endstyle %}
 
@@ -63,7 +74,7 @@
     
     <div
       class="card__inner {% if card_style == 'standard' %}color-{{ card_color_scheme }} gradient{% endif %}{% if card_collection.featured_image or card_style == 'standard' %} ratio{% endif %}"
-      style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
+      style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%; height:100%;"
     >
       
       {%- if card_collection.featured_image -%}
@@ -132,7 +143,7 @@
     {%- if card_collection != blank and card_style == 'card' or card_collection.featured_image -%}
       <div class="card__content">
         <div class="card__information">
-          <h3 class="card__heading">
+          {% comment %} <h3 class="card__heading">
             <a
               {% if card_collection == blank %}
                 role="link" aria-disabled="true"
@@ -149,7 +160,7 @@
               {%- if card_collection.featured_image or card_collection.description == blank -%}
               {%- endif %}
             </a>
-          </h3>
+          </h3> {% endcomment %}
           {%- if card_collection.featured_image == null and card_collection.description != blank -%}
             <p class="card__caption">
               {{- card_collection.description | strip_html | truncatewords: 12 -}}

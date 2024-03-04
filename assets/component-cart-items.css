@@ -78,6 +78,13 @@ dd {
 
 .cart-item__quantity-wrapper {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-drawer .cart-item__quantity-wrapper {
+  display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
@@ -416,7 +423,7 @@ cart-remove-button .icon-remove {
   }
 
   .cart-items thead th:first-child {
-    width: 60%;
+    width: 50%;
   }
 }
 

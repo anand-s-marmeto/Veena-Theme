@@ -24,14 +24,23 @@ let Cx = setInterval(function () {
 
   // Display the countdown
   // document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-  document.querySelector(".drawer__cart-items-wrapper .days").textContent =
-    Cdays;
-  document.querySelector(".drawer__cart-items-wrapper .hours").textContent =
-    Chours;
-  document.querySelector(".drawer__cart-items-wrapper .mins").textContent =
-    Cminutes;
-  document.querySelector(".drawer__cart-items-wrapper .secs").textContent =
-    Cseconds;
+  if (document.querySelector(".drawer__cart-items-wrapper .days")) {
+    document.querySelector(".drawer__cart-items-wrapper .days").textContent =
+      Cdays;
+    document.querySelector(".drawer__cart-items-wrapper .hours").textContent =
+      Chours;
+    document.querySelector(".drawer__cart-items-wrapper .mins").textContent =
+      Cminutes;
+    document.querySelector(".drawer__cart-items-wrapper .secs").textContent =
+      Cseconds;
+  }
+
+  if (document.querySelector(".drawer__footer .days")) {
+    document.querySelector(".drawer__footer .days").textContent = Cdays;
+    document.querySelector(".drawer__footer .hours").textContent = Chours;
+    document.querySelector(".drawer__footer .mins").textContent = Cminutes;
+    document.querySelector(".drawer__footer .secs").textContent = Cseconds;
+  }
 
   // If the countdown is over, display a message
   if (distanceC < 0) {
