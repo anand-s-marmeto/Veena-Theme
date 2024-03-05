@@ -1,0 +1,19 @@
+{{ 'snippet-account-nav.css' | asset_url | stylesheet_tag }}
+<div class="custom-main-account__navigation">
+  <a href="/account" class=" {%  if request.path == "/account" %} active {% endif %}">
+    {% render 'account-icons' icon:'user' %}
+     <span>Account Details</span>
+  </a>  
+  <a href="/pages/orders" class="{%  if request.path == "/pages/orders" %} active {% endif %}">
+    {% render 'account-icons' icon:'order-box' %}
+    <span>My Orders</span>
+  </a>
+  <a href="/account/addresses" class="{%  if request.path == "/account/addresses" %} active {% endif %}">
+    {% render 'account-icons' icon:'location' %}
+    <span>View Address</span>
+  </a>
+  <a href="/account/login">
+   {% render 'account-icons' icon:'sign-out' %}
+    <span>Sign Out</span>
+  </a>
+</div>

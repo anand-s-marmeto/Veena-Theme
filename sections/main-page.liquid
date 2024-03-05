@@ -1,5 +1,6 @@
 {{ 'section-main-page.css' | asset_url | stylesheet_tag }}
 
+{{ 'custom-account-pages.css' | asset_url | stylesheet_tag }}
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -12,16 +13,117 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
-{%- endstyle -%}
+  table {
+    border: 1px solid #CCC;
+    border-collapse: collapse;
+    color:rgb(0,0,0);
+  }
+  tr{
+    border-bottom: 1px solid rgb(220,214,211);
+  }
+  .orders-page__orders thead{
+    background-color: rgb(220,214,211);
+  }
+  .orders-page__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex:1;
+    background:rgb(245,245,245);
+    padding-top:50px;
+  }
+  .orders-page__customer-info h3{
+    font-size: 20px;
+    font-weight: 600;
+    color:rgb(0,0,0);
+  }
+  .orders-page__customer-info{
+    color:rgb(0,0,0);
+    margin-bottom:30px;
+  }
+  .orders-page__orders-container h2{
+    margin-bottom:10px;
+  }
+  .actions{
+    display: flex;
+    gap: 10px;
+    align-items: center;
 
-<div class="page-width page-width--narrow section-{{ section.id }}-padding">
+  }
+  .actions button{
+    padding:10px;
+  }
+  .actions a{
+    border:1px solid rgb(0,0,0);
+    padding:6px;
+  }
+  .orders-page__orders th{
+    text-align:start;
+  }
+  {%- endstyle -%}
+
+{% comment %} <div class="page-width page-width--narrow section-{{ section.id }}-padding">
   <h1 class="main-page-title page-title h0{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     {{ page.title | escape }}
   </h1>
   <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     {{ page.content }}
   </div>
+</div>  {% endcomment %}
+
+<div class="orders-page">
+  <div class="page-width">
+ <div class="custom-main-account section-{{ section.id }}-padding">
+    {% render 'account-nav' %}
+    <div class="orders-page__container">
+      <div class="orders-page__customer-info">
+        <h3>Hi, {{ customer.name }}</h3>
+        <div class="customer-phone">{{ customer.phone }}</div>
+        <div class="customer-email">{{ customer.email }}</div>
+      </div>
+      <div class="orders-page__orders-container">
+        <h2 class="uppercase">Orders</h2>
+        <div class="orders-page__orders">
+          <table>
+            <thead>
+              <tr>
+                <th>Order Number</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in customer.orders %}
+                <tr>
+                  <td>{{ order.order_number }}</td>
+                  <td>{{ order.created_at | split: ' ' | first }}</td>
+                  <td>{{ order.fulfillment_status_label }}</td>
+                  <td>{{ order.subtotal_price }}</td>
+                  <td>
+                      <div class="actions">
+                        <a href="{{ order.customer_order_url }}" class="view-action">View</a>
+                        <button disabled  class="track-action">Track Order</button>
+                        <button disabled class="cancel-action">Cancel</button>
+                        <button disabled class="return-action">Return</button>
+                      </div>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
+</div>
+
+
 
 {% schema %}
 {

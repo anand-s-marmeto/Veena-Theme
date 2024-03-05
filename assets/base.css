@@ -607,11 +607,14 @@ table:not([class]) {
   box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground), 0.2);
   /* draws the table border  */
 }
+.orders-page__orders table {
+  box-shadow: none;
+}
 
-table:not([class]) td,
-table:not([class]) th {
+.orders-page__orders th,
+table:not([class]) td {
+  border: none;
   padding: 1em;
-  border: 0.1rem solid rgba(var(--color-foreground), 0.2);
 }
 
 @media screen and (max-width: 749px) {
