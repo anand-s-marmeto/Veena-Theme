@@ -1,0 +1,268 @@
+{%  style  %} 
+.section-custom-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    width: 100%;
+}
+
+.custom-navigation ul{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    padding:0;
+}
+
+.custom-navigation__logo{
+  max-width: 100px;
+  margin: 0 auto;
+  padding:10px;
+}
+
+.custom-navigation__icons{
+  text-align:end;
+}
+
+.custom-navigation .mega-menu__content{
+  background-color: rgb(var(--color-background));
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
+    left: 0;
+    overflow-y: auto;
+    padding-bottom: 3rem;
+    /* padding-top: 3rem; */
+    position: absolute;
+    right: 0;
+    top:35%;
+    z-index:10;
+}
+
+.custom-navigation .mega-menu__list{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(1fr,0)); 
+
+}
+
+.custom-navigation .list-unstyled{
+  display:flex;
+  flex-direction: column;
+  gap:10px;
+}
+
+.custom-navigation .collection-dropdown{
+  background-color: rgb(var(--color-background));
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
+    left: 0;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    top: 35%;
+    display: grid;
+    gap: 20px;
+    list-style: none;
+    grid-template-columns: repeat(5, 1fr);
+    z-index:10;
+}
+{% endstyle %}
+
+<header class="section-custom-header">
+    <nav class="custom-navigation">
+      <ul>
+        {% for link in section.settings.link_list.links %}
+          <li>
+            {%- if link.links != blank -%}
+          <header-menu>
+            <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+              <summary
+                id="HeaderMenu-{{ link.handle }}"
+                class="header__menu-item list-menu__item  focus-inset"
+              >
+                <span
+                  {%- if link.child_active %}
+                    class="header__active-menu-item"
+                  {% endif %}
+                >
+                  {{- link.title | escape -}}
+                </span>
+                {% render 'icon-caret' %}
+              </summary>
+              <div
+                id="MegaMenu-Content-{{ forloop.index }}"
+                class="mega-menu__content page-width color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                tabindex="-1"
+              >
+                <ul
+                  class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                  role="list"
+                >
+                  {%- for childlink in link.links -%}
+                    <li>
+                      <a
+                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                        href="{{ childlink.url }}"
+                        class="mega-menu__link mega-menu__link--level-2 "
+                        {% if childlink.current %}
+                          aria-current="page"
+                        {% endif %}
+                      >
+                        {{ childlink.title | escape }}
+                      </a>
+                      {%- if childlink.links != blank -%}
+                        <ul class="list-unstyled" role="list">
+                          {%- for grandchildlink in childlink.links -%}
+                            <li>
+                              <a
+                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                href="{{ grandchildlink.url }}"
+                                class="mega-menu__link "
+                                {% if grandchildlink.current %}
+                                  aria-current="page"
+                                {% endif %}
+                              >
+                                {{ grandchildlink.title | escape }}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+
+                        </ul>
+                      {%- endif -%}
+                      {% comment %} <div class="collection-image">
+                        {% assign prod_image = childlink.handle | append: '.webp' | file_url %}
+                        <img src="{{ prod_image }}" alt="product-image">
+                      </div> {% endcomment %}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            </details>
+          </header-menu>
+        {%- elsif collections[link.handle] != blank -%}
+          <details class="collection-header-details">
+            <summary class="header__menu-item list-menu__item  focus-inset">
+              <span class="header__active-menu-item">
+                {{ link.title }}
+              </span>
+              {% render 'icon-caret' %}  
+            </summary>
+            {% comment %} <div class="collection-dropdown-wrapper"> {% endcomment %}
+            <ul class="collection-dropdown">
+              {% for product in collections[link.handle].products %}
+                <li>
+                  <a href="{{ product.url }}">
+                  <div class="collection-product--{{ forloop.index }}">
+                    <div class="collection-product__image">
+                      <img src="{{ product.featured_image |  image_url }}" alt="prod-image">
+                      <div class="collection-product__tag">
+                        {% if product.compare_at_price> product.price %}
+                          <span>Sale</span>
+                        {% elsif product.available == false %}
+                          <span>Sold out</span>
+                        {% endif %}
+                      </div>
+                    </div>
+                    <div class="collection-product__title">
+                    {{ product.title }}</div>
+                    {% if product.varies %}
+                      <span class="collection-product__current-price">From {{ product.price |  money_with_currency }}</span> <s class="collection-product__compare-at-price">{{ product.compare_at_price|  money_with_currency }}</s>
+                    {% else %}
+                      <span class="collection-product__current-price">{{ product.price |  money_with_currency }}</span> <s class="collection-product__compare-at-price">{{ product.compare_at_price|  money_with_currency }}</s>
+
+                    {% endif %}
+                  </div>
+                </a>
+                </li>
+              {% endfor %}
+            </ul>
+            {% comment %} </div> {% endcomment %}
+          </details>
+        {% else %}
+          <a
+            id="HeaderMenu-{{ link.handle }}"
+            href="{{ link.url }}"
+            class="header__menu-item list-menu__item  link--text focus-inset"
+            {% if link.current %}
+              aria-current="page"
+            {% endif %}
+          >
+            <span
+              {%- if link.current %}
+                class="header__active-menu-item"
+              {% endif %}
+            >
+              {{- link.title | escape -}}
+            </span>
+            {% render 'icon-caret' %}
+          </a>
+        {%- endif -%}
+          </li>
+        {% endfor %}
+      </ul>
+      
+    </nav>
+    {% comment %} Logo {% endcomment %}
+    <div class="custom-navigation__logo">
+      {% if section.settings.logo != blank %}
+      <img src="{{ section.settings.logo |  image_url  }}" alt="navigation-logo">
+      {% else %}
+      <span class="h2">{{ shop.name }}</span>
+      {% endif %}
+    </div>
+    <div class="custom-navigation__icons">
+      <p>icons</p>
+    </div>
+
+
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "section",
+  "class": "header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "label": "Logo",
+      "id": "logo"
+    },
+    {
+      "type": "link_list",
+      "label": "Navlist",
+      "id": "link_list"
+    },
+    {
+      "type": "checkbox",
+      "label": "Show icons",
+      "id": "show_icons"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "megamenu",
+      "name": "Megamenu",
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Desktop image",
+          "id": "desktop_image"
+        },
+        {
+          "type": "text",
+          "label": "Mega menu title",
+          "id": "mega_menu_title",
+          "info": "Mega menu is for test link"
+        }
+      ]
+    }
+    
+  ],
+  "presets": [
+    {
+      "name": "My New Section"
+    }
+  ]
+}
+{% endschema %}
