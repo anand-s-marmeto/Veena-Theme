@@ -14,7 +14,7 @@
             <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
               <summary
                 id="HeaderMenu-{{ link.handle }}"
-                class="header__menu-item list-menu__item link focus-inset"
+                class="header__menu-item list-menu__item  focus-inset"
               >
                 <span
                   {%- if link.child_active %}
@@ -24,6 +24,11 @@
                   {{- link.title | escape -}}
                 </span>
                 {% render 'icon-caret' %}
+                {% comment %} {% if collections[ link.handle ] %}
+                  {% for product in collections[ link.handle].products %}
+                    {{ product }}
+                  {% endfor %}
+                {% endif %} {% endcomment %}
               </summary>
               <div
                 id="MegaMenu-Content-{{ forloop.index }}"
@@ -39,7 +44,7 @@
                       <a
                         id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
                         href="{{ childlink.url }}"
-                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                        class="mega-menu__link mega-menu__link--level-2 "
                         {% if childlink.current %}
                           aria-current="page"
                         {% endif %}
@@ -53,7 +58,7 @@
                               <a
                                 id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
                                 href="{{ grandchildlink.url }}"
-                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                                class="mega-menu__link "
                                 {% if grandchildlink.current %}
                                   aria-current="page"
                                 {% endif %}
@@ -62,19 +67,63 @@
                               </a>
                             </li>
                           {%- endfor -%}
+
                         </ul>
                       {%- endif -%}
+                      <div class="collection-image">
+                        {% assign prod_image = childlink.handle | append: '.webp' | file_url %}
+                        <img src="{{ prod_image }}" alt="product-image">
+                      </div>
                     </li>
                   {%- endfor -%}
                 </ul>
               </div>
             </details>
           </header-menu>
-        {%- else -%}
+        {%- elsif collections[link.handle] != blank -%}
+          <details class="collection-header-details">
+            <summary class="header__menu-item list-menu__item  focus-inset">
+              <span class="header__active-menu-item">
+                {{ link.title }}
+              </span>
+              {% render 'icon-caret' %}  
+            </summary>
+            {% comment %} <div class="collection-dropdown-wrapper"> {% endcomment %}
+            <ul class="collection-dropdown">
+              {% for product in collections[link.handle].products %}
+                <li>
+                  <a href="{{ product.url }}">
+                  <div class="collection-product--{{ forloop.index }}">
+                    <div class="collection-product__image">
+                      <img src="{{ product.featured_image |  image_url }}" alt="prod-image">
+                      <div class="collection-product__tag">
+                        {% if product.compare_at_price> product.price %}
+                          <span>Sale</span>
+                        {% elsif product.available == false %}
+                          <span>Sold out</span>
+                        {% endif %}
+                      </div>
+                    </div>
+                    <div class="collection-product__title">
+                    {{ product.title }}</div>
+                    {% if product.varies %}
+                      <span class="collection-product__current-price">From {{ product.price |  money_with_currency }}</span> <s class="collection-product__compare-at-price">{{ product.compare_at_price|  money_with_currency }}</s>
+                    {% else %}
+                      <span class="collection-product__current-price">{{ product.price |  money_with_currency }}</span> <s class="collection-product__compare-at-price">{{ product.compare_at_price|  money_with_currency }}</s>
+
+                    {% endif %}
+                  </div>
+                </a>
+                </li>
+              {% endfor %}
+            </ul>
+            {% comment %} </div> {% endcomment %}
+          </details>
+        {% else %}
           <a
             id="HeaderMenu-{{ link.handle }}"
             href="{{ link.url }}"
-            class="header__menu-item list-menu__item link link--text focus-inset"
+            class="header__menu-item list-menu__item  link--text focus-inset"
             {% if link.current %}
               aria-current="page"
             {% endif %}
@@ -86,6 +135,7 @@
             >
               {{- link.title | escape -}}
             </span>
+            {% render 'icon-caret' %}
           </a>
         {%- endif -%}
       </li>

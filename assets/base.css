@@ -368,6 +368,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   margin: 0;
   padding: 0;
   list-style: none;
+  min-height: 175px;
 }
 
 .hidden {
@@ -3050,9 +3051,9 @@ summary.list-menu__item {
   color: rgb(var(--color-foreground));
 }
 
-details[open] > .header__menu-item {
+/* details[open] > .header__menu-item {
   text-decoration: underline;
-}
+} */
 
 details[open]:hover > .header__menu-item {
   text-decoration-thickness: 0.2rem;
