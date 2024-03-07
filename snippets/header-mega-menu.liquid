@@ -52,7 +52,7 @@
                         {{ childlink.title | escape }}
                       </a>
                       {%- if childlink.links != blank -%}
-                        <ul class="list-unstyled" role="list">
+                        <ul class="grandchild-link" role="list">
                           {%- for grandchildlink in childlink.links -%}
                             <li>
                               <a
@@ -88,7 +88,6 @@
               </span>
               {% render 'icon-caret' %}  
             </summary>
-            {% comment %} <div class="collection-dropdown-wrapper"> {% endcomment %}
             <ul class="collection-dropdown">
               {% for product in collections[link.handle].products %}
                 <li>
@@ -117,7 +116,36 @@
                 </li>
               {% endfor %}
             </ul>
-            {% comment %} </div> {% endcomment %}
+            
+          </details>
+        {% elsif link.title == 'Blog' %}
+          <details class="blog-header">
+            <summary class="header__menu-item list-menu__item  focus-inset">
+              <span class="header__active-menu-item">
+                {{ link.title }}
+              </span>
+              {% render 'icon-caret' %}  
+            </summary>
+            <ul class="blog-dropdown">
+              {% for article in blogs.veena-blogs.articles %}
+                <li>
+                  <div class="blog-product">
+                    <div class="blog-product__image">
+                      <a href="{{ article.url }}">
+                        <img src="{{ article.image |  image_url }}" alt="article-image">
+                      </a>
+                    </div>
+                    <div class="blog-product__info">
+                      <b>
+                        <div class="blog-product__info-date">{{ article.published_at | split: ' '|  first |  date: "%b %d, %Y" }}</div>
+                      </b>
+                      <a href="{{ article.url }}" class="blog-product__info-title"><span>{{ article.title }}</span></a>
+                    </div>
+                  </div>
+                  
+                </li>
+              {% endfor %}
+            </ul>
           </details>
         {% else %}
           <a
@@ -142,3 +170,20 @@
     {%- endfor -%}
   </ul>
 </nav>
+
+<script>
+  // Only one details tag remains open at a time.
+  if(document.querySelector('details')){
+    const details= document.querySelectorAll('details')
+    details.forEach((targetDetail) => {
+        targetDetail.addEventListener("click", () => {
+            // Close all details that are not targetDetail
+            details.forEach((detail) => {
+                if (detail !== targetDetail) {
+                    detail.removeAttribute("open");
+                }
+            });
+        });
+    });
+  }
+</script>

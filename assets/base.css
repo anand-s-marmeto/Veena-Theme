@@ -368,7 +368,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   margin: 0;
   padding: 0;
   list-style: none;
-  min-height: 175px;
+  /* min-height: 175px; */
 }
 
 .hidden {
@@ -2036,7 +2036,7 @@ details[open] > .share-button__fallback {
 
 input[type="checkbox"] {
   display: inline-block;
-  width: auto;
+  /* width: auto; */
   margin-right: 0.5rem;
 }
 
