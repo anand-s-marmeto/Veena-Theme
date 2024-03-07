@@ -1,0 +1,132 @@
+<link rel="stylesheet" href="{{ 'mapro.css' |  asset_url }}">
+
+{%  style  %} 
+.padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+
+  @media (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{% endstyle %}
+
+{%  capture slider %} 
+  {
+    "arrows":true,
+    "pagination":false,
+    "autoplay":false,
+    "perPage":4,
+    "gap":"20px",
+    "perMove":1
+
+  }
+{% endcapture %} 
+
+<div class="mapro padding-{{ section.id }}">
+  <div class="page-width">
+    <div class="mapro__wrapper">
+      <div class="mapro__header-section">
+        {% if section.settings.heading != black %}
+        <h1 class="heading h0">{{ section.settings.heading }}</h1>
+        {% endif %}
+        <div class="mapro__header-section-tags">
+          {% for block in section.blocks %}
+            <label class="input-tags">
+              <input type="radio" name="input-tag" value="{{ forloop.index }}">
+              <span>{{ block.settings.collection.title }}</span>
+            </label>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="mapro__slider-section">
+        {% for block in section.blocks %}
+        <my-splide data-slider-options='{{ slider }}' class="fresh-from-source {% if forloop.index ==1 %} active {% endif %}" data-block-id={{ forloop.index }} >
+            <div class="splide">
+              <div class="splide__track">
+                <div class="splide__list">
+                  {% for product in block.settings.collection.products %}
+                    <div class="splide__slide">
+                      {% render 'product-card', product: product , section_id:section.id %} 
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </my-splide>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('input[name="input-tag"]').forEach(element => {
+    element.addEventListener("click", (event)=>{
+      document.querySelectorAll('input[name="input-tag"]').forEach((tag)=>{
+        tag.classList.remove("active")
+      })
+      element.classList.add("active")
+      document.querySelectorAll(".fresh-from-source").forEach((container)=>{
+        if (event.target.value === container.dataset.blockId){
+          container.classList.add("active")
+        }else{
+          container.classList.remove("active")
+        }
+      })
+    })
+  })
+</script>
+{%  schema %}
+  {
+    "name":"Mapro",
+    "tag":"section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "header",
+        "content":"Section padding"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 36
+      }
+    ],
+    "blocks": [
+      {
+        "name": "collection blocks",
+        "type": "collection-block",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

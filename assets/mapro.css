@@ -1,0 +1,44 @@
+.mapro__header-section {
+  text-align: center;
+}
+
+.mapro__header-section input {
+  display: none;
+}
+
+.mapro__header-section-tags {
+  max-width: 950px;
+  margin: 20px auto;
+  background: rgb(245, 245, 245);
+  border-radius: 20px;
+  display: flex;
+}
+
+.mapro__header-section-tags label {
+  display: inline-block;
+  width: 20%;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.mapro__slider-section .splide__slide {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.input-tags span {
+  width: 100%;
+  display: block;
+}
+.fresh-from-source {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.fresh-from-source.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.35s ease;
+}
