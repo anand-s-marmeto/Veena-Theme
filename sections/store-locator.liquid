@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="{{ 'store-locator.css' |  asset_url }}">
+<script src="{{ 'store-locator.js' | asset_url }}" defer></script>
+{%  style  %} 
+.padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+  }
+
+  @media (min-width: 750px) {
+    .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="store-locator padding-{{ section.id }}">
+  <div class="page-width">
+    <store-locator class="store-locator__wrapper">
+      <div class="store-locator__heading">
+        {% if section.settings.heading != blank %}
+          <h1 class="h0">{{ section.settings.heading }}</h1>
+        {% endif %}
+      </div>
+      <div class="store-locator__locator-input-container">
+        <div class="store-locator__locator-input category">
+          <span>Category</span>
+          <select name="category" id="category" >
+            <option disabled selected value="">Select category</option>
+          </select>
+        </div>
+        <div class="store-locator__locator-input state">
+          <span>State</span>
+          <select name="state" id="state">
+            <option disabled selected value="">Select state</option>
+          </select>
+        </div>
+        <div class="store-locator__locator-input city">
+          <span>City</span>
+          <select name="city" id="city">
+            <option disabled selected value="">Select city</option>
+          </select>
+        </div>
+        <button class="store-locator__locator-button">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+          <path d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"></path>
+          </svg>
+          <span>Show Results</span>
+        </button>
+      </div>
+
+      <div class="store-locator__locator-stores">
+
+      </div>
+
+    </store-locator>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Store locator",
+  "tag": "section",
+  "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Section heading"
+      },
+      {
+        "type": "header",
+        "content":"Section padding"
+      },
+      {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 36
+            },
+            {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 36
+        }
+    ],
+    "presets": [
+      {
+        "name": "Store locator"
+      }
+    ]
+}
+{% endschema %}
