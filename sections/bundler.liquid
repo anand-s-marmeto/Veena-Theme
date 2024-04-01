@@ -1,121 +1,166 @@
 {%  style  %} 
-.padding-{{ section.id }} {
-    padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
-  }
-
-  @media (min-width: 750px) {
-    .padding-{{ section.id }} {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+  .padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
     }
-  }
-
-  .product-bundler__wrapper{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 20px;
-  }
-  .product-image{
-    position:relative;
-  }
-  .input-field{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: start;
-    justify-content: end;
-    padding: 20px;
-  }
-  .checkbox-input{
-    height: 20px;
-    width: 20px;
-  }
-  .product-card .product-card-button{
-    display:none;
-  }
-{% endstyle %} 
-
-<div class="product-bundler">
-  <div class="page-width">
-    <div class="product-bundler__heading">
-      {% if section.settings.title != blank %}
-        <h1 class="h0">{{ section.settings.title }}</h1>
-      {% endif %}
-    </div>
-    <div class="product-bundler__wrapper">
-      {% for block in section.blocks %}
-        <div class="product-image">
-          {%  render 'product-card' ,product:block.settings.product , section_id:section.id %}
-            <div class="input-field">
-            <input type="checkbox" value="{{ block.settings.product.selected_or_first_available_variant.id }}" class="checkbox-input">
+  
+    @media (min-width: 750px) {
+      .padding-{{ section.id }} {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  
+    .product-bundler__wrapper{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 20px;
+    }
+    .product-image{
+      position:relative;
+    }
+    .input-field{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: start;
+      justify-content: end;
+      padding: 20px;
+    }
+    .checkbox-input{
+      height: 20px;
+      width: 20px;
+    }
+    .product-card .product-card-button{
+      display:none;
+    }
+  {% endstyle %} 
+  
+  <div class="product-bundler">
+    <div class="page-width">
+      <div class="product-bundler__heading">
+        {% if section.settings.title != blank %}
+          <h1 class="h0">{{ section.settings.title }}</h1>
+        {% endif %}
+      </div>
+      <div class="product-bundler__wrapper">
+        {% for block in section.blocks %}
+          <div class="product-image">
+            {{ section.id }}
+            {%  render 'product-card' ,product: block.settings.product , section_id:section.id %}
+              <div class="input-field">
+              <input type="checkbox" value="{{ block.settings.product }}" class="checkbox-input" data-product-id="{{ block.settings.product.selected_or_first_available_variant.id }}">
+            </div>
           </div>
+        {% endfor %}
+        <div class="product-bundler___button custom--button custom--button--first">
+        <span>add to cart</span>
         </div>
-      {% endfor %}
+      </div>
+      
     </div>
   </div>
-</div>
-
-
-
-{%  schema  %} 
-  {
-    "name":"Product bundler",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "title",
-        "label": "Title"
-      },
-      {
-        "type":"header",
-        "content":"Section padding"
-      },
-      {
-            "type": "range",
-            "id": "padding_top",
-            "min": 0,
-            "max": 100,
-            "step": 1,
-            "unit": "px",
-            "label": "Padding top",
-            "default": 36
-            },
-            {
-            "type": "range",
-            "id": "padding_bottom",
-            "min": 0,
-            "max": 100,
-            "step": 1,
-            "unit": "px",
-            "label": "Padding bottom",
-            "default": 36
-        }
-    ],
-
-    "blocks": [
-      {
-        "type": "bundler",
-        "name":"Product block",
-        "settings": [
-          {
-            "type": "product",
-            "id": "product",
-            "label": "Product"
+  
+  <script>
+    let items=[]
+      document.querySelector('.product-bundler___button').addEventListener('click',()=>{
+        let productItems=[]
+        document.querySelectorAll('input[type="checkbox"]').forEach((item)=>{
+          if(item.checked){
+            productItems.push({
+              id: item.dataset.productId,
+              quantity:1
+            })
           }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Frequently bought together"
-      }
-    ]
-  }
-
-{% endschema %}
-
+        })
+        console.log(productItems)
+  
+        const cart = document.querySelector("cart-notification") || document.querySelector("cart-drawer");
+        console.log(cart);
+  
+        let formData = {
+        items : productItems,
+        sections: cart.getSectionsToRender().map((section) => section.id),
+        }
+        console.log(formData)
+  
+        fetch(window.Shopify.routes.root + "cart/add.js", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        })
+        .then((response) => response.json())
+        .then((res) => {
+          console.log(res);
+          cart.renderContents(res);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+        
+      })
+      
+  </script>
+  
+  {%  schema  %} 
+    {
+      "name":"Product bundler",
+      "tag": "section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type":"header",
+          "content":"Section padding"
+        },
+        {
+              "type": "range",
+              "id": "padding_top",
+              "min": 0,
+              "max": 100,
+              "step": 1,
+              "unit": "px",
+              "label": "Padding top",
+              "default": 36
+              },
+              {
+              "type": "range",
+              "id": "padding_bottom",
+              "min": 0,
+              "max": 100,
+              "step": 1,
+              "unit": "px",
+              "label": "Padding bottom",
+              "default": 36
+          }
+      ],
+  
+      "blocks": [
+        {
+          "type": "bundler",
+          "name":"Product block",
+          "settings": [
+            {
+              "type": "product",
+              "id": "product",
+              "label": "Product"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Frequently bought together"
+        }
+      ]
+    }
+  
+  {% endschema %}
