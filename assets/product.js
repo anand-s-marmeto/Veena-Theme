@@ -11,6 +11,7 @@ class ProductCard extends HTMLElement {
   }
 
   onOptionChange() {
+    // Creates an array containing the value of the input elements that are checked.
     this.selectedOptions = Array.from(
       this.querySelectorAll('input[type="radio"]:checked'),
       (input) => input.value
@@ -19,20 +20,26 @@ class ProductCard extends HTMLElement {
       (item) =>
         JSON.stringify(item.options) == JSON.stringify(this.selectedOptions)
     );
-
+    // this.selectedId = this.querySelector('input[name="swatch-value"]').value;
+    // console.log(this.selectedId);
     this.getUpdatedCard();
   }
 
   getUpdatedCard() {
-    const url = `${this.productHandle}?variant=${this.currentVariant.id}&section_id=${this.sectionId}`;
-
+    console.log(this.currentVariant.id);
+    // const url = `${this.productHandle}?variant=${this.currentVariant.id}&section_id=${this.sectionId}`;
+    const url = `/products/${this.productHandle}?view=card&variant=${this.currentVariant.id}`;
+    console.log(this.productHandle);
     fetch(url)
       .then((response) => response.text())
       .then((responseText) => {
         const html = new DOMParser().parseFromString(responseText, "text/html");
-        this.innerHTML = html.querySelector(
-          `[data-product-handle="${this.productHandle}"]`
-        ).innerHTML;
+        console.log(html);
+        // this.innerHTML = html.querySelector(
+        //   `[data-product-handle="${this.productHandle}"]`
+        // ).innerHTML;
+
+        this.innerHTML = html.querySelector("product-card").innerHTML;
       });
   }
 }

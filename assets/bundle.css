@@ -1,0 +1,32 @@
+.product-bundler__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+.product-image {
+  position: relative;
+}
+.input-field {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: start;
+  justify-content: end;
+  padding: 20px;
+}
+.checkbox-input {
+  height: 20px;
+  width: 20px;
+}
+.product-card .product-card-button {
+  display: none;
+}
+.product-bundler___button.custom--button--first {
+  max-height: 44px;
+  margin: auto 0;
+}
+
+.product-bundler__heading {
+  margin-bottom: 20px;
+}
