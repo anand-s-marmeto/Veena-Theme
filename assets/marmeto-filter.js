@@ -794,7 +794,7 @@ marmeto.Collection = (function() {
               <s class="compare-price"></s>
             </div>
             <div class="product-in-stock">
-              <span class="in-stock" style="color: green ;">${ product.variants.inventory_quantity } in stock</span>
+              <span class="in-stock" style="color: green ;">${ product.variants[inventory_quantity] } in stock</span>
             </div>
           </div>
           
