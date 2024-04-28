@@ -720,50 +720,118 @@ marmeto.Collection = (function() {
           image_space = 100;
         }
         
-        productHtml += '<div class="mmc-loop-item" data-index="'+ index +'">';
-        productHtml += '<div class="mmc-product-card">';
+        // productHtml += '<div class="mmc-loop-item" data-index="'+ index +'">';
+        // productHtml += '<div class="mmc-product-card">';
         
         //Product Badges
-        for (let i = 0; i < product.tags.length; i++) {
-          let tag = product.tags[i];
+        // for (let i = 0; i < product.tags.length; i++) {
+        //   let tag = product.tags[i];
 
-          if(tag.indexOf('badge__') !== -1) {
-            productHtml += '<div class="mmc-badge">'+ tag.split('__')[1] +'</div>';
-            break;
-          }
-        }
+        //   if(tag.indexOf('badge__') !== -1) {
+        //     productHtml += '<div class="mmc-badge">'+ tag.split('__')[1] +'</div>';
+        //     break;
+        //   }
+        // }
+
+        <product-card class="product-card" data-product-handle=`${ product.title}` data-section-id="template--22094823260452__new_arrivals_PqJKXz">
+          <a href="/products/full-sleeve-high-neck-t-shirt" class="media media--portrait media--hover-effect product-card-image ">
+            <img srcset="//b02-anand-s.myshopify.com/cdn/shop/products/7_66d1f1b1-a234-4f50-b5b5-b81cc6794395.jpg?v=1708398475&amp;width=165 165w,//b02-anand-s.myshopify.com/cdn/shop/products/7_66d1f1b1-a234-4f50-b5b5-b81cc6794395.jpg?v=1708398475&amp;width=360 360w,//b02-anand-s.myshopify.com/cdn/shop/products/7_66d1f1b1-a234-4f50-b5b5-b81cc6794395.jpg?v=1708398475&amp;width=533 533w,//b02-anand-s.myshopify.com/cdn/shop/products/7_66d1f1b1-a234-4f50-b5b5-b81cc6794395.jpg?v=1708398475 700w
+                " src="//b02-anand-s.myshopify.com/cdn/shop/products/7_66d1f1b1-a234-4f50-b5b5-b81cc6794395.jpg?v=1708398475&amp;width=533" sizes="(min-width: 1750px) 405px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)" alt="Full Sleeve High Neck T-Shirt" class="motion-reduce image-1" loading="lazy" width="700" height="800">     
+              <img srcset="//b02-anand-s.myshopify.com/cdn/shop/products/1_b3701fcc-5f4d-4b0b-9feb-41f959ff26f6.jpg?v=1708398475&amp;width=165 165w,//b02-anand-s.myshopify.com/cdn/shop/products/1_b3701fcc-5f4d-4b0b-9feb-41f959ff26f6.jpg?v=1708398475&amp;width=360 360w,//b02-anand-s.myshopify.com/cdn/shop/products/1_b3701fcc-5f4d-4b0b-9feb-41f959ff26f6.jpg?v=1708398475&amp;width=533 533w,//b02-anand-s.myshopify.com/cdn/shop/products/1_b3701fcc-5f4d-4b0b-9feb-41f959ff26f6.jpg?v=1708398475 700w
+                " src="//b02-anand-s.myshopify.com/cdn/shop/products/1_b3701fcc-5f4d-4b0b-9feb-41f959ff26f6.jpg?v=1708398475&amp;width=533" sizes="(min-width: 1750px) 405px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)" alt="" class="motion-reduce image-2" loading="lazy" width="700" height="800">
+            <div class="card-button">
+              <div class="product-tags">
+                  <div class="arrival-tag">Men</div>
+              </div>
+            <div class="product-card-button"><span class="quick-look-btn">Quick look</span></div>
+            <div class="product-card-svg">
+              <svg viewBox="0 0 511.999 511.999"><path d="M508.745,246.041c-4.574-6.257-113.557-153.206-252.748-153.206S7.818,239.784,3.249,246.035
+                c-4.332,5.936-4.332,13.987,0,19.923c4.569,6.257,113.557,153.206,252.748,153.206s248.174-146.95,252.748-153.201
+                C513.083,260.028,513.083,251.971,508.745,246.041z M255.997,385.406c-102.529,0-191.33-97.533-217.617-129.418
+                c26.253-31.913,114.868-129.395,217.617-129.395c102.524,0,191.319,97.516,217.617,129.418
+                C447.361,287.923,358.746,385.406,255.997,385.406z"></path>
+                <path d="M255.997,154.725c-55.842,0-101.275,45.433-101.275,101.275s45.433,101.275,101.275,101.275
+                s101.275-45.433,101.275-101.275S311.839,154.725,255.997,154.725z M255.997,323.516c-37.23,0-67.516-30.287-67.516-67.516
+                s30.287-67.516,67.516-67.516s67.516,30.287,67.516,67.516S293.227,323.516,255.997,323.516z"></path>
+              </svg>
+            </div>
+            </div>
+          </a>
+          <div class="product-card-info">
+            <div class="product-card__form">
+              <form method="post" action="/cart/add" id="product_form_9094094094628" accept-charset="UTF-8" class="shopify-product-form" enctype="multipart/form-data"><input type="hidden" name="form_type" value="product"><input type="hidden" name="utf8" value="✓">
+                <input type="hidden" name="id" value="48107745214756">
+                  <ul class="product-card__options"> 
+                        <li class="product-card__option">                                    
+                          <ul class="product-variants">
+                              <li class="item-swatch">
+                                <label class="product-card__label">
+                                  <input type="radio" name="option-color" value="SaddleBrown" checked="">
+                                    <span class="product-card__swatch product-card__colorswatch" style="background-color: saddlebrown; background-image: url(//b02-anand-s.myshopify.com/cdn/shop/files/saddlebrown.jpg?v=4580860741948953623); border: 1px solid red ;">
+                                    </span>
+                                </label>
+                              </li>
+                              <li class="item-swatch">
+                                <label class="product-card__label">
+                                  <input type="radio" name="option-color" value="IndianRed">
+                                    <span class="product-card__swatch product-card__colorswatch" style="background-color: indianred; background-image: url(//b02-anand-s.myshopify.com/cdn/shop/files/indianred.jpg?v=7366793837544161027);;">
+                                    </span>
+                                </label>
+                              </li>
+                          </ul>                    
+                        </li>
+                  </ul>
+              <input type="hidden" name="product-id" value="9094094094628"><input type="hidden" name="section-id" value="template--22094823260452__new_arrivals_PqJKXz"></form>
+            </div>
+        
+            <div class="product-vendor">
+              b02-arul
+            </div>
+            <h3 class="product-card-title">
+              <a href="/products/full-sleeve-high-neck-t-shirt">Full Sleeve High Neck T-Shirt</a>
+            </h3>
+            <div class="product-price">
+              <div class="regular-price">Rs. 1,600.00</div>
+              <s class="compare-price"></s>
+            </div>
+            <div class="product-in-stock">
+              <span class="in-stock" style="color: green ;">20 in stock</span>
+            </div>
+          </div>
+          
+        </product-card>
         
         //Product Image
         //Can you add srcset? 
-        productHtml += '<a href="'+ product.url +'" class="mmc-card-image" style="padding-bottom: '+ image_space +'%;">';
-        productHtml += '<img src="'+ product_image +'" alt="'+ product.title +'" />';
-        productHtml += '</a>';
+        // productHtml += '<a href="'+ product.url +'" class="mmc-card-image" style="padding-bottom: '+ image_space +'%;">';
+        // productHtml += '<img src="'+ product_image +'" alt="'+ product.title +'" />';
+        // productHtml += '</a>';
         
-        //Product Info
-        productHtml += '<div class="mmc-card-info">';        
-        productHtml += '<a href="'+ product.url +'" class="mmc-card-title">'+ product.title +'</a>';
+        // //Product Info
+        // productHtml += '<div class="mmc-card-info">';        
+        // productHtml += '<a href="'+ product.url +'" class="mmc-card-title">'+ product.title +'</a>';
         
-        productHtml += '<div class="mmc-card-price">';        
+        // productHtml += '<div class="mmc-card-price">';        
         
-        if(product.compare_at_price > product.price) {
-          productHtml += '<span class="mmc-price-sale">'+ _this.helpers().formatMoney(product.price) +'</span>';
-          productHtml += '<span class="mmc-price-compare">'+ _this.helpers().formatMoney(product.compare_at_price) +'</span>';
+        // if(product.compare_at_price > product.price) {
+        //   productHtml += '<span class="mmc-price-sale">'+ _this.helpers().formatMoney(product.price) +'</span>';
+        //   productHtml += '<span class="mmc-price-compare">'+ _this.helpers().formatMoney(product.compare_at_price) +'</span>';
 
-          let offPercentage = 100 - Math.round(product.price / product.compare_at_price * 100);
-          productHtml += '<span class="mmc-percentage-off">('+ offPercentage +'% Off)</span>';
-        } else {
-          productHtml += '<span class="mmc-price-regular">'+ _this.helpers().formatMoney(product.price) +'</span>';
-        }
+        //   let offPercentage = 100 - Math.round(product.price / product.compare_at_price * 100);
+        //   productHtml += '<span class="mmc-percentage-off">('+ offPercentage +'% Off)</span>';
+        // } else {
+        //   productHtml += '<span class="mmc-price-regular">'+ _this.helpers().formatMoney(product.price) +'</span>';
+        // }
 
-        productHtml += '</div>'; 
+        // productHtml += '</div>'; 
 
-        productHtml += '<div class="mmc-card-button input-group__btn">';
-        productHtml += '<button class="btn uppercase">Add to cart</button>';
-        productHtml += '</div>';  
-        productHtml += '</div>';
+        // productHtml += '<div class="mmc-card-button input-group__btn">';
+        // productHtml += '<button class="btn uppercase">Add to cart</button>';
+        // productHtml += '</div>';  
+        // productHtml += '</div>';
         
-        productHtml += '</div>';  
-        productHtml += '</div>';
+        // productHtml += '</div>';  
+        // productHtml += '</div>';
         
         return productHtml;
       }
