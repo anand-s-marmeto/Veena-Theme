@@ -733,14 +733,14 @@ marmeto.Collection = (function() {
         //   }
         // }
           productHtml +=`<product-card class="product-card" data-product-handle="${ product.title }" data-section-id="template--22094823260452__new_arrivals_PqJKXz">
-          <a href="/products/full-sleeve-high-neck-t-shirt" class="media media--portrait media--hover-effect product-card-image ">
+          <a href="/products/${product.title}" class="media media--portrait media--hover-effect product-card-image ">
             <img srcset="//b02-anand-s.myshopify.com/cdn/shop/products/7_66d1f1b1-a234-4f50-b5b5-b81cc6794395.jpg?v=1708398475&amp;width=165 165w,//b02-anand-s.myshopify.com/cdn/shop/products/7_66d1f1b1-a234-4f50-b5b5-b81cc6794395.jpg?v=1708398475&amp;width=360 360w,//b02-anand-s.myshopify.com/cdn/shop/products/7_66d1f1b1-a234-4f50-b5b5-b81cc6794395.jpg?v=1708398475&amp;width=533 533w,//b02-anand-s.myshopify.com/cdn/shop/products/7_66d1f1b1-a234-4f50-b5b5-b81cc6794395.jpg?v=1708398475 700w
                 " src="//b02-anand-s.myshopify.com/cdn/shop/products/7_66d1f1b1-a234-4f50-b5b5-b81cc6794395.jpg?v=1708398475&amp;width=533" sizes="(min-width: 1750px) 405px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)" alt="Full Sleeve High Neck T-Shirt" class="motion-reduce image-1" loading="lazy" width="700" height="800">     
               <img srcset="//b02-anand-s.myshopify.com/cdn/shop/products/1_b3701fcc-5f4d-4b0b-9feb-41f959ff26f6.jpg?v=1708398475&amp;width=165 165w,//b02-anand-s.myshopify.com/cdn/shop/products/1_b3701fcc-5f4d-4b0b-9feb-41f959ff26f6.jpg?v=1708398475&amp;width=360 360w,//b02-anand-s.myshopify.com/cdn/shop/products/1_b3701fcc-5f4d-4b0b-9feb-41f959ff26f6.jpg?v=1708398475&amp;width=533 533w,//b02-anand-s.myshopify.com/cdn/shop/products/1_b3701fcc-5f4d-4b0b-9feb-41f959ff26f6.jpg?v=1708398475 700w
                 " src="//b02-anand-s.myshopify.com/cdn/shop/products/1_b3701fcc-5f4d-4b0b-9feb-41f959ff26f6.jpg?v=1708398475&amp;width=533" sizes="(min-width: 1750px) 405px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)" alt="" class="motion-reduce image-2" loading="lazy" width="700" height="800">
             <div class="card-button">
               <div class="product-tags">
-                  <div class="arrival-tag">Men</div>
+                  <div class="arrival-tag">${ product.tags[0] }</div>
               </div>
             <div class="product-card-button"><span class="quick-look-btn">Quick look</span></div>
             <div class="product-card-svg">
@@ -787,14 +787,14 @@ marmeto.Collection = (function() {
               b02-arul
             </div>
             <h3 class="product-card-title">
-              <a href="/products/full-sleeve-high-neck-t-shirt">Full Sleeve High Neck T-Shirt</a>
+              <a href="/products/${ product.title }">${ product.title }</a>
             </h3>
             <div class="product-price">
-              <div class="regular-price">Rs. 1,600.00</div>
+              <div class="regular-price">Rs. ${ product.price }</div>
               <s class="compare-price"></s>
             </div>
             <div class="product-in-stock">
-              <span class="in-stock" style="color: green ;">20 in stock</span>
+              <span class="in-stock" style="color: green ;">${ product.variants.inventory_quantity } in stock</span>
             </div>
           </div>
           
