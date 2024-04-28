@@ -732,8 +732,7 @@ marmeto.Collection = (function() {
         //     break;
         //   }
         // }
-
-        <product-card class="product-card" data-product-handle="full-sleeve-high-neck-t-shirt" data-section-id="template--22094823260452__new_arrivals_PqJKXz">
+          productHtml + =` <product-card class="product-card" data-product-handle="full-sleeve-high-neck-t-shirt" data-section-id="template--22094823260452__new_arrivals_PqJKXz">
           <a href="/products/full-sleeve-high-neck-t-shirt" class="media media--portrait media--hover-effect product-card-image ">
             <img srcset="//b02-anand-s.myshopify.com/cdn/shop/products/7_66d1f1b1-a234-4f50-b5b5-b81cc6794395.jpg?v=1708398475&amp;width=165 165w,//b02-anand-s.myshopify.com/cdn/shop/products/7_66d1f1b1-a234-4f50-b5b5-b81cc6794395.jpg?v=1708398475&amp;width=360 360w,//b02-anand-s.myshopify.com/cdn/shop/products/7_66d1f1b1-a234-4f50-b5b5-b81cc6794395.jpg?v=1708398475&amp;width=533 533w,//b02-anand-s.myshopify.com/cdn/shop/products/7_66d1f1b1-a234-4f50-b5b5-b81cc6794395.jpg?v=1708398475 700w
                 " src="//b02-anand-s.myshopify.com/cdn/shop/products/7_66d1f1b1-a234-4f50-b5b5-b81cc6794395.jpg?v=1708398475&amp;width=533" sizes="(min-width: 1750px) 405px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)" alt="Full Sleeve High Neck T-Shirt" class="motion-reduce image-1" loading="lazy" width="700" height="800">     
@@ -799,7 +798,9 @@ marmeto.Collection = (function() {
             </div>
           </div>
           
-        </product-card>
+        </product-card>`
+
+        
         
         //Product Image
         //Can you add srcset? 
